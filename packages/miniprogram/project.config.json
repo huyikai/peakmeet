@@ -4,6 +4,11 @@
     "ignore": [],
     "include": []
   },
+  "scripts": {
+    "beforeCompile": "node ../../scripts/miniprogram-prebuild.mjs --sync-only",
+    "beforePreview": "node ../../scripts/miniprogram-prebuild.mjs",
+    "beforeUpload": "node ../../scripts/miniprogram-prebuild.mjs"
+  },
   "setting": {
     "bundle": false,
     "userConfirmedBundleSwitch": false,

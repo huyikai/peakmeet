@@ -97,7 +97,7 @@ Page({
         });
     },
     onCalculate() {
-        var _a;
+        var _a, _b, _c, _d;
         const d = this.data;
         if (d.sex !== 'male' && d.sex !== 'female') {
             this.setData({ errorTip: calorie_plan_copy_1.SELECT_SEX_TIP, resultView: null });
@@ -182,15 +182,27 @@ Page({
         }
         const intake = intakeRes.data;
         const macro = macroRes.data;
+        const deltaRange = (_a = intake.deltaRange) !== null && _a !== void 0 ? _a : {
+            min: intake.deltaKcal,
+            max: intake.deltaKcal,
+        };
+        const carbRestRangeG = (_b = macro.carbRestRangeG) !== null && _b !== void 0 ? _b : {
+            min: macro.carbRestG,
+            max: macro.carbRestG,
+        };
+        const carbTrainRangeG = (_c = macro.carbTrainRangeG) !== null && _c !== void 0 ? _c : {
+            min: macro.carbTrainG,
+            max: macro.carbTrainG,
+        };
         const resultView = {
             targetKcal: intake.targetKcal,
             bmrKcal: bmrRes.data.bmrKcal,
             tdeeKcal: tdeeRes.data.tdeeKcal,
-            goalNote: (0, calorie_plan_copy_1.goalDeltaNote)(d.goal, intake.deltaKcal, intake.deltaRange.min, intake.deltaRange.max),
+            goalNote: (0, calorie_plan_copy_1.goalDeltaNote)(d.goal, intake.deltaKcal, deltaRange.min, deltaRange.max),
             showAggressiveRisk: d.goal === 'cutAggressive',
             aggressiveRiskTip: calorie_plan_copy_1.AGGRESSIVE_RISK_TIP,
             bmrFloorTip: intake.bmrFloorApplied
-                ? ((_a = intake.hint) !== null && _a !== void 0 ? _a : index_1.BMR_FLOOR_HINT)
+                ? ((_d = intake.hint) !== null && _d !== void 0 ? _d : index_1.BMR_FLOOR_HINT)
                 : '',
             reportedBodyFatPct,
             showBodyFat: reportedBodyFatPct !== null,
@@ -199,8 +211,8 @@ Page({
             fatG: macro.fatG,
             carbRestG: macro.carbRestG,
             carbTrainG: macro.carbTrainG,
-            carbRestRangeLabel: `${macro.carbRestRangeG.min}–${macro.carbRestRangeG.max} g`,
-            carbTrainRangeLabel: `${macro.carbTrainRangeG.min}–${macro.carbTrainRangeG.max} g`,
+            carbRestRangeLabel: `${carbRestRangeG.min}–${carbRestRangeG.max} g`,
+            carbTrainRangeLabel: `${carbTrainRangeG.min}–${carbTrainRangeG.max} g`,
             structureTightNote: macro.structureTight
                 ? '当前目标热量下蛋白与脂肪占比已较高，碳水参考接近 0，请优先保证基础代谢与执行可持续。'
                 : '',

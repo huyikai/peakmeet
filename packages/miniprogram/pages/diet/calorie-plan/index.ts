@@ -245,6 +245,18 @@ Page({
 
     const intake = intakeRes.data;
     const macro = macroRes.data;
+    const deltaRange = intake.deltaRange ?? {
+      min: intake.deltaKcal,
+      max: intake.deltaKcal,
+    };
+    const carbRestRangeG = macro.carbRestRangeG ?? {
+      min: macro.carbRestG,
+      max: macro.carbRestG,
+    };
+    const carbTrainRangeG = macro.carbTrainRangeG ?? {
+      min: macro.carbTrainG,
+      max: macro.carbTrainG,
+    };
     const resultView: ResultView = {
       targetKcal: intake.targetKcal,
       bmrKcal: bmrRes.data.bmrKcal,
@@ -252,8 +264,8 @@ Page({
       goalNote: goalDeltaNote(
         d.goal,
         intake.deltaKcal,
-        intake.deltaRange.min,
-        intake.deltaRange.max,
+        deltaRange.min,
+        deltaRange.max,
       ),
       showAggressiveRisk: d.goal === 'cutAggressive',
       aggressiveRiskTip: AGGRESSIVE_RISK_TIP,
@@ -267,8 +279,8 @@ Page({
       fatG: macro.fatG,
       carbRestG: macro.carbRestG,
       carbTrainG: macro.carbTrainG,
-      carbRestRangeLabel: `${macro.carbRestRangeG.min}–${macro.carbRestRangeG.max} g`,
-      carbTrainRangeLabel: `${macro.carbTrainRangeG.min}–${macro.carbTrainRangeG.max} g`,
+      carbRestRangeLabel: `${carbRestRangeG.min}–${carbRestRangeG.max} g`,
+      carbTrainRangeLabel: `${carbTrainRangeG.min}–${carbTrainRangeG.max} g`,
       structureTightNote: macro.structureTight
         ? '当前目标热量下蛋白与脂肪占比已较高，碳水参考接近 0，请优先保证基础代谢与执行可持续。'
         : '',

@@ -34,11 +34,14 @@ pnpm dev:web        # 官网本地预览
 
 ## 小程序
 
-1. 执行 `pnpm build:miniprogram`（同步 shared，并把 `.ts` 编译为开发者工具所需的 `.js`）
-2. 用微信开发者工具打开目录 `packages/miniprogram`（不要打开仓库根目录）
+1. 用微信开发者工具打开目录 `packages/miniprogram`（不要打开仓库根目录）
+2. **启用自动构建（必做一次）**：详情 → 本地设置 → 勾选「启用自定义处理命令」  
+   - **编译前**：自动 `pnpm sync:shared`（保证 `utils/shared` 最新）  
+   - **预览 / 上传前**：自动 `pnpm build:miniprogram`（sync + 页面 TS→JS）
 3. 本地 AppID 写在已忽略的 `project.private.config.json`；仓库内 `project.config.json` 保持 `touristappid`
-4. 修改页面 TS 后需再次执行 `pnpm --filter @peakmeet/miniprogram build`（或 `pnpm build:miniprogram`）
+4. 若钩子未启用或失败，仍可手动：`pnpm build:miniprogram`
 5. **身体指数工具箱**：饮食 Tab →「身体指数工具箱」→ BMI / 基础代谢 / 体脂估算 / 腰臀比 / 1RM；冒烟步骤见 `specs/002-body-index-toolbox/quickstart.md`
+6. **热量缺口计算**：饮食 Tab →「热量缺口计算」；冒烟步骤见 `specs/003-calorie-plan-page/quickstart.md`
 
 ## 验收指引
 
