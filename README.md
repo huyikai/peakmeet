@@ -38,7 +38,9 @@ pnpm dev:web        # 官网本地预览
 2. 用微信开发者工具打开目录 `packages/miniprogram`（不要打开仓库根目录）
 3. 本地 AppID 写在已忽略的 `project.private.config.json`；仓库内 `project.config.json` 保持 `touristappid`
 4. 修改页面 TS 后需再次执行 `pnpm --filter @peakmeet/miniprogram build`（或 `pnpm build:miniprogram`）
+5. **身体指数工具箱**：饮食 Tab →「身体指数工具箱」→ BMI / 基础代谢 / 体脂估算 / 腰臀比 / 1RM；冒烟步骤见 `specs/002-body-index-toolbox/quickstart.md`
 
 ## 验收指引
 
-见 `specs/001-project-bootstrap/quickstart.md`。
+- 工程基建：`specs/001-project-bootstrap/quickstart.md`
+- 身体指数工具箱：`specs/002-body-index-toolbox/quickstart.md`

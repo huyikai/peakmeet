@@ -1,4 +1,5 @@
 <view class="page">
   <text class="title">{{title}}</text>
-  <text class="hint">饮食 Tab 占位</text>
+  <text class="hint">饮食计算与身体指数工具</text>
+  <button class="entry" bindtap="goToolbox">身体指数工具箱</button>
 </view>

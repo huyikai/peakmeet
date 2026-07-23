@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="field">
+    <text class="label">性别</text>
+    <view class="sex-row">
+      <button class="sex-btn {{sex === 'male' ? 'active' : ''}}" data-sex="male" bindtap="setSex">男</button>
+      <button class="sex-btn {{sex === 'female' ? 'active' : ''}}" data-sex="female" bindtap="setSex">女</button>
+    </view>
+  </view>
+  <view class="field">
+    <text class="label">年龄（岁）</text>
+    <input class="input" type="number" value="{{age}}" data-field="age" bindinput="onField" />
+  </view>
+  <view class="field">
+    <text class="label">体重（kg）</text>
+    <input class="input" type="digit" value="{{weightKg}}" data-field="weightKg" bindinput="onField" />
+  </view>
+  <view class="field">
+    <text class="label">腰围（cm）</text>
+    <input class="input" type="digit" value="{{waistCm}}" data-field="waistCm" bindinput="onField" />
+  </view>
+  <button class="primary" bindtap="onCalculate">计算</button>
+  <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
+
+  <view wx:if="{{result}}" class="result">
+    <text class="result-title">估算体脂率</text>
+    <text class="result-value">{{result.bodyFatPct}}%</text>
+    <text class="muted">分级：{{result.label}}（{{result.formulaId}}）</text>
+    <text class="muted">{{result.interpretation}}</text>
+    <text class="muted">注意事项：{{limitation}}</text>
+  </view>
+  <text class="disclaimer">{{disclaimer}}</text>
+</view>

@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="field">
+    <text class="label">性别</text>
+    <view class="sex-row">
+      <button class="sex-btn {{sex === 'male' ? 'active' : ''}}" data-sex="male" bindtap="setSex">男</button>
+      <button class="sex-btn {{sex === 'female' ? 'active' : ''}}" data-sex="female" bindtap="setSex">女</button>
+    </view>
+  </view>
+  <view class="field">
+    <text class="label">腰围（cm）</text>
+    <input class="input" type="digit" value="{{waistCm}}" placeholder="例如 80" bindinput="onWaist" />
+  </view>
+  <view class="field">
+    <text class="label">臀围（cm）</text>
+    <input class="input" type="digit" value="{{hipCm}}" placeholder="例如 95" bindinput="onHip" />
+  </view>
+  <button class="primary" bindtap="onCalculate">计算</button>
+  <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
+
+  <view wx:if="{{result}}" class="result">
+    <text class="result-title">腰臀比</text>
+    <text class="result-value">{{result.whr}}</text>
+    <text class="muted">风险参考：{{result.label}}</text>
+    <text class="muted">注意事项：{{notes}}</text>
+  </view>
+  <text class="disclaimer">{{disclaimer}}</text>
+</view>

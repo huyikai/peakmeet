@@ -23,6 +23,12 @@
     "declaration": false,
     "skipLibCheck": true
   },
-  "include": ["app.ts", "pages/**/*.ts", "typings/index.d.ts", "utils/shared/index.d.ts"],
+  "include": [
+    "app.ts",
+    "pages/**/*.ts",
+    "constants/**/*.ts",
+    "typings/index.d.ts",
+    "utils/shared/**/*.d.ts"
+  ],
   "exclude": ["node_modules", "**/*.js"]
 }

@@ -2,4 +2,7 @@ Page({
   data: {
     title: '饮食',
   },
+  goToolbox() {
+    wx.navigateTo({ url: '/pages/diet/toolbox/index' });
+  },
 });

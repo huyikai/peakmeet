@@ -1,5 +1,8 @@
 .page {
   padding: 48rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
 }
 
 .title {
@@ -9,4 +12,12 @@
 
 .hint {
   color: #666;
+}
+
+.entry {
+  margin-top: 24rpx;
+  background: #111;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 28rpx;
 }

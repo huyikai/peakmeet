@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="hero">
+    <text class="title">身体指数工具箱</text>
+    <text class="sub">常用健身计算，结果仅供参考</text>
+  </view>
+  <view
+    class="card"
+    wx:for="{{tools}}"
+    wx:key="id"
+    data-path="{{item.path}}"
+    bindtap="openTool"
+  >
+    <text class="card-title">{{item.title}}</text>
+    <text class="card-desc">{{item.desc}}</text>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<view class="page">
+  <view class="field">
+    <text class="label">身高（cm）</text>
+    <input class="input" type="digit" value="{{heightCm}}" placeholder="例如 170" bindinput="onHeight" />
+  </view>
+  <view class="field">
+    <text class="label">体重（kg）</text>
+    <input class="input" type="digit" value="{{weightKg}}" placeholder="例如 65" bindinput="onWeight" />
+  </view>
+  <button class="primary" bindtap="onCalculate">计算</button>
+  <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
+
+  <view wx:if="{{result}}" class="result">
+    <text class="result-title">BMI</text>
+    <text class="result-value">{{result.bmi}}</text>
+    <text class="muted">分级：{{result.label}}</text>
+    <text class="muted">{{result.interpretation}}</text>
+    <text class="muted">注意事项：{{limitation}}</text>
+  </view>
+  <text class="disclaimer">{{disclaimer}}</text>
+</view>

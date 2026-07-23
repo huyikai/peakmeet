@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="field">
+    <text class="label">训练重量（kg）</text>
+    <input class="input" type="digit" value="{{weightKg}}" placeholder="例如 60" bindinput="onWeight" />
+  </view>
+  <view class="field">
+    <text class="label">可完成次数（1–12）</text>
+    <input class="input" type="number" value="{{reps}}" placeholder="例如 5" bindinput="onReps" />
+  </view>
+  <button class="primary" bindtap="onCalculate">计算</button>
+  <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
+
+  <view wx:if="{{result}}" class="result">
+    <text class="result-title">估算 1RM</text>
+    <text class="result-value">{{result.oneRm}} kg</text>
+    <text class="muted">{{result.tip}}</text>
+    <text class="muted">注意事项：{{notes}}</text>
+  </view>
+  <text class="disclaimer">{{disclaimer}}</text>
+</view>
