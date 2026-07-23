@@ -1,1 +1,1 @@
-@import "../calc-common.wxss";
+@import "/styles/calc-theme.wxss";

@@ -40,6 +40,7 @@
 - [ ] CHK010 TDD/tests present for shared calc (if applicable; `*.test.ts`)
 - [ ] CHK011 Product boundary respected (miniprogram vs Web)
 - [ ] CHK012 Disclaimer / privacy / no medical claims
+- [ ] CHK013 Brand & visual: docs/brand + visual contract; no alternate palette / heavy UI kits
 
 ## Notes
 

@@ -1,0 +1,288 @@
+/* PeakMeet calc theme — single shared entry for diet calc path */
+@import "./tokens.wxss";
+
+/* --- Page --- */
+.pm-page,
+.page {
+  padding: 32rpx 40rpx 80rpx;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: var(--pm-snow);
+  color: var(--pm-ink);
+}
+
+.pm-section-title,
+.section-title {
+  margin: 24rpx 0 12rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--pm-ink);
+}
+
+/* --- Form --- */
+.pm-field,
+.field {
+  background: var(--pm-surface);
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.pm-label,
+.label {
+  color: var(--pm-ink-muted);
+  font-size: 24rpx;
+}
+
+.pm-input,
+.input {
+  font-size: 30rpx;
+  color: var(--pm-ink);
+}
+
+.picker {
+  font-size: 30rpx;
+  padding: 8rpx 0;
+  color: var(--pm-ink);
+}
+
+.sex-row,
+.mode-row {
+  display: flex;
+  gap: 16rpx;
+}
+
+.mode-row {
+  margin-bottom: 16rpx;
+}
+
+/* Chips: idle gray; active = Orange border + light fill + Ink text */
+.pm-chip,
+.sex-btn,
+.mode-btn {
+  flex: 1;
+  font-size: 26rpx;
+  background: var(--pm-chip-idle);
+  color: var(--pm-ink);
+  border: 2rpx solid transparent;
+  border-radius: 12rpx;
+}
+
+.pm-chip.active,
+.sex-btn.active,
+.mode-btn.active {
+  background: var(--pm-surface);
+  color: var(--pm-ink);
+  border-color: var(--pm-orange-border);
+  font-weight: 600;
+}
+
+.pm-chip::after,
+.sex-btn::after,
+.mode-btn::after {
+  border: none;
+}
+
+/* Primary / entry: Ink solid + light text */
+.pm-btn-primary,
+.pm-entry,
+.primary,
+.entry {
+  margin-top: 16rpx;
+  background: var(--pm-ink);
+  color: var(--pm-snow);
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  border: none;
+}
+
+.pm-btn-primary::after,
+.pm-entry::after,
+.primary::after,
+.entry::after {
+  border: none;
+}
+
+.entry-secondary {
+  background: var(--pm-surface);
+  color: var(--pm-ink);
+  border: 2rpx solid var(--pm-ink);
+}
+
+.entry-secondary::after {
+  border: none;
+}
+
+.pm-error,
+.error {
+  color: var(--pm-danger);
+  margin: 16rpx 0;
+  font-size: 26rpx;
+}
+
+/* --- Results --- */
+.pm-result,
+.result {
+  margin-top: 28rpx;
+  background: var(--pm-surface);
+  border-radius: 16rpx;
+  padding: 28rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.pm-result-hero,
+.result.hero {
+  border: 2rpx solid var(--pm-ink);
+}
+
+.result-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--pm-ink);
+}
+
+.pm-result-value,
+.result-value,
+.hero-value {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: var(--pm-ink);
+  line-height: 1.1;
+}
+
+.hero-value {
+  font-size: 72rpx;
+}
+
+.pm-result-unit,
+.result-unit,
+.hero-unit,
+.hero-label {
+  font-size: 26rpx;
+  color: var(--pm-ink-muted);
+}
+
+.muted {
+  color: var(--pm-ink-muted);
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.row {
+  font-size: 28rpx;
+  color: var(--pm-ink);
+  line-height: 1.5;
+}
+
+.row.strong {
+  font-weight: 600;
+}
+
+.block {
+  margin-top: 8rpx;
+}
+
+.macro-block,
+.meal {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.macro-block {
+  margin: 8rpx 0;
+}
+
+.meal {
+  margin-bottom: 12rpx;
+}
+
+.tip-line {
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+/* Risk: soft orange — not full-screen */
+.pm-risk,
+.risk,
+.warn {
+  margin-top: 12rpx;
+  color: var(--pm-ink);
+  background: var(--pm-orange-soft);
+  padding: 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.warn {
+  background: transparent;
+  color: var(--pm-ink-muted);
+  padding: 0;
+}
+
+.pm-tip {
+  color: var(--pm-ink-muted);
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.pm-disclaimer,
+.disclaimer {
+  margin-top: 32rpx;
+  color: var(--pm-ink-muted);
+  font-size: 22rpx;
+  line-height: 1.5;
+}
+
+/* --- Entry / hub helpers --- */
+.pm-brand-mark {
+  width: 64rpx;
+  height: 64rpx;
+  margin-bottom: 8rpx;
+}
+
+.pm-brand-lockup {
+  height: 56rpx;
+  width: auto;
+  margin-bottom: 16rpx;
+}
+
+.hub-card,
+.card {
+  background: var(--pm-surface);
+  border-radius: 16rpx;
+  padding: 28rpx 32rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--pm-ink);
+}
+
+.card-desc,
+.sub,
+.hint {
+  color: var(--pm-ink-muted);
+  font-size: 24rpx;
+}
+
+.sub {
+  font-size: 26rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--pm-ink);
+}

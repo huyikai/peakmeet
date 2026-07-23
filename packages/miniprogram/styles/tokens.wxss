@@ -1,0 +1,12 @@
+/* PeakMeet brand tokens — source: docs/brand/README.md */
+page {
+  --pm-ink: #0b0d10;
+  --pm-orange: #ff5a1f;
+  --pm-snow: #f2f4f7;
+  --pm-ink-muted: rgba(11, 13, 16, 0.55);
+  --pm-surface: #ffffff;
+  --pm-chip-idle: #e8eaed;
+  --pm-danger: #b00020;
+  --pm-orange-soft: rgba(255, 90, 31, 0.12);
+  --pm-orange-border: #ff5a1f;
+}

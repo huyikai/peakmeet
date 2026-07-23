@@ -10,6 +10,8 @@ description: 'Task list template for feature implementation'
 
 **Tests**: PeakMeet Constitution — `packages/shared` 核心逻辑强制 TDD（先写失败测试再实现）。云函数核心逻辑鼓励 TDD；纯 UI/交互可不强制。涉及 shared 的 story MUST 包含测试任务。
 
+**Brand / UI**: 面向用户界面任务 MUST 对齐 `docs/brand`；计算类页面 MUST 遵循现行视觉契约与共享样式，MUST NOT 另起主色板或引入重型 UI 组件库。
+
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
 ## Format: `[ID] [P?] [Story] Description`

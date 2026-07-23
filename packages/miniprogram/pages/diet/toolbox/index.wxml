@@ -1,5 +1,6 @@
 <view class="page">
   <view class="hero">
+    <image class="pm-brand-mark" src="/assets/brand/logo/icon.png" mode="aspectFit" />
     <text class="title">身体指数工具箱</text>
     <text class="sub">常用健身计算，结果仅供参考</text>
   </view>

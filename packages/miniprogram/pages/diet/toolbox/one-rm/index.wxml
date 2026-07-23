@@ -12,7 +12,8 @@
 
   <view wx:if="{{result}}" class="result">
     <text class="result-title">估算 1RM</text>
-    <text class="result-value">{{result.oneRm}} kg</text>
+    <text class="result-value">{{result.oneRm}}</text>
+    <text class="result-unit">kg</text>
     <text class="muted">{{result.tip}}</text>
     <text class="muted">注意事项：{{notes}}</text>
   </view>

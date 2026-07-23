@@ -155,3 +155,4 @@ _Example of marking unclear requirements:_
 - [ ] Privacy: minimum necessary data only; privacy policy implications noted
 - [ ] No extreme diet / overload training recommendations
 - [ ] Platform rules: WeChat category/content alignment (if miniprogram)
+- [ ] Brand: UI MUST consume docs/brand; calculators follow visual contract; no alternate primary palette / heavy UI kits

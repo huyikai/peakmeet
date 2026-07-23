@@ -1,5 +1,7 @@
+@import "./styles/tokens.wxss";
+
 page {
-  background: #f7f7f7;
-  color: #111;
+  background: var(--pm-snow, #f2f4f7);
+  color: var(--pm-ink, #0b0d10);
   font-size: 28rpx;
 }

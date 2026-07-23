@@ -22,3 +22,12 @@ Runtime copies:
 
 - Web: `packages/web/public/brand/logo/`
 - Mini Program: `packages/miniprogram/assets/brand/logo/`
+
+## Mini Program calc UI
+
+Diet / calculator pages consume brand tokens via:
+
+- `packages/miniprogram/styles/tokens.wxss`
+- `packages/miniprogram/styles/calc-theme.wxss` (single shared entry)
+
+Spec & migration: `specs/004-calc-ui-contract/`

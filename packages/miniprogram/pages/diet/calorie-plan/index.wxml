@@ -48,10 +48,10 @@
   <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
 
   <block wx:if="{{resultView}}">
-    <view class="result hero">
+    <view class="result hero pm-result-hero">
       <text class="hero-label">目标每日摄入</text>
-      <text class="hero-value">{{resultView.targetKcal}}</text>
-      <text class="hero-unit">千卡 / 日</text>
+      <text class="hero-value pm-result-value">{{resultView.targetKcal}}</text>
+      <text class="hero-unit pm-result-unit">千卡 / 日</text>
       <text class="muted">{{resultView.goalNote}}</text>
       <text wx:if="{{resultView.showAggressiveRisk}}" class="risk">{{resultView.aggressiveRiskTip}}</text>
       <text wx:if="{{resultView.bmrFloorTip}}" class="warn">{{resultView.bmrFloorTip}}</text>

@@ -23,7 +23,8 @@
 
   <view wx:if="{{result}}" class="result">
     <text class="result-title">基础代谢 BMR</text>
-    <text class="result-value">{{result.bmrKcal}} 千卡/日</text>
+    <text class="result-value">{{result.bmrKcal}}</text>
+    <text class="result-unit">千卡/日</text>
     <text class="muted">{{result.note}}</text>
     <text class="muted">注意事项：{{notes}}</text>
   </view>

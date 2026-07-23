@@ -23,7 +23,8 @@
 
   <view wx:if="{{result}}" class="result">
     <text class="result-title">估算体脂率</text>
-    <text class="result-value">{{result.bodyFatPct}}%</text>
+    <text class="result-value">{{result.bodyFatPct}}</text>
+    <text class="result-unit">%</text>
     <text class="muted">分级：{{result.label}}（{{result.formulaId}}）</text>
     <text class="muted">{{result.interpretation}}</text>
     <text class="muted">注意事项：{{limitation}}</text>

@@ -2,20 +2,22 @@
 
 <!--
 Sync Impact Report
-- Version change: 1.0.0 → 1.1.0
-- Modified principles:
-  - IV. Stack Lock → clarified TypeScript-first language rule (see Technology Stack)
-  - V. Test-First TDD → test file extension .test.js → .test.ts
-- Added sections: none (expanded Technology Stack Constraints + Coding Standards)
+- Version change: 1.1.0 → 1.2.0
+- Modified principles: none renamed
+- Added sections:
+  - VIII. Brand & Visual Alignment (Core Principles)
+  - Coding Standards item 6 (brand/visual reference)
+  - Technology Stack: miniprogram + Web bullets pointing to docs/brand (no hex tables)
 - Removed sections: none
 - Templates requiring updates:
-  - .specify/templates/plan-template.md ✅ updated
-  - .specify/templates/tasks-template.md ✅ updated
-  - .specify/templates/spec-template.md ✅ updated (TypeScript in Constitution Alignment)
-  - .specify/templates/checklist-template.md ✅ updated (TS language check)
+  - .specify/templates/plan-template.md ✅ updated (Constitution Check + v1.2.0)
+  - .specify/templates/spec-template.md ✅ updated (Brand alignment)
+  - .specify/templates/checklist-template.md ✅ updated (brand check)
+  - .specify/templates/tasks-template.md ✅ updated (UI/brand note)
+  - docs/constitution.md ✅ synced from this file
   - .specify/templates/constitution-template.md ⚠ pending (scaffold only)
   - README.md ⚠ pending (file not present yet)
-  - Spec Kit skills (.cursor/skills/speckit-*) ✅ verified
+  - Spec Kit skills (.cursor/skills/speckit-*) ✅ verified (no conflicting brand rules)
 - Follow-up TODOs: none
 -->
 
@@ -106,7 +108,20 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 
 **Rationale**: 冲突时有可执行的裁决顺序。
 
+### VIII. Brand & Visual Alignment
+
+- 小程序与 Web 面向用户的界面 MUST 遵循 `docs/brand` 中的品牌色与
+  Logo 约定。
+- 计算类页面 MUST 遵循已建立的视觉契约与共享样式；MUST NOT 另起主色板；
+  MUST NOT 引入重型 UI 组件库。
+- 具体 token 与版式以 `docs/brand` 及现行视觉契约规格为准（宪章不内嵌
+  色值表或组件清单）。
+
+**Rationale**: 品牌识别与可读性依赖统一视觉源；细节落在 brand 文档与
+契约规格，宪章只锁定「必须对齐、禁止另起炉灶」。
+
 ## Technology Stack Constraints
+
 
 ### 开发语言（TypeScript 优先）
 
@@ -122,7 +137,9 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 
 - MUST 使用微信小程序原生框架（WXML + WXSS + TypeScript）。
 - MUST NOT 使用 Taro、uni-app 等跨端框架。
-- MUST NOT 引入重型前端框架；保持轻量、加载快、审核兼容。
+- MUST NOT 引入重型前端框架或重型 UI 组件库；保持轻量、加载快、审核兼容。
+- 面向用户界面 MUST 对齐 `docs/brand`；计算类页面 MUST 消费已建立的
+  视觉契约与共享样式（见原则 VIII）。
 - 核心计算逻辑 MUST 复用 monorepo 内 `shared` 包。
 
 ### 后端与数据层
@@ -143,6 +160,8 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 
 - MUST 使用 Astro，纯静态站点生成（SSG），源码 TypeScript 优先。
 - MUST NOT 启用 SSR，MUST NOT 接入服务端业务逻辑。
+- 面向用户界面 MUST 对齐 `docs/brand`（品牌色与 Logo）；MUST NOT 另起
+  主色板或引入重型 UI 组件库。
 - 计算器逻辑 MUST 复用 `shared`，与小程序结果完全一致。
 
 ### 工程与版本管理
@@ -222,6 +241,8 @@ peakmeet/
 3. 逻辑复用：可复用纯逻辑优先进 `packages/shared`。
 4. 云开发：权限与云函数边界见「Technology Stack Constraints」。
 5. 内容数据：结构化内容进云数据库，图片进云存储。
+6. 品牌与视觉：面向用户 UI 对齐 `docs/brand`；计算页遵循现行视觉契约与
+   共享样式；色值/版式细节不在宪章内展开。
 
 ## Delivery Requirements
 
@@ -250,11 +271,11 @@ peakmeet/
 - 每个 feature 的 plan MUST 通过 Constitution Check 门禁后方可进入
   设计与实现。
 - PR/评审 MUST 核对：栈锁定、TypeScript 优先、shared 复用、TDD（shared）、
-  产品边界、合规红线。
+  产品边界、合规红线、品牌与视觉对齐（`docs/brand` / 视觉契约）。
 - 违规项 MUST 在合入前修复，或在 Complexity Tracking 中书面论证且
   不得突破 NON-NEGOTIABLE 条款（Stack Lock、TDD、Compliance）。
 
 **运行时开发指引**：以本文件与 `docs/` 下设计文档为准；Spec Kit 命令
 （specify → plan → tasks → implement）执行时 MUST 加载本 Constitution。
 
-**Version**: 1.1.0 | **Ratified**: 2026-07-23 | **Last Amended**: 2026-07-23
+**Version**: 1.2.0 | **Ratified**: 2026-07-23 | **Last Amended**: 2026-07-23

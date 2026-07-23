@@ -1,4 +1,5 @@
 <view class="page">
+  <image class="pm-brand-lockup" src="/assets/brand/logo/lockup-horizontal.png" mode="heightFix" />
   <text class="title">{{title}}</text>
   <text class="hint">饮食计算与身体指数工具</text>
   <button class="entry" bindtap="goCaloriePlan">热量缺口计算</button>
