@@ -76,4 +76,63 @@ describe('calculateMacroPlan', () => {
     expect(g.ok).toBe(false);
     if (!g.ok) expect(g.error.code).toBe('INVALID_GOAL');
   });
+
+  it('returns carbRestRangeG / carbTrainRangeG with min≤max and non-negative', () => {
+    const res = calculateMacroPlan({
+      targetKcal: 2000,
+      weightKg: 70,
+      goal: 'cutMild',
+    });
+    expect(res.ok).toBe(true);
+    if (!res.ok) return;
+    const { carbRestG, carbTrainG, carbRestRangeG, carbTrainRangeG } = res.data;
+    expect(carbRestRangeG.min).toBeGreaterThanOrEqual(0);
+    expect(carbTrainRangeG.min).toBeGreaterThanOrEqual(0);
+    expect(carbRestRangeG.min).toBeLessThanOrEqual(carbRestRangeG.max);
+    expect(carbTrainRangeG.min).toBeLessThanOrEqual(carbTrainRangeG.max);
+    expect(carbRestG).toBeGreaterThanOrEqual(carbRestRangeG.min);
+    expect(carbRestG).toBeLessThanOrEqual(carbRestRangeG.max);
+    expect(carbTrainG).toBeGreaterThanOrEqual(carbTrainRangeG.min);
+    expect(carbTrainG).toBeLessThanOrEqual(carbTrainRangeG.max);
+  });
+
+  it('derives rest carb range from protein/fat g/kg bounds', () => {
+    const weightKg = 70;
+    const targetKcal = 2000;
+    const res = calculateMacroPlan({
+      targetKcal,
+      weightKg,
+      goal: 'cutMild',
+    });
+    expect(res.ok).toBe(true);
+    if (!res.ok) return;
+    // cutMild protein 1.8–2.2, fat 0.8–1.0
+    const maxProtFatKcal = weightKg * 2.2 * 4 + weightKg * 1.0 * 9;
+    const minProtFatKcal = weightKg * 1.8 * 4 + weightKg * 0.8 * 9;
+    const expectedMin = Math.max(0, Math.round(((targetKcal - maxProtFatKcal) / 4) * 10) / 10);
+    const expectedMax = Math.max(0, Math.round(((targetKcal - minProtFatKcal) / 4) * 10) / 10);
+    expect(res.data.carbRestRangeG).toEqual({
+      min: Math.min(expectedMin, expectedMax),
+      max: Math.max(expectedMin, expectedMax),
+    });
+    expect(res.data.carbTrainRangeG.min).toBe(
+      Math.round(res.data.carbRestRangeG.min * 1.1 * 10) / 10,
+    );
+    expect(res.data.carbTrainRangeG.max).toBe(
+      Math.round(res.data.carbRestRangeG.max * 1.2 * 10) / 10,
+    );
+  });
+
+  it('zeros carb ranges when structureTight', () => {
+    const tight = calculateMacroPlan({
+      targetKcal: 100,
+      weightKg: 80,
+      goal: 'cutAggressive',
+    });
+    expect(tight.ok).toBe(true);
+    if (!tight.ok) return;
+    expect(tight.data.structureTight).toBe(true);
+    expect(tight.data.carbRestRangeG).toEqual({ min: 0, max: 0 });
+    expect(tight.data.carbTrainRangeG).toEqual({ min: 0, max: 0 });
+  });
 });

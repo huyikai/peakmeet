@@ -9,7 +9,8 @@
     "pages/diet/toolbox/bmr/index",
     "pages/diet/toolbox/body-fat/index",
     "pages/diet/toolbox/whr/index",
-    "pages/diet/toolbox/one-rm/index"
+    "pages/diet/toolbox/one-rm/index",
+    "pages/diet/calorie-plan/index"
   ],
   "window": {
     "navigationBarTitleText": "顶峰相见",

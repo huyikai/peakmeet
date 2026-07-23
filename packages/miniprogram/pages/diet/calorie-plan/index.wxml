@@ -1,0 +1,101 @@
+<view class="page">
+  <view class="section-title">基础信息</view>
+  <view class="field">
+    <text class="label">性别</text>
+    <view class="sex-row">
+      <button class="sex-btn {{sex === 'male' ? 'active' : ''}}" data-sex="male" bindtap="setSex">男</button>
+      <button class="sex-btn {{sex === 'female' ? 'active' : ''}}" data-sex="female" bindtap="setSex">女</button>
+    </view>
+  </view>
+  <view class="field">
+    <text class="label">年龄（岁）</text>
+    <input class="input" type="number" value="{{ageYears}}" placeholder="例如 25" bindinput="onAge" />
+  </view>
+  <view class="field">
+    <text class="label">身高（cm）</text>
+    <input class="input" type="digit" value="{{heightCm}}" placeholder="例如 170" bindinput="onHeight" />
+  </view>
+  <view class="field">
+    <text class="label">体重（kg）</text>
+    <input class="input" type="digit" value="{{weightKg}}" placeholder="例如 70" bindinput="onWeight" />
+  </view>
+  <view class="field">
+    <text class="label">体脂率（%，选填）</text>
+    <input class="input" type="digit" value="{{bodyFatPct}}" placeholder="不填可跳过" bindinput="onBodyFat" />
+  </view>
+
+  <view class="section-title">运动信息</view>
+  <view class="field">
+    <text class="label">日常活动水平</text>
+    <picker mode="selector" range="{{activityOptions}}" value="{{activityIndex}}" bindchange="onActivityPick">
+      <view class="picker">{{activityLabel}}</view>
+    </picker>
+  </view>
+  <view class="field">
+    <text class="label">每周训练频率（天）</text>
+    <input class="input" type="number" value="{{trainingDaysPerWeek}}" placeholder="0–7" bindinput="onTrainingDays" />
+  </view>
+
+  <view class="section-title">训练目标</view>
+  <view class="field">
+    <text class="label">目标</text>
+    <picker mode="selector" range="{{goalOptions}}" value="{{goalIndex}}" bindchange="onGoalPick">
+      <view class="picker">{{goalLabel}}</view>
+    </picker>
+  </view>
+
+  <button class="primary" bindtap="onCalculate">计算</button>
+  <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
+
+  <block wx:if="{{resultView}}">
+    <view class="result hero">
+      <text class="hero-label">目标每日摄入</text>
+      <text class="hero-value">{{resultView.targetKcal}}</text>
+      <text class="hero-unit">千卡 / 日</text>
+      <text class="muted">{{resultView.goalNote}}</text>
+      <text wx:if="{{resultView.showAggressiveRisk}}" class="risk">{{resultView.aggressiveRiskTip}}</text>
+      <text wx:if="{{resultView.bmrFloorTip}}" class="warn">{{resultView.bmrFloorTip}}</text>
+    </view>
+
+    <view class="result">
+      <text class="result-title">核心消耗</text>
+      <text class="row">基础代谢 BMR：{{resultView.bmrKcal}} 千卡</text>
+      <text class="row">每日总消耗 TDEE：{{resultView.tdeeKcal}} 千卡</text>
+      <block wx:if="{{resultView.showBodyFat}}">
+        <text class="row">用户自报体脂率：{{resultView.reportedBodyFatPct}}%</text>
+        <text class="muted">{{resultView.bodyFatNote}}</text>
+      </block>
+    </view>
+
+    <view class="result">
+      <text class="result-title">宏量营养素</text>
+      <text class="row">蛋白质：{{resultView.proteinG}} g</text>
+      <text class="row">脂肪：{{resultView.fatG}} g</text>
+      <view class="macro-block">
+        <text class="row strong">休息日碳水：{{resultView.carbRestG}} g</text>
+        <text class="muted">参考区间 {{resultView.carbRestRangeLabel}}</text>
+      </view>
+      <view class="macro-block">
+        <text class="row strong">训练日碳水：{{resultView.carbTrainG}} g</text>
+        <text class="muted">参考区间 {{resultView.carbTrainRangeLabel}}</text>
+      </view>
+      <text class="muted">{{resultView.trainingCarbHint}}</text>
+      <text wx:if="{{resultView.structureTightNote}}" class="warn">{{resultView.structureTightNote}}</text>
+    </view>
+
+    <view class="result">
+      <text class="result-title">三餐建议（早:午:晚 = 3:4:3）</text>
+      <view wx:for="{{resultView.meals}}" wx:key="key" class="meal">
+        <text class="row strong">{{item.label}} {{item.ratioLabel}} · {{item.kcal}} 千卡</text>
+        <text class="muted">{{item.exampleZh}}</text>
+      </view>
+    </view>
+
+    <view class="result">
+      <text class="result-title">温馨提示</text>
+      <text wx:for="{{resultView.tips}}" wx:key="*this" class="muted tip-line">· {{item}}</text>
+    </view>
+
+    <text class="disclaimer">{{resultView.disclaimer}}</text>
+  </block>
+</view>

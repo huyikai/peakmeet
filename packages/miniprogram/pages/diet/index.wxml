@@ -1,5 +1,6 @@
 <view class="page">
   <text class="title">{{title}}</text>
   <text class="hint">饮食计算与身体指数工具</text>
-  <button class="entry" bindtap="goToolbox">身体指数工具箱</button>
+  <button class="entry" bindtap="goCaloriePlan">热量缺口计算</button>
+  <button class="entry entry-secondary" bindtap="goToolbox">身体指数工具箱</button>
 </view>

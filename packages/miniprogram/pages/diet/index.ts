@@ -5,4 +5,7 @@ Page({
   goToolbox() {
     wx.navigateTo({ url: '/pages/diet/toolbox/index' });
   },
+  goCaloriePlan() {
+    wx.navigateTo({ url: '/pages/diet/calorie-plan/index' });
+  },
 });

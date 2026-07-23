@@ -21,3 +21,7 @@
   border-radius: 12rpx;
   font-size: 28rpx;
 }
+
+.entry-secondary {
+  background: #333;
+}
