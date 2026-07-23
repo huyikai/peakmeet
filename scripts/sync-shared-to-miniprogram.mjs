@@ -16,6 +16,10 @@ rmSync(target, { recursive: true, force: true });
 mkdirSync(target, { recursive: true });
 cpSync(source, target, { recursive: true });
 writeFileSync(
+  join(target, 'index.d.ts'),
+  'export declare function getPeakMeetPing(): string;\n',
+);
+writeFileSync(
   join(target, 'README.md'),
   '# Synced from packages/shared/dist-cjs via `pnpm sync:shared`.\n# Do not edit by hand.\n',
 );

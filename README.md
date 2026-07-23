@@ -34,9 +34,10 @@ pnpm dev:web        # 官网本地预览
 
 ## 小程序
 
-1. 执行 `pnpm sync:shared`
-2. 用微信开发者工具打开 `packages/miniprogram`
-3. 可使用测试号 / `touristappid`
+1. 执行 `pnpm build:miniprogram`（同步 shared，并把 `.ts` 编译为开发者工具所需的 `.js`）
+2. 用微信开发者工具打开目录 `packages/miniprogram`（不要打开仓库根目录）
+3. 本地 AppID 写在已忽略的 `project.private.config.json`；仓库内 `project.config.json` 保持 `touristappid`
+4. 修改页面 TS 后需再次执行 `pnpm --filter @peakmeet/miniprogram build`（或 `pnpm build:miniprogram`）
 
 ## 验收指引
 

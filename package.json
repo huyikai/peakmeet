@@ -15,6 +15,7 @@
     "format:check": "prettier --check .",
     "build": "pnpm --filter @peakmeet/shared build && pnpm --filter @peakmeet/cloudfunctions build && pnpm --filter @peakmeet/web build",
     "sync:shared": "pnpm --filter @peakmeet/shared build && node scripts/sync-shared-to-miniprogram.mjs",
+    "build:miniprogram": "pnpm sync:shared && pnpm --filter @peakmeet/miniprogram build",
     "dev:web": "pnpm --filter @peakmeet/web dev"
   },
   "devDependencies": {

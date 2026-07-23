@@ -5,11 +5,12 @@
 
 ## R1. Shared 构建工具
 
-- **Decision**: 使用 `tsc`（`packages/shared` 自有 `tsconfig`，`declaration: true`，输出 `dist/`）
-- **Rationale**: 零额外打包器运行时；满足「JS + .d.ts、零第三方运行时依赖」；与 MVP/低运维一致
+- **Decision**: 使用 `tsc` 双产物：`tsconfig.json` → `dist/`（ESM + `.d.ts`）；`tsconfig.cjs.json` → `dist-cjs/`（CommonJS）
+- **Rationale**: Astro/Vite 需要 ESM named export；微信小程序侧 `require` 需要 CJS；零额外打包器
 - **Alternatives considered**:
+  - 仅 ESM：Web 可用，小程序 sync 后引用困难
+  - 仅 CJS：Astro 构建曾报「getPeakMeetPing is not exported」
   - tsup/esbuild：更快但多一层构建依赖，底座阶段非必需
-  - 仅发源码 TS：小程序同步与消费更复杂，拒绝
 
 ## R2. 包管理与 Node 版本
 
@@ -21,7 +22,7 @@
 
 ## R3. 根 Vitest / ESLint / Prettier 布局
 
-- **Decision**: 根配置 + workspace 继承；`pnpm test` 跑 Vitest workspace（至少包含 `packages/shared`）；ESLint flat config + typescript-eslint；Prettier 统一格式化
+- **Decision**: 根配置 + workspace 继承；`pnpm test` 跑 Vitest workspace（至少包含 `packages/shared`）；ESLint flat config + typescript-eslint；Prettier 统一格式化；忽略小程序编译出的 `*.js`
 - **Rationale**: 一次配置全仓；shared 冒烟保证「无测试文件不失败」
 - **Alternatives considered**:
   - 每包独立互不共享配置：重复维护，拒绝
@@ -29,18 +30,27 @@
 
 ## R4. Shared → 小程序同步
 
-- **Decision**: 根脚本 `scripts/sync-shared-to-miniprogram.mjs`：先确保 shared 已 build，再将 `packages/shared/dist`（或约定可运行子集）拷贝到 `packages/miniprogram/utils/shared/`；暴露为 `pnpm sync:shared`；不做 watch
-- **Rationale**: 澄清结论 B；对齐 Constitution「构建脚本同步至本地 utils」
+- **Decision**: 根脚本 `scripts/sync-shared-to-miniprogram.mjs`：shared build 后拷贝 **`dist-cjs`** → `packages/miniprogram/utils/shared/`，并写入 `index.d.ts`；暴露为 `pnpm sync:shared`；不做 watch
+- **Rationale**: 澄清结论 B；对齐 Constitution「构建脚本同步至本地 utils」；CJS 适配小程序 `require`
 - **Alternatives considered**:
   - 仅文档说明：已在澄清中否决
+  - 拷贝 ESM `dist/`：小程序侧兼容差
   - npm link / 小程序 npm 构建：链路更重，底座阶段不选
   - watch 增量：超出范围
 
 ## R5. 微信小程序 TypeScript 骨架
 
-- **Decision**: 原生小程序工程 + 官方 TS 支持（`tsconfig`、`app.ts`、页面 `*.ts`）；`app.json` tabBar 四页：首页/训练/饮食/我的；`project.config.json` 允许测试号/空 AppID 打开；根 `build` 不包含小程序
-- **Rationale**: 栈锁定禁止跨端；澄清：小程序由开发者工具编译
-- **Alternatives considered**: Taro/uni-app — 禁止
+- **Decision**:
+  - 源码 TS（`app.ts`、页面 `*.ts`）+ `tsconfig`；`app.json` 四 Tab
+  - `project.config.json`：`useCompilerPlugins: ["typescript"]`；跟踪文件 `appid` 固定 `touristappid`
+  - 真实 AppID 仅写入 gitignored 的 `project.private.config.json`（避免 GitHub Secret Scanning）
+  - 另提供 `pnpm build:miniprogram`：`tsc` 将入口/页面编译为同目录 `.js`（开发者工具与「自动预览」按 `app.json` 查找 `.js`）
+  - 根 `pnpm build` **不**包含小程序
+- **Rationale**: 栈锁定禁止跨端；实测仅提交 `.ts` 时自动预览报「未找到 index.js」；双轨（插件 + 显式 tsc）保证可预览
+- **Alternatives considered**:
+  - Taro/uni-app — 禁止
+  - 仅依赖 IDE 插件、不产出 `.js` — 自动预览不稳定，拒绝作为唯一路径
+  - 把真实 AppID 写入跟踪的 `project.config.json` — 触发 Secret Scanning，拒绝
 
 ## R6. Astro Web 骨架
 
@@ -52,29 +62,30 @@
 
 ## R7. 云函数 TS 编译
 
-- **Decision**: `packages/cloudfunctions/hello` 单占位函数；源码 TS，编译输出到该函数目录下微信可部署的 `index.js`（或约定 `dist` + 配置）；根 `pnpm build` 调用该包 compile；无云端部署、无密钥、无本地模拟调用
+- **Decision**: `packages/cloudfunctions/hello` 单占位函数；源码 TS，编译输出到该函数目录下微信可部署的 `index.js`；根 `pnpm build` 调用该包 compile；无云端部署、无密钥、无本地模拟调用
 - **Rationale**: 澄清结论 B（1 个可编译占位函数）
 - **Alternatives considered**: 空目录 / 多函数 / wx-server-sdk 真实调用 — 超出或不足验收
 
 ## R8. 包命名与导出
 
-- **Decision**: shared 包名 `@peakmeet/shared`；导出冒烟纯函数（如 `getPeakMeetPing(): string`）；Web 与单测、小程序同步产物均消费同一符号
+- **Decision**: shared 包名 `@peakmeet/shared`；导出冒烟纯函数 `getPeakMeetPing(): string`；Web、单测、小程序同步产物均消费同一符号
 - **Rationale**: 单冒烟符号贯穿 SC-008 / SC-011，降低双端不一致风险
 - **Alternatives considered**: 无作用域名 `shared` — 可工作但 monorepo 辨识弱
 
 ## R9. Constitution 文档同步
 
-- **Decision**: 实现时将 `.specify/memory/constitution.md` 完整复制为 `docs/constitution.md`（可附一行来源说明）；本功能不做自动 watch；后续修订靠人工或后续脚本
+- **Decision**: 将 `.specify/memory/constitution.md` 完整复制为 `docs/constitution.md`（可附一行来源说明）；本功能不做自动 watch；后续修订靠人工或后续脚本
 - **Rationale**: FR-014 / SC-007；Assumptions 允许一次完整落盘
 - **Alternatives considered**: symlink — Windows/工具链体验差；CI 强制 diff — 可后续加
 
 ## R10. 根 `build` 编排
 
-- **Decision**: `pnpm build` = `shared` build → `cloudfunctions` compile → `web` build（或 pnpm filter 并行其中无依赖冲突者）；明确排除 miniprogram
-- **Rationale**: 澄清根 build 范围；shared 须先于依赖方
+- **Decision**: `pnpm build` = `shared`（ESM+CJS）→ `cloudfunctions` → `web`；明确排除 miniprogram。小程序使用独立 `pnpm build:miniprogram`
+- **Rationale**: 澄清根 build 范围；shared 须先于依赖方；小程序预览依赖 DevTools + 本地 tsc
 - **Alternatives considered**: 四包全含小程序 — 已否决
 
-## Open items deferred to implementation tasks
+## Open items / post-implement notes
 
-- Astro / typescript-eslint 精确版本号在实现时锁定最新稳定版
-- 小程序 `sitemap`/`privacy` 占位文件按开发者工具最低要求补齐（无业务文案）
+- Astro / typescript-eslint 版本随 lockfile 锁定
+- 小程序 `sitemap` 已占位；隐私协议文案留给后续功能
+- 修改小程序 TS 后须重新 `pnpm build:miniprogram` 再预览

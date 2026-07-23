@@ -293,3 +293,4 @@ Task: "Create packages/miniprogram/pages/mine/index.{ts,wxml,wxss,json}"
 - shared TDD is NON-NEGOTIABLE
 - Commit after each task or logical group；run Vitest before claiming US2 done
 - Avoid: 跨端框架、SSR、真实计算器、云部署密钥、watch 同步
+- **Post-implement (2026-07-23)**: 预览前须 `pnpm build:miniprogram`；shared 为 ESM+CJS 双产物；真实 AppID 仅 private 配置。细节见 research.md / quickstart.md / contracts/

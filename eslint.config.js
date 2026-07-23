@@ -13,6 +13,7 @@ export default tseslint.config(
       '**/.astro/**',
       'coverage/**',
       'packages/miniprogram/utils/shared/**',
+      'packages/miniprogram/**/*.js',
       'packages/cloudfunctions/hello/**/*.js',
       'specs/**',
       '.specify/**',

@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "module": "CommonJS",
     "target": "ES2017",
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -17,8 +17,12 @@
     "strict": true,
     "strictPropertyInitialization": true,
     "lib": ["ES2017"],
-    "typeRoots": ["./typings"]
+    "rootDir": ".",
+    "outDir": ".",
+    "sourceMap": false,
+    "declaration": false,
+    "skipLibCheck": true
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules", "utils/shared"]
+  "include": ["app.ts", "pages/**/*.ts", "typings/index.d.ts", "utils/shared/index.d.ts"],
+  "exclude": ["node_modules", "**/*.js"]
 }

@@ -12,22 +12,25 @@
 | name        | 唯一；shared 使用 `@peakmeet/shared`                                  |
 | path        | 位于 `packages/{shared\|miniprogram\|web\|cloudfunctions}`            |
 | language    | TypeScript 优先                                                       |
-| buildable   | shared / web / cloudfunctions = true；miniprogram = false（根 build） |
+| buildable   | shared / web / cloudfunctions = true（根 `pnpm build`）；miniprogram = 独立 `build:miniprogram` |
 | runtimeDeps | shared MUST 为空（零第三方运行时依赖）                                |
 
-**Relationships**: web `dependsOn` shared（workspace）；miniprogram `consumesCopyOf` shared dist via sync script。
+**Relationships**: web `dependsOn` shared（workspace）；miniprogram `consumesCopyOf` shared **dist-cjs** via sync script。
 
 ### RootToolchainProfile
 
-| Field               | Rules                                     |
-| ------------------- | ----------------------------------------- |
-| scripts.test        | 根入口；须成功且至少 1 条 shared 冒烟用例 |
-| scripts.lint        | 全仓 ESLint                               |
-| scripts.format      | Prettier                                  |
-| scripts.build       | 仅 shared + web + cloudfunctions          |
-| scripts.sync:shared | shared build 后拷贝至 miniprogram utils   |
-| tsconfigBase        | `tsconfig.base.json`，子包 extends        |
-| nodeEngine          | `>=20`（建议）                            |
+| Field | Rules |
+| ----- | ----- |
+| scripts.test | 根入口；须成功且至少 1 条 shared 冒烟用例 |
+| scripts.lint | 全仓 ESLint（忽略小程序编译出的 `*.js`） |
+| scripts.format | Prettier |
+| scripts.build | 仅 shared + web + cloudfunctions |
+| scripts.sync:shared | shared 双产物后拷贝 **dist-cjs** → miniprogram utils |
+| scripts.build:miniprogram | sync:shared + 小程序 tsc（产出 `app.js` / `pages/*/index.js`） |
+| scripts.dev:web | Astro 本地预览 |
+| tsconfigBase | `tsconfig.base.json`，子包 extends |
+| nodeEngine | `>=20`（建议） |
+| appidPolicy | 跟踪配置仅 `touristappid`；真实 AppID 仅 private 配置 |
 
 ### SharedSmokeExport
 
@@ -44,7 +47,7 @@
 | -------- | ----------------------------------------------------------------- |
 | id       | `home` \| `train` \| `diet` \| `mine`                             |
 | title    | 首页 / 训练 / 饮食 / 我的                                         |
-| pagePath | `pages/{id}/index`                                                |
+| pagePath | `pages/{id}/index`（运行时须有对应 `index.js`，由 `build:miniprogram` 生成） |
 | content  | 占位即可；可展示 sync 冒烟结果（可选，至少一处引用以满足 SC-008） |
 
 **State**: 无服务端状态；仅客户端 Tab 切换。

@@ -8,6 +8,11 @@ Page({
   onLoad() {
     const ping = getPeakMeetPing();
     console.log('[peakmeet] shared smoke:', ping);
-    this.setData({ ping });
+    // WeChat Page instance; keep cast minimal for skeleton compile.
+    (this as WechatMiniprogramPage).setData({ ping });
   },
 });
+
+type WechatMiniprogramPage = {
+  setData: (data: Record<string, unknown>) => void;
+};

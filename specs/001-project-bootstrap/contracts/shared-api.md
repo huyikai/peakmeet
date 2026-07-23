@@ -6,7 +6,9 @@
 ## Package rules
 
 - **Runtime dependencies**: none
-- **Build outputs**: JavaScript + `.d.ts` under `dist/` (or package `exports` 指向的等价路径)
+- **Build outputs**:
+  - `dist/` — ESM + `.d.ts`（Web / Vitest / package `exports`）
+  - `dist-cjs/` — CommonJS（供 `pnpm sync:shared` 拷贝至小程序 `utils/shared/`）
 - **Platform APIs**: forbidden (`wx`, DOM, Node-only APIs that break browser/miniprogram pure logic)
 
 ## Smoke export
