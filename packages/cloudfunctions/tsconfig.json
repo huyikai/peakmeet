@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "hello",
+    "outDir": "hello",
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2017",
+    "noEmit": false
+  },
+  "include": ["hello/index.ts"],
+  "exclude": ["node_modules"]
+}

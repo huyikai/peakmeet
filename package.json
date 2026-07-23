@@ -1,0 +1,33 @@
+{
+  "name": "peakmeet",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "PeakMeet（顶峰相见）— fitness miniprogram + static web monorepo",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "build": "pnpm --filter @peakmeet/shared build && pnpm --filter @peakmeet/cloudfunctions build && pnpm --filter @peakmeet/web build",
+    "sync:shared": "pnpm --filter @peakmeet/shared build && node scripts/sync-shared-to-miniprogram.mjs",
+    "dev:web": "pnpm --filter @peakmeet/web dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2",
+    "vitest": "^2.1.8"
+  }
+}

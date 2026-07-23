@@ -1,0 +1,36 @@
+{
+  "pages": ["pages/home/index", "pages/train/index", "pages/diet/index", "pages/mine/index"],
+  "window": {
+    "navigationBarTitleText": "顶峰相见",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#111111",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/train/index",
+        "text": "训练"
+      },
+      {
+        "pagePath": "pages/diet/index",
+        "text": "饮食"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

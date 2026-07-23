@@ -32,7 +32,7 @@
 - [ ] CHK005 Item with specific criteria
 - [ ] CHK006 Final item in this category
 
-## Constitution / Compliance *(include when relevant)*
+## Constitution / Compliance _(include when relevant)_
 
 - [ ] CHK007 Stack Lock: no forbidden frameworks/backends/SSR
 - [ ] CHK008 TypeScript First: new logic in .ts/.tsx; no unjustified plain JS

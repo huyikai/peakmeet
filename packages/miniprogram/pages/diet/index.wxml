@@ -1,0 +1,4 @@
+<view class="page">
+  <text class="title">{{title}}</text>
+  <text class="hint">饮食 Tab 占位</text>
+</view>

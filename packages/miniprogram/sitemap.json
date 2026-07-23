@@ -1,0 +1,9 @@
+{
+  "desc": "PeakMeet sitemap placeholder",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

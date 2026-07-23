@@ -1,0 +1,6 @@
+{
+  "name": "@peakmeet/miniprogram",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PeakMeet WeChat miniprogram (native WXML/WXSS/TS)"
+}

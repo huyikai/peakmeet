@@ -1,0 +1,5 @@
+<view class="page">
+  <text class="title">{{title}}</text>
+  <text class="hint">PeakMeet 骨架占位页</text>
+  <text class="ping">shared: {{ping}}</text>
+</view>

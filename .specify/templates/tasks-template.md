@@ -1,6 +1,5 @@
 ---
-
-description: "Task list template for feature implementation"
+description: 'Task list template for feature implementation'
 ---
 
 # Tasks: [FEATURE NAME]
@@ -86,8 +85,8 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: TDD — write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts
-- [ ] T011 [P] [US1] Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts
+- [ ] T010 [P] [US1] Unit test for [calc/util] in packages/shared/**tests**/[name].test.ts
+- [ ] T011 [P] [US1] Edge/abnormal input cases in packages/shared/**tests**/[name].test.ts
 
 ### Implementation for User Story 1
 
@@ -110,8 +109,8 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (REQUIRED if shared/calc logic) ⚠️
 
-- [ ] T018 [P] [US2] Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts
-- [ ] T019 [P] [US2] Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts
+- [ ] T018 [P] [US2] Unit test for [calc/util] in packages/shared/**tests**/[name].test.ts
+- [ ] T019 [P] [US2] Edge/abnormal input cases in packages/shared/**tests**/[name].test.ts
 
 ### Implementation for User Story 2
 
@@ -132,8 +131,8 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (REQUIRED if shared/calc logic) ⚠️
 
-- [ ] T024 [P] [US3] Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts
-- [ ] T025 [P] [US3] Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts
+- [ ] T024 [P] [US3] Unit test for [calc/util] in packages/shared/**tests**/[name].test.ts
+- [ ] T025 [P] [US3] Edge/abnormal input cases in packages/shared/**tests**/[name].test.ts
 
 ### Implementation for User Story 3
 
