@@ -50,6 +50,45 @@ function copyDeclarations(fromDir, toDir) {
 
 copyDeclarations(dtsSource, target);
 
+/**
+ * WeChat miniprogram require() does NOT resolve directory packages to index.js
+ * (Node-style). Rewrite `require("./foo")` → `require("./foo/index")` when
+ * `foo/index.js` exists and `foo.js` does not.
+ */
+function rewriteDirectoryRequires(dir) {
+  for (const name of readdirSync(dir)) {
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) {
+      rewriteDirectoryRequires(full);
+      continue;
+    }
+    if (!name.endsWith('.js') || name.endsWith('.map.js')) continue;
+
+    const original = readFileSync(full, 'utf8');
+    const updated = original.replace(
+      /require\((["'])(\.\/[^'"]+)\1\)/g,
+      (match, quote, reqPath) => {
+        if (reqPath.endsWith('.js') || reqPath.endsWith('/index')) {
+          return match;
+        }
+        const absBase = join(dirname(full), reqPath);
+        const asFile = `${absBase}.js`;
+        const asIndex = join(absBase, 'index.js');
+        if (!existsSync(asFile) && existsSync(asIndex)) {
+          return `require(${quote}${reqPath}/index${quote})`;
+        }
+        return match;
+      },
+    );
+
+    if (updated !== original) {
+      writeFileSync(full, updated);
+    }
+  }
+}
+
+rewriteDirectoryRequires(target);
+
 const indexDts = join(target, 'index.d.ts');
 if (!existsSync(indexDts)) {
   console.error('[sync:shared] Missing index.d.ts after copy.');
@@ -58,12 +97,16 @@ if (!existsSync(indexDts)) {
 
 writeFileSync(
   join(target, 'README.md'),
-  '# Synced from packages/shared (dist-cjs + dist *.d.ts) via `pnpm sync:shared`.\n# Do not edit by hand.\n',
+  '# Synced from packages/shared (dist-cjs + dist *.d.ts) via `pnpm sync:shared`.\n# Do not edit by hand.\n# Directory requires are rewritten to `/index` for WeChat compatibility.\n',
 );
 
 const indexJs = readFileSync(join(target, 'index.js'), 'utf8');
 if (!indexJs.includes('getPeakMeetPing') || indexJs.includes('export {')) {
   console.error('[sync:shared] Unexpected index.js (expect CJS with getPeakMeetPing).');
+  process.exit(1);
+}
+if (indexJs.includes('require("./calc")') && !indexJs.includes('require("./calc/index")')) {
+  console.error('[sync:shared] WeChat-incompatible require("./calc") still present.');
   process.exit(1);
 }
 

@@ -44,4 +44,4 @@ export {
   type WhrInput,
   type WhrResult,
   type WhrRiskLevel,
-} from './calc';
+} from './calc/index';
