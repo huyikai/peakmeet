@@ -144,6 +144,7 @@
 
 ### Stack & Shared Logic
 
+- **Language**: TypeScript（新增业务/共享逻辑默认 `.ts`；无充分理由不新增纯 JS）
 - **Target package(s)**: [shared / miniprogram / web / cloudfunctions]
 - **Shared extraction**: [calculations/utils that MUST live in packages/shared]
 - **Backend usage**: [CloudBase collections/functions if any; pure calc MUST stay client-side]

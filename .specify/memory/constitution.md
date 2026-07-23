@@ -1,23 +1,19 @@
 <!--
 Sync Impact Report
-- Version change: (template/unfilled) → 1.0.0
-- Modified principles: (placeholders) → I–VII concrete principles below
-- Added sections:
-  - Technology Stack Constraints
-  - Monorepo Structure
-  - Product Boundaries
-  - Coding & Engineering Standards
-  - Delivery Requirements
-  - Governance (filled)
-- Removed sections: none (template placeholders replaced)
+- Version change: 1.0.0 → 1.1.0
+- Modified principles:
+  - IV. Stack Lock → clarified TypeScript-first language rule (see Technology Stack)
+  - V. Test-First TDD → test file extension .test.js → .test.ts
+- Added sections: none (expanded Technology Stack Constraints + Coding Standards)
+- Removed sections: none
 - Templates requiring updates:
   - .specify/templates/plan-template.md ✅ updated
-  - .specify/templates/spec-template.md ✅ updated
   - .specify/templates/tasks-template.md ✅ updated
-  - .specify/templates/checklist-template.md ✅ updated (compliance category hint)
-  - .specify/templates/constitution-template.md ⚠ pending (canonical template retained; live doc is memory/constitution.md)
+  - .specify/templates/spec-template.md ✅ updated (TypeScript in Constitution Alignment)
+  - .specify/templates/checklist-template.md ✅ updated (TS language check)
+  - .specify/templates/constitution-template.md ⚠ pending (scaffold only)
   - README.md ⚠ pending (file not present yet)
-  - Spec Kit skills (.cursor/skills/speckit-*) ✅ verified (generic constitution refs; no outdated agent-specific names)
+  - Spec Kit skills (.cursor/skills/speckit-*) ✅ verified
 - Follow-up TODOs: none
 -->
 
@@ -69,8 +65,9 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 强制覆盖：`packages/shared` 内所有计算逻辑与工具函数 MUST 100% TDD，
 单元测试覆盖率 MUST 达到 100%。云函数核心处理逻辑鼓励 TDD；页面 UI
 与交互逻辑不做强制测试要求。测试文件统一放在对应包 `__tests__`
-目录，命名 `xxx.test.js`；用例 MUST 覆盖正常、边界与异常入参。
+目录，命名 `xxx.test.ts`；用例 MUST 覆盖正常、边界与异常入参。
 每次提交前 MUST 运行全量测试且全部通过。测试框架统一使用 Vitest。
+
 
 **Rationale**: 共享计算是产品正确性底座，无测试不得合入。
 
@@ -103,8 +100,17 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 
 ## Technology Stack Constraints
 
+### 开发语言（TypeScript 优先）
+- 全仓业务与共享逻辑 MUST 以 **TypeScript** 作为默认开发语言。
+- `packages/shared`、`packages/web`、`packages/cloudfunctions` 以及小程序
+  逻辑层新增代码 MUST 使用 TypeScript（`.ts` / `.tsx` 按场景）。
+- MUST NOT 在无充分理由时新增纯 JavaScript（`.js`）业务源码；仅当平台
+  或工具链强制要求时方可例外，并在 plan 的 Complexity Tracking 中说明。
+- 全仓 MUST 启用统一 `tsconfig` 基线（workspace 可继承），保持严格类型
+  检查；禁止用 `any` 逃避类型约束（确需时 MUST 局部标注并说明原因）。
+
 ### 微信小程序端
-- MUST 使用微信小程序原生框架（WXML + WXSS + JavaScript）。
+- MUST 使用微信小程序原生框架（WXML + WXSS + TypeScript）。
 - MUST NOT 使用 Taro、uni-app 等跨端框架。
 - MUST NOT 引入重型前端框架；保持轻量、加载快、审核兼容。
 - 核心计算逻辑 MUST 复用 monorepo 内 `shared` 包。
@@ -117,18 +123,19 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
   计算调用云函数。
 - 公共内容库（动作、器材、计划、食物）为只读权限；用户私有数据
   （收藏、记录）仅本人可读写。
-- 云函数仅用于需要服务端处理的逻辑（数据聚合、权限校验等）。
+- 云函数仅用于需要服务端处理的逻辑（数据聚合、权限校验等）；云函数
+  源码 MUST 优先 TypeScript 编写并按云开发要求编译交付。
 - 结构化内容 MUST 存于云数据库；图片资源 MUST 存于云存储；禁止在
   前端硬编码大量内容。
 
 ### Web 官网站点
-- MUST 使用 Astro，纯静态站点生成（SSG）。
+- MUST 使用 Astro，纯静态站点生成（SSG），源码 TypeScript 优先。
 - MUST NOT 启用 SSR，MUST NOT 接入服务端业务逻辑。
 - 计算器逻辑 MUST 复用 `shared`，与小程序结果完全一致。
 
 ### 工程与版本管理
 - 包管理：pnpm + workspace monorepo。
-- 代码规范：全仓统一 ESLint + Prettier。
+- 代码规范：全仓统一 ESLint + Prettier（含 TypeScript 规则）。
 - 代码托管于 GitHub，全仓使用 Git 版本管理。
 
 ## Monorepo Structure
@@ -193,10 +200,11 @@ peakmeet/
 
 ## Coding & Engineering Standards
 
-1. 命名：文件、变量、函数语义化，统一小驼峰。
-2. 逻辑复用：可复用纯逻辑优先进 `packages/shared`。
-3. 云开发：权限与云函数边界见「Technology Stack Constraints」。
-4. 内容数据：结构化内容进云数据库，图片进云存储。
+1. 语言：TypeScript 优先；类型与导出边界清晰，shared 包导出稳定类型。
+2. 命名：文件、变量、函数语义化，统一小驼峰。
+3. 逻辑复用：可复用纯逻辑优先进 `packages/shared`。
+4. 云开发：权限与云函数边界见「Technology Stack Constraints」。
+5. 内容数据：结构化内容进云数据库，图片进云存储。
 
 ## Delivery Requirements
 
@@ -222,12 +230,12 @@ peakmeet/
 **合规审查**
 - 每个 feature 的 plan MUST 通过 Constitution Check 门禁后方可进入
   设计与实现。
-- PR/评审 MUST 核对：栈锁定、shared 复用、TDD（shared）、产品边界、
-  合规红线。
+- PR/评审 MUST 核对：栈锁定、TypeScript 优先、shared 复用、TDD（shared）、
+  产品边界、合规红线。
 - 违规项 MUST 在合入前修复，或在 Complexity Tracking 中书面论证且
   不得突破 NON-NEGOTIABLE 条款（Stack Lock、TDD、Compliance）。
 
 **运行时开发指引**：以本文件与 `docs/` 下设计文档为准；Spec Kit 命令
 （specify → plan → tasks → implement）执行时 MUST 加载本 Constitution。
 
-**Version**: 1.0.0 | **Ratified**: 2026-07-23 | **Last Amended**: 2026-07-23
+**Version**: 1.1.0 | **Ratified**: 2026-07-23 | **Last Amended**: 2026-07-23

@@ -21,8 +21,8 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **shared**: `packages/shared/src/`, tests in `packages/shared/__tests__/xxx.test.js`
-- **miniprogram**: `packages/miniprogram/`（原生 WXML/WXSS/JS；shared 经构建同步至本地 utils）
+- **shared**: `packages/shared/src/`, tests in `packages/shared/__tests__/xxx.test.ts`
+- **miniprogram**: `packages/miniprogram/`（原生 WXML/WXSS/TS；shared 经构建同步至本地 utils）
 - **web**: `packages/web/`（Astro SSG；workspace 引用 shared）
 - **cloudfunctions**: `packages/cloudfunctions/`（仅服务端必要逻辑）
 - **database seeds**: `database/`
@@ -86,12 +86,12 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: TDD — write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Unit test for [calc/util] in packages/shared/__tests__/[name].test.js
-- [ ] T011 [P] [US1] Edge/abnormal input cases in packages/shared/__tests__/[name].test.js
+- [ ] T010 [P] [US1] Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts
+- [ ] T011 [P] [US1] Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Implement shared logic in packages/shared/src/[module].js (after T010 fails)
+- [ ] T012 [P] [US1] Implement shared logic in packages/shared/src/[module].ts (after T010 fails)
 - [ ] T013 [P] [US1] Wire miniprogram UI in packages/miniprogram/[path] (if applicable)
 - [ ] T014 [P] [US1] Wire web page in packages/web/[path] (if applicable; SSG only)
 - [ ] T015 [US1] Cloud function only if server-side required in packages/cloudfunctions/[name]
@@ -110,12 +110,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (REQUIRED if shared/calc logic) ⚠️
 
-- [ ] T018 [P] [US2] Unit test for [calc/util] in packages/shared/__tests__/[name].test.js
-- [ ] T019 [P] [US2] Edge/abnormal input cases in packages/shared/__tests__/[name].test.js
+- [ ] T018 [P] [US2] Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts
+- [ ] T019 [P] [US2] Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Implement shared logic in packages/shared/src/[module].js
+- [ ] T020 [P] [US2] Implement shared logic in packages/shared/src/[module].ts
 - [ ] T021 [US2] Wire miniprogram/web/cloud as applicable under packages/
 - [ ] T022 [US2] Implement feature UI/flow in packages/[target]/[path]
 - [ ] T023 [US2] Integrate with User Story 1 components (if needed; no logic duplication)
@@ -132,12 +132,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (REQUIRED if shared/calc logic) ⚠️
 
-- [ ] T024 [P] [US3] Unit test for [calc/util] in packages/shared/__tests__/[name].test.js
-- [ ] T025 [P] [US3] Edge/abnormal input cases in packages/shared/__tests__/[name].test.js
+- [ ] T024 [P] [US3] Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts
+- [ ] T025 [P] [US3] Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Implement shared logic in packages/shared/src/[module].js
+- [ ] T026 [P] [US3] Implement shared logic in packages/shared/src/[module].ts
 - [ ] T027 [US3] Wire miniprogram/web/cloud as applicable under packages/
 - [ ] T028 [US3] Implement feature UI/flow in packages/[target]/[path]
 
@@ -202,11 +202,11 @@ Examples of foundational tasks (adjust based on your project):
 
 ```bash
 # Launch shared unit tests for User Story 1 together (TDD first):
-Task: "Unit test for [calc/util] in packages/shared/__tests__/[name].test.js"
-Task: "Edge/abnormal input cases in packages/shared/__tests__/[name].test.js"
+Task: "Unit test for [calc/util] in packages/shared/__tests__/[name].test.ts"
+Task: "Edge/abnormal input cases in packages/shared/__tests__/[name].test.ts"
 
 # After tests fail, implement shared + wire packages in parallel where safe:
-Task: "Implement shared logic in packages/shared/src/[module].js"
+Task: "Implement shared logic in packages/shared/src/[module].ts"
 Task: "Wire miniprogram UI in packages/miniprogram/[path]"
 ```
 

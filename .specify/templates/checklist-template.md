@@ -35,10 +35,11 @@
 ## Constitution / Compliance *(include when relevant)*
 
 - [ ] CHK007 Stack Lock: no forbidden frameworks/backends/SSR
-- [ ] CHK008 Shared logic in packages/shared; no duplicated algorithms
-- [ ] CHK009 TDD/tests present for shared calc (if applicable)
-- [ ] CHK010 Product boundary respected (miniprogram vs Web)
-- [ ] CHK011 Disclaimer / privacy / no medical claims
+- [ ] CHK008 TypeScript First: new logic in .ts/.tsx; no unjustified plain JS
+- [ ] CHK009 Shared logic in packages/shared; no duplicated algorithms
+- [ ] CHK010 TDD/tests present for shared calc (if applicable; `*.test.ts`)
+- [ ] CHK011 Product boundary respected (miniprogram vs Web)
+- [ ] CHK012 Disclaimer / privacy / no medical claims
 
 ## Notes
 
