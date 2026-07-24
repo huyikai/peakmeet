@@ -1,6 +1,13 @@
 "use strict";
 App({
-    onLaunch() {
-        // PeakMeet bootstrap shell — no cloud init in this feature.
-    },
+  onLaunch() {
+    if (!wx.cloud) {
+      console.error('请使用支持云开发的基础库');
+      return;
+    }
+    wx.cloud.init({
+      env: 'cloud1-d8ghafmni1c847e3f',
+      traceUser: true,
+    });
+  },
 });

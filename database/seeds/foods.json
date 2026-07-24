@@ -1,0 +1,3402 @@
+[
+  {
+    "_id": "food_001",
+    "name": "白米饭",
+    "category": "staple",
+    "per100g": {
+      "kcal": 162,
+      "protein": 4.5,
+      "carb": 32.4,
+      "fat": 1.8,
+      "fiber": 2.7
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_001.png",
+    "sortWeight": 300,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_002",
+    "name": "糙米饭",
+    "category": "staple",
+    "per100g": {
+      "kcal": 167,
+      "protein": 4.6,
+      "carb": 33.3,
+      "fat": 1.9,
+      "fiber": 2.8
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_002.png",
+    "sortWeight": 299,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_003",
+    "name": "黑米饭",
+    "category": "staple",
+    "per100g": {
+      "kcal": 171,
+      "protein": 4.8,
+      "carb": 34.2,
+      "fat": 1.9,
+      "fiber": 2.9
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_003.png",
+    "sortWeight": 298,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_004",
+    "name": "藜麦饭",
+    "category": "staple",
+    "per100g": {
+      "kcal": 176,
+      "protein": 4.9,
+      "carb": 35.1,
+      "fat": 2,
+      "fiber": 2.9
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_004.png",
+    "sortWeight": 297,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_005",
+    "name": "小米粥",
+    "category": "staple",
+    "per100g": {
+      "kcal": 180,
+      "protein": 5,
+      "carb": 36,
+      "fat": 2,
+      "fiber": 3
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_005.png",
+    "sortWeight": 296,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_006",
+    "name": "燕麦粥",
+    "category": "staple",
+    "per100g": {
+      "kcal": 184,
+      "protein": 5.1,
+      "carb": 36.9,
+      "fat": 2,
+      "fiber": 3.1
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_006.png",
+    "sortWeight": 295,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_007",
+    "name": "玉米",
+    "category": "staple",
+    "per100g": {
+      "kcal": 189,
+      "protein": 5.3,
+      "carb": 37.8,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_007.png",
+    "sortWeight": 294,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_008",
+    "name": "玉米糁",
+    "category": "staple",
+    "per100g": {
+      "kcal": 194,
+      "protein": 5.4,
+      "carb": 38.7,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_008.png",
+    "sortWeight": 293,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_009",
+    "name": "燕麦片",
+    "category": "staple",
+    "per100g": {
+      "kcal": 198,
+      "protein": 5.5,
+      "carb": 39.6,
+      "fat": 2.2,
+      "fiber": 3.3
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_009.png",
+    "sortWeight": 292,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_010",
+    "name": "藜麦",
+    "category": "staple",
+    "per100g": {
+      "kcal": 162,
+      "protein": 4.5,
+      "carb": 32.4,
+      "fat": 1.8,
+      "fiber": 2.7
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_010.png",
+    "sortWeight": 291,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_011",
+    "name": "荞麦",
+    "category": "staple",
+    "per100g": {
+      "kcal": 167,
+      "protein": 4.6,
+      "carb": 33.3,
+      "fat": 1.9,
+      "fiber": 2.8
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_011.png",
+    "sortWeight": 290,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_012",
+    "name": "荞麦面",
+    "category": "staple",
+    "per100g": {
+      "kcal": 171,
+      "protein": 4.8,
+      "carb": 34.2,
+      "fat": 1.9,
+      "fiber": 2.9
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_012.png",
+    "sortWeight": 289,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_013",
+    "name": "全麦面包",
+    "category": "staple",
+    "per100g": {
+      "kcal": 176,
+      "protein": 4.9,
+      "carb": 35.1,
+      "fat": 2,
+      "fiber": 2.9
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_013.png",
+    "sortWeight": 288,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_014",
+    "name": "黑麦面包",
+    "category": "staple",
+    "per100g": {
+      "kcal": 180,
+      "protein": 5,
+      "carb": 36,
+      "fat": 2,
+      "fiber": 3
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_014.png",
+    "sortWeight": 287,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_015",
+    "name": "全麦贝果",
+    "category": "staple",
+    "per100g": {
+      "kcal": 184,
+      "protein": 5.1,
+      "carb": 36.9,
+      "fat": 2,
+      "fiber": 3.1
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_015.png",
+    "sortWeight": 286,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_016",
+    "name": "馒头",
+    "category": "staple",
+    "per100g": {
+      "kcal": 189,
+      "protein": 5.3,
+      "carb": 37.8,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_016.png",
+    "sortWeight": 285,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_017",
+    "name": "花卷",
+    "category": "staple",
+    "per100g": {
+      "kcal": 194,
+      "protein": 5.4,
+      "carb": 38.7,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_017.png",
+    "sortWeight": 284,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_018",
+    "name": "面条",
+    "category": "staple",
+    "per100g": {
+      "kcal": 198,
+      "protein": 5.5,
+      "carb": 39.6,
+      "fat": 2.2,
+      "fiber": 3.3
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_018.png",
+    "sortWeight": 283,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_019",
+    "name": "意大利面",
+    "category": "staple",
+    "per100g": {
+      "kcal": 162,
+      "protein": 4.5,
+      "carb": 32.4,
+      "fat": 1.8,
+      "fiber": 2.7
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_019.png",
+    "sortWeight": 282,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_020",
+    "name": "米粉",
+    "category": "staple",
+    "per100g": {
+      "kcal": 167,
+      "protein": 4.6,
+      "carb": 33.3,
+      "fat": 1.9,
+      "fiber": 2.8
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_020.png",
+    "sortWeight": 281,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_021",
+    "name": "河粉",
+    "category": "staple",
+    "per100g": {
+      "kcal": 171,
+      "protein": 4.8,
+      "carb": 34.2,
+      "fat": 1.9,
+      "fiber": 2.9
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_021.png",
+    "sortWeight": 280,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_022",
+    "name": "红薯",
+    "category": "staple",
+    "per100g": {
+      "kcal": 176,
+      "protein": 4.9,
+      "carb": 35.1,
+      "fat": 2,
+      "fiber": 2.9
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_022.png",
+    "sortWeight": 279,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_023",
+    "name": "紫薯",
+    "category": "staple",
+    "per100g": {
+      "kcal": 180,
+      "protein": 5,
+      "carb": 36,
+      "fat": 2,
+      "fiber": 3
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_023.png",
+    "sortWeight": 278,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_024",
+    "name": "土豆",
+    "category": "staple",
+    "per100g": {
+      "kcal": 184,
+      "protein": 5.1,
+      "carb": 36.9,
+      "fat": 2,
+      "fiber": 3.1
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_024.png",
+    "sortWeight": 277,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_025",
+    "name": "山药",
+    "category": "staple",
+    "per100g": {
+      "kcal": 189,
+      "protein": 5.3,
+      "carb": 37.8,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_025.png",
+    "sortWeight": 276,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_026",
+    "name": "芋头",
+    "category": "staple",
+    "per100g": {
+      "kcal": 194,
+      "protein": 5.4,
+      "carb": 38.7,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_026.png",
+    "sortWeight": 275,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_027",
+    "name": "南瓜",
+    "category": "staple",
+    "per100g": {
+      "kcal": 198,
+      "protein": 5.5,
+      "carb": 39.6,
+      "fat": 2.2,
+      "fiber": 3.3
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_027.png",
+    "sortWeight": 274,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_028",
+    "name": "莲藕",
+    "category": "staple",
+    "per100g": {
+      "kcal": 162,
+      "protein": 4.5,
+      "carb": 32.4,
+      "fat": 1.8,
+      "fiber": 2.7
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_028.png",
+    "sortWeight": 273,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_029",
+    "name": "全麦卷饼",
+    "category": "staple",
+    "per100g": {
+      "kcal": 167,
+      "protein": 4.6,
+      "carb": 33.3,
+      "fat": 1.9,
+      "fiber": 2.8
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_029.png",
+    "sortWeight": 272,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_030",
+    "name": "玉米饼",
+    "category": "staple",
+    "per100g": {
+      "kcal": 171,
+      "protein": 4.8,
+      "carb": 34.2,
+      "fat": 1.9,
+      "fiber": 2.9
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_030.png",
+    "sortWeight": 271,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_031",
+    "name": "薏米",
+    "category": "staple",
+    "per100g": {
+      "kcal": 176,
+      "protein": 4.9,
+      "carb": 35.1,
+      "fat": 2,
+      "fiber": 2.9
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_031.png",
+    "sortWeight": 270,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_032",
+    "name": "大麦",
+    "category": "staple",
+    "per100g": {
+      "kcal": 180,
+      "protein": 5,
+      "carb": 36,
+      "fat": 2,
+      "fiber": 3
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_032.png",
+    "sortWeight": 269,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_033",
+    "name": "青稞",
+    "category": "staple",
+    "per100g": {
+      "kcal": 184,
+      "protein": 5.1,
+      "carb": 36.9,
+      "fat": 2,
+      "fiber": 3.1
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_033.png",
+    "sortWeight": 268,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_034",
+    "name": "鹰嘴豆泥饼",
+    "category": "staple",
+    "per100g": {
+      "kcal": 189,
+      "protein": 5.3,
+      "carb": 37.8,
+      "fat": 2.1,
+      "fiber": 3.2
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_034.png",
+    "sortWeight": 267,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_035",
+    "name": "鸡胸肉",
+    "category": "protein",
+    "per100g": {
+      "kcal": 161,
+      "protein": 23.6,
+      "carb": 3.2,
+      "fat": 6.4,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_035.png",
+    "sortWeight": 266,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_036",
+    "name": "鸡腿肉",
+    "category": "protein",
+    "per100g": {
+      "kcal": 165,
+      "protein": 24.2,
+      "carb": 3.3,
+      "fat": 6.6,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_036.png",
+    "sortWeight": 265,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_037",
+    "name": "火鸡胸肉",
+    "category": "protein",
+    "per100g": {
+      "kcal": 135,
+      "protein": 19.8,
+      "carb": 2.7,
+      "fat": 5.4,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_037.png",
+    "sortWeight": 264,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_038",
+    "name": "瘦牛肉",
+    "category": "protein",
+    "per100g": {
+      "kcal": 139,
+      "protein": 20.4,
+      "carb": 2.8,
+      "fat": 5.6,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_038.png",
+    "sortWeight": 263,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_039",
+    "name": "牛里脊",
+    "category": "protein",
+    "per100g": {
+      "kcal": 143,
+      "protein": 20.9,
+      "carb": 2.9,
+      "fat": 5.7,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_039.png",
+    "sortWeight": 262,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_040",
+    "name": "瘦猪里脊",
+    "category": "protein",
+    "per100g": {
+      "kcal": 146,
+      "protein": 21.5,
+      "carb": 2.9,
+      "fat": 5.9,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_040.png",
+    "sortWeight": 261,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_041",
+    "name": "猪瘦肉",
+    "category": "protein",
+    "per100g": {
+      "kcal": 150,
+      "protein": 22,
+      "carb": 3,
+      "fat": 6,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_041.png",
+    "sortWeight": 260,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_042",
+    "name": "羊里脊",
+    "category": "protein",
+    "per100g": {
+      "kcal": 154,
+      "protein": 22.5,
+      "carb": 3.1,
+      "fat": 6.1,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_042.png",
+    "sortWeight": 259,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_043",
+    "name": "三文鱼",
+    "category": "protein",
+    "per100g": {
+      "kcal": 158,
+      "protein": 23.1,
+      "carb": 3.2,
+      "fat": 6.3,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_043.png",
+    "sortWeight": 258,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_044",
+    "name": "鳕鱼",
+    "category": "protein",
+    "per100g": {
+      "kcal": 161,
+      "protein": 23.6,
+      "carb": 3.2,
+      "fat": 6.4,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_044.png",
+    "sortWeight": 257,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_045",
+    "name": "金枪鱼",
+    "category": "protein",
+    "per100g": {
+      "kcal": 165,
+      "protein": 24.2,
+      "carb": 3.3,
+      "fat": 6.6,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_045.png",
+    "sortWeight": 256,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_046",
+    "name": "鲈鱼",
+    "category": "protein",
+    "per100g": {
+      "kcal": 135,
+      "protein": 19.8,
+      "carb": 2.7,
+      "fat": 5.4,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_046.png",
+    "sortWeight": 255,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_047",
+    "name": "虾仁",
+    "category": "protein",
+    "per100g": {
+      "kcal": 139,
+      "protein": 20.4,
+      "carb": 2.8,
+      "fat": 5.6,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_047.png",
+    "sortWeight": 254,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_048",
+    "name": "扇贝",
+    "category": "protein",
+    "per100g": {
+      "kcal": 143,
+      "protein": 20.9,
+      "carb": 2.9,
+      "fat": 5.7,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_048.png",
+    "sortWeight": 253,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_049",
+    "name": "蛤蜊",
+    "category": "protein",
+    "per100g": {
+      "kcal": 146,
+      "protein": 21.5,
+      "carb": 2.9,
+      "fat": 5.9,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_049.png",
+    "sortWeight": 252,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_050",
+    "name": "牡蛎",
+    "category": "protein",
+    "per100g": {
+      "kcal": 150,
+      "protein": 22,
+      "carb": 3,
+      "fat": 6,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_050.png",
+    "sortWeight": 251,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_051",
+    "name": "鸡蛋",
+    "category": "protein",
+    "per100g": {
+      "kcal": 154,
+      "protein": 22.5,
+      "carb": 3.1,
+      "fat": 6.1,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_051.png",
+    "sortWeight": 250,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_052",
+    "name": "蛋清",
+    "category": "protein",
+    "per100g": {
+      "kcal": 158,
+      "protein": 23.1,
+      "carb": 3.2,
+      "fat": 6.3,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_052.png",
+    "sortWeight": 249,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_053",
+    "name": "北豆腐",
+    "category": "protein",
+    "per100g": {
+      "kcal": 161,
+      "protein": 23.6,
+      "carb": 3.2,
+      "fat": 6.4,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_053.png",
+    "sortWeight": 248,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_054",
+    "name": "南豆腐",
+    "category": "protein",
+    "per100g": {
+      "kcal": 165,
+      "protein": 24.2,
+      "carb": 3.3,
+      "fat": 6.6,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_054.png",
+    "sortWeight": 247,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_055",
+    "name": "豆腐干",
+    "category": "protein",
+    "per100g": {
+      "kcal": 135,
+      "protein": 19.8,
+      "carb": 2.7,
+      "fat": 5.4,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_055.png",
+    "sortWeight": 246,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_056",
+    "name": "豆皮",
+    "category": "protein",
+    "per100g": {
+      "kcal": 139,
+      "protein": 20.4,
+      "carb": 2.8,
+      "fat": 5.6,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_056.png",
+    "sortWeight": 245,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_057",
+    "name": "毛豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 143,
+      "protein": 20.9,
+      "carb": 2.9,
+      "fat": 5.7,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_057.png",
+    "sortWeight": 244,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_058",
+    "name": "黄豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 146,
+      "protein": 21.5,
+      "carb": 2.9,
+      "fat": 5.9,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_058.png",
+    "sortWeight": 243,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_059",
+    "name": "黑豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 150,
+      "protein": 22,
+      "carb": 3,
+      "fat": 6,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_059.png",
+    "sortWeight": 242,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_060",
+    "name": "红腰豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 154,
+      "protein": 22.5,
+      "carb": 3.1,
+      "fat": 6.1,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_060.png",
+    "sortWeight": 241,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_061",
+    "name": "鹰嘴豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 158,
+      "protein": 23.1,
+      "carb": 3.2,
+      "fat": 6.3,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_061.png",
+    "sortWeight": 240,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_062",
+    "name": "扁豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 161,
+      "protein": 23.6,
+      "carb": 3.2,
+      "fat": 6.4,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_062.png",
+    "sortWeight": 239,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_063",
+    "name": "青豆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 165,
+      "protein": 24.2,
+      "carb": 3.3,
+      "fat": 6.6,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_063.png",
+    "sortWeight": 238,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_064",
+    "name": "无糖豆浆",
+    "category": "protein",
+    "per100g": {
+      "kcal": 135,
+      "protein": 19.8,
+      "carb": 2.7,
+      "fat": 5.4,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_064.png",
+    "sortWeight": 237,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_065",
+    "name": "鸡肉丸",
+    "category": "protein",
+    "per100g": {
+      "kcal": 139,
+      "protein": 20.4,
+      "carb": 2.8,
+      "fat": 5.6,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_065.png",
+    "sortWeight": 236,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_066",
+    "name": "牛肉丸",
+    "category": "protein",
+    "per100g": {
+      "kcal": 143,
+      "protein": 20.9,
+      "carb": 2.9,
+      "fat": 5.7,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_066.png",
+    "sortWeight": 235,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_067",
+    "name": "低脂火腿",
+    "category": "protein",
+    "per100g": {
+      "kcal": 146,
+      "protein": 21.5,
+      "carb": 2.9,
+      "fat": 5.9,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_067.png",
+    "sortWeight": 234,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_068",
+    "name": "去皮鸭胸",
+    "category": "protein",
+    "per100g": {
+      "kcal": 150,
+      "protein": 22,
+      "carb": 3,
+      "fat": 6,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_068.png",
+    "sortWeight": 233,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_069",
+    "name": "西兰花",
+    "category": "veg",
+    "per100g": {
+      "kcal": 33,
+      "protein": 2.6,
+      "carb": 6.1,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_069.png",
+    "sortWeight": 232,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_070",
+    "name": "菠菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.6,
+      "carb": 6.3,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_070.png",
+    "sortWeight": 231,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_071",
+    "name": "油麦菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.7,
+      "carb": 6.4,
+      "fat": 0.4,
+      "fiber": 2.7
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_071.png",
+    "sortWeight": 230,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_072",
+    "name": "生菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 35,
+      "protein": 2.8,
+      "carb": 6.6,
+      "fat": 0.4,
+      "fiber": 2.8
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_072.png",
+    "sortWeight": 229,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_073",
+    "name": "小白菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 29,
+      "protein": 2.3,
+      "carb": 5.4,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_073.png",
+    "sortWeight": 228,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_074",
+    "name": "上海青",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.3,
+      "carb": 5.6,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_074.png",
+    "sortWeight": 227,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_075",
+    "name": "芥蓝",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.4,
+      "carb": 5.7,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_075.png",
+    "sortWeight": 226,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_076",
+    "name": "空心菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 31,
+      "protein": 2.4,
+      "carb": 5.9,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_076.png",
+    "sortWeight": 225,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_077",
+    "name": "菜心",
+    "category": "veg",
+    "per100g": {
+      "kcal": 32,
+      "protein": 2.5,
+      "carb": 6,
+      "fat": 0.4,
+      "fiber": 2.5
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_077.png",
+    "sortWeight": 224,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_078",
+    "name": "羽衣甘蓝",
+    "category": "veg",
+    "per100g": {
+      "kcal": 33,
+      "protein": 2.6,
+      "carb": 6.1,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_078.png",
+    "sortWeight": 223,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_079",
+    "name": "紫甘蓝",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.6,
+      "carb": 6.3,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_079.png",
+    "sortWeight": 222,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_080",
+    "name": "卷心菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.7,
+      "carb": 6.4,
+      "fat": 0.4,
+      "fiber": 2.7
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_080.png",
+    "sortWeight": 221,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_081",
+    "name": "娃娃菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 35,
+      "protein": 2.8,
+      "carb": 6.6,
+      "fat": 0.4,
+      "fiber": 2.8
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_081.png",
+    "sortWeight": 220,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_082",
+    "name": "芹菜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 29,
+      "protein": 2.3,
+      "carb": 5.4,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_082.png",
+    "sortWeight": 219,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_083",
+    "name": "西芹",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.3,
+      "carb": 5.6,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_083.png",
+    "sortWeight": 218,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_084",
+    "name": "芦笋",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.4,
+      "carb": 5.7,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_084.png",
+    "sortWeight": 217,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_085",
+    "name": "秋葵",
+    "category": "veg",
+    "per100g": {
+      "kcal": 31,
+      "protein": 2.4,
+      "carb": 5.9,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_085.png",
+    "sortWeight": 216,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_086",
+    "name": "黄瓜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 32,
+      "protein": 2.5,
+      "carb": 6,
+      "fat": 0.4,
+      "fiber": 2.5
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_086.png",
+    "sortWeight": 215,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_087",
+    "name": "西葫芦",
+    "category": "veg",
+    "per100g": {
+      "kcal": 33,
+      "protein": 2.6,
+      "carb": 6.1,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_087.png",
+    "sortWeight": 214,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_088",
+    "name": "冬瓜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.6,
+      "carb": 6.3,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_088.png",
+    "sortWeight": 213,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_089",
+    "name": "丝瓜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.7,
+      "carb": 6.4,
+      "fat": 0.4,
+      "fiber": 2.7
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_089.png",
+    "sortWeight": 212,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_090",
+    "name": "苦瓜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 35,
+      "protein": 2.8,
+      "carb": 6.6,
+      "fat": 0.4,
+      "fiber": 2.8
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_090.png",
+    "sortWeight": 211,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_091",
+    "name": "番茄",
+    "category": "veg",
+    "per100g": {
+      "kcal": 29,
+      "protein": 2.3,
+      "carb": 5.4,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_091.png",
+    "sortWeight": 210,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_092",
+    "name": "彩椒",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.3,
+      "carb": 5.6,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_092.png",
+    "sortWeight": 209,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_093",
+    "name": "青椒",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.4,
+      "carb": 5.7,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_093.png",
+    "sortWeight": 208,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_094",
+    "name": "茄子",
+    "category": "veg",
+    "per100g": {
+      "kcal": 31,
+      "protein": 2.4,
+      "carb": 5.9,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_094.png",
+    "sortWeight": 207,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_095",
+    "name": "胡萝卜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 32,
+      "protein": 2.5,
+      "carb": 6,
+      "fat": 0.4,
+      "fiber": 2.5
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_095.png",
+    "sortWeight": 206,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_096",
+    "name": "白萝卜",
+    "category": "veg",
+    "per100g": {
+      "kcal": 33,
+      "protein": 2.6,
+      "carb": 6.1,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_096.png",
+    "sortWeight": 205,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_097",
+    "name": "蘑菇",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.6,
+      "carb": 6.3,
+      "fat": 0.4,
+      "fiber": 2.6
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_097.png",
+    "sortWeight": 204,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_098",
+    "name": "香菇",
+    "category": "veg",
+    "per100g": {
+      "kcal": 34,
+      "protein": 2.7,
+      "carb": 6.4,
+      "fat": 0.4,
+      "fiber": 2.7
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_098.png",
+    "sortWeight": 203,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_099",
+    "name": "杏鲍菇",
+    "category": "veg",
+    "per100g": {
+      "kcal": 35,
+      "protein": 2.8,
+      "carb": 6.6,
+      "fat": 0.4,
+      "fiber": 2.8
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_099.png",
+    "sortWeight": 202,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_100",
+    "name": "金针菇",
+    "category": "veg",
+    "per100g": {
+      "kcal": 29,
+      "protein": 2.3,
+      "carb": 5.4,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_100.png",
+    "sortWeight": 201,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_101",
+    "name": "海带",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.3,
+      "carb": 5.6,
+      "fat": 0.4,
+      "fiber": 2.3
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_101.png",
+    "sortWeight": 200,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_102",
+    "name": "木耳",
+    "category": "veg",
+    "per100g": {
+      "kcal": 30,
+      "protein": 2.4,
+      "carb": 5.7,
+      "fat": 0.4,
+      "fiber": 2.4
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_102.png",
+    "sortWeight": 199,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_103",
+    "name": "苹果",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 57,
+      "protein": 0.8,
+      "carb": 13.7,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_103.png",
+    "sortWeight": 198,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_104",
+    "name": "香蕉",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 58,
+      "protein": 0.8,
+      "carb": 14,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_104.png",
+    "sortWeight": 197,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_105",
+    "name": "橙子",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 59,
+      "protein": 0.8,
+      "carb": 14.3,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_105.png",
+    "sortWeight": 196,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_106",
+    "name": "柚子",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 61,
+      "protein": 0.8,
+      "carb": 14.7,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_106.png",
+    "sortWeight": 195,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_107",
+    "name": "柑橘",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 62,
+      "protein": 0.9,
+      "carb": 15,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_107.png",
+    "sortWeight": 194,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_108",
+    "name": "梨",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 64,
+      "protein": 0.9,
+      "carb": 15.4,
+      "fat": 0.3,
+      "fiber": 2.2
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_108.png",
+    "sortWeight": 193,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_109",
+    "name": "桃",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 52,
+      "protein": 0.7,
+      "carb": 12.6,
+      "fat": 0.3,
+      "fiber": 1.8
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_109.png",
+    "sortWeight": 192,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_110",
+    "name": "油桃",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 54,
+      "protein": 0.7,
+      "carb": 13,
+      "fat": 0.3,
+      "fiber": 1.9
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_110.png",
+    "sortWeight": 191,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_111",
+    "name": "李子",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 55,
+      "protein": 0.8,
+      "carb": 13.3,
+      "fat": 0.3,
+      "fiber": 1.9
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_111.png",
+    "sortWeight": 190,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_112",
+    "name": "杏",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 57,
+      "protein": 0.8,
+      "carb": 13.7,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_112.png",
+    "sortWeight": 189,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_113",
+    "name": "葡萄",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 58,
+      "protein": 0.8,
+      "carb": 14,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_113.png",
+    "sortWeight": 188,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_114",
+    "name": "草莓",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 59,
+      "protein": 0.8,
+      "carb": 14.3,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_114.png",
+    "sortWeight": 187,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_115",
+    "name": "蓝莓",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 61,
+      "protein": 0.8,
+      "carb": 14.7,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_115.png",
+    "sortWeight": 186,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_116",
+    "name": "树莓",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 62,
+      "protein": 0.9,
+      "carb": 15,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_116.png",
+    "sortWeight": 185,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_117",
+    "name": "黑莓",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 64,
+      "protein": 0.9,
+      "carb": 15.4,
+      "fat": 0.3,
+      "fiber": 2.2
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_117.png",
+    "sortWeight": 184,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_118",
+    "name": "猕猴桃",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 52,
+      "protein": 0.7,
+      "carb": 12.6,
+      "fat": 0.3,
+      "fiber": 1.8
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_118.png",
+    "sortWeight": 183,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_119",
+    "name": "菠萝",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 54,
+      "protein": 0.7,
+      "carb": 13,
+      "fat": 0.3,
+      "fiber": 1.9
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_119.png",
+    "sortWeight": 182,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_120",
+    "name": "芒果",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 55,
+      "protein": 0.8,
+      "carb": 13.3,
+      "fat": 0.3,
+      "fiber": 1.9
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_120.png",
+    "sortWeight": 181,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_121",
+    "name": "木瓜",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 57,
+      "protein": 0.8,
+      "carb": 13.7,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_121.png",
+    "sortWeight": 180,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_122",
+    "name": "西瓜",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 58,
+      "protein": 0.8,
+      "carb": 14,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_122.png",
+    "sortWeight": 179,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_123",
+    "name": "哈密瓜",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 59,
+      "protein": 0.8,
+      "carb": 14.3,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_123.png",
+    "sortWeight": 178,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_124",
+    "name": "甜瓜",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 61,
+      "protein": 0.8,
+      "carb": 14.7,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_124.png",
+    "sortWeight": 177,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_125",
+    "name": "火龙果",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 62,
+      "protein": 0.9,
+      "carb": 15,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_125.png",
+    "sortWeight": 176,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_126",
+    "name": "石榴",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 64,
+      "protein": 0.9,
+      "carb": 15.4,
+      "fat": 0.3,
+      "fiber": 2.2
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_126.png",
+    "sortWeight": 175,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_127",
+    "name": "樱桃",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 52,
+      "protein": 0.7,
+      "carb": 12.6,
+      "fat": 0.3,
+      "fiber": 1.8
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_127.png",
+    "sortWeight": 174,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_128",
+    "name": "柠檬",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 54,
+      "protein": 0.7,
+      "carb": 13,
+      "fat": 0.3,
+      "fiber": 1.9
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_128.png",
+    "sortWeight": 173,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_129",
+    "name": "百香果",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 55,
+      "protein": 0.8,
+      "carb": 13.3,
+      "fat": 0.3,
+      "fiber": 1.9
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_129.png",
+    "sortWeight": 172,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_130",
+    "name": "无花果",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 57,
+      "protein": 0.8,
+      "carb": 13.7,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_130.png",
+    "sortWeight": 171,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_131",
+    "name": "杨梅",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 58,
+      "protein": 0.8,
+      "carb": 14,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_131.png",
+    "sortWeight": 170,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_132",
+    "name": "荔枝",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 59,
+      "protein": 0.8,
+      "carb": 14.3,
+      "fat": 0.3,
+      "fiber": 2
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_132.png",
+    "sortWeight": 169,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_133",
+    "name": "龙眼",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 61,
+      "protein": 0.8,
+      "carb": 14.7,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_133.png",
+    "sortWeight": 168,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_134",
+    "name": "牛油果",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 62,
+      "protein": 0.9,
+      "carb": 15,
+      "fat": 0.3,
+      "fiber": 2.1
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_134.png",
+    "sortWeight": 167,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_135",
+    "name": "椰子肉",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 64,
+      "protein": 0.9,
+      "carb": 15.4,
+      "fat": 0.3,
+      "fiber": 2.2
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_135.png",
+    "sortWeight": 166,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_136",
+    "name": "柿子",
+    "category": "fruit",
+    "per100g": {
+      "kcal": 52,
+      "protein": 0.7,
+      "carb": 12.6,
+      "fat": 0.3,
+      "fiber": 1.8
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_136.png",
+    "sortWeight": 165,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_137",
+    "name": "低脂牛奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 83,
+      "protein": 6.5,
+      "carb": 6.5,
+      "fat": 3.7,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_137.png",
+    "sortWeight": 164,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_138",
+    "name": "脱脂牛奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 86,
+      "protein": 6.7,
+      "carb": 6.7,
+      "fat": 3.8,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_138.png",
+    "sortWeight": 163,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_139",
+    "name": "全脂牛奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 88,
+      "protein": 6.8,
+      "carb": 6.8,
+      "fat": 3.9,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_139.png",
+    "sortWeight": 162,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_140",
+    "name": "无乳糖牛奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 90,
+      "protein": 7,
+      "carb": 7,
+      "fat": 4,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_140.png",
+    "sortWeight": 161,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_141",
+    "name": "希腊酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 92,
+      "protein": 7.2,
+      "carb": 7.2,
+      "fat": 4.1,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_141.png",
+    "sortWeight": 160,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_142",
+    "name": "低脂酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 95,
+      "protein": 7.4,
+      "carb": 7.4,
+      "fat": 4.2,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_142.png",
+    "sortWeight": 159,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_143",
+    "name": "无糖酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 97,
+      "protein": 7.5,
+      "carb": 7.5,
+      "fat": 4.3,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_143.png",
+    "sortWeight": 158,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_144",
+    "name": "原味酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 99,
+      "protein": 7.7,
+      "carb": 7.7,
+      "fat": 4.4,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_144.png",
+    "sortWeight": 157,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_145",
+    "name": "高蛋白酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 81,
+      "protein": 6.3,
+      "carb": 6.3,
+      "fat": 3.6,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_145.png",
+    "sortWeight": 156,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_146",
+    "name": "低脂奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 83,
+      "protein": 6.5,
+      "carb": 6.5,
+      "fat": 3.7,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_146.png",
+    "sortWeight": 155,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_147",
+    "name": "茅屋奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 86,
+      "protein": 6.7,
+      "carb": 6.7,
+      "fat": 3.8,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_147.png",
+    "sortWeight": 154,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_148",
+    "name": "马苏里拉奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 88,
+      "protein": 6.8,
+      "carb": 6.8,
+      "fat": 3.9,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_148.png",
+    "sortWeight": 153,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_149",
+    "name": "帕玛森奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 90,
+      "protein": 7,
+      "carb": 7,
+      "fat": 4,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_149.png",
+    "sortWeight": 152,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_150",
+    "name": "切达奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 92,
+      "protein": 7.2,
+      "carb": 7.2,
+      "fat": 4.1,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_150.png",
+    "sortWeight": 151,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_151",
+    "name": "羊奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 95,
+      "protein": 7.4,
+      "carb": 7.4,
+      "fat": 4.2,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_151.png",
+    "sortWeight": 150,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_152",
+    "name": "羊奶酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 97,
+      "protein": 7.5,
+      "carb": 7.5,
+      "fat": 4.3,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_152.png",
+    "sortWeight": 149,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_153",
+    "name": "奶粉",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 99,
+      "protein": 7.7,
+      "carb": 7.7,
+      "fat": 4.4,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_153.png",
+    "sortWeight": 148,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_154",
+    "name": "乳清蛋白粉",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 81,
+      "protein": 6.3,
+      "carb": 6.3,
+      "fat": 3.6,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_154.png",
+    "sortWeight": 147,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_155",
+    "name": "酪蛋白粉",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 83,
+      "protein": 6.5,
+      "carb": 6.5,
+      "fat": 3.7,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_155.png",
+    "sortWeight": 146,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_156",
+    "name": "开菲尔酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 86,
+      "protein": 6.7,
+      "carb": 6.7,
+      "fat": 3.8,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_156.png",
+    "sortWeight": 145,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_157",
+    "name": "奶豆腐",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 88,
+      "protein": 6.8,
+      "carb": 6.8,
+      "fat": 3.9,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_157.png",
+    "sortWeight": 144,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_158",
+    "name": "低脂芝士片",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 90,
+      "protein": 7,
+      "carb": 7,
+      "fat": 4,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_158.png",
+    "sortWeight": 143,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_159",
+    "name": "无糖杏仁奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 92,
+      "protein": 7.2,
+      "carb": 7.2,
+      "fat": 4.1,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_159.png",
+    "sortWeight": 142,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_160",
+    "name": "无糖燕麦奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 95,
+      "protein": 7.4,
+      "carb": 7.4,
+      "fat": 4.2,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_160.png",
+    "sortWeight": 141,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_161",
+    "name": "无糖椰奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 97,
+      "protein": 7.5,
+      "carb": 7.5,
+      "fat": 4.3,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_161.png",
+    "sortWeight": 140,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_162",
+    "name": "豆奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 99,
+      "protein": 7.7,
+      "carb": 7.7,
+      "fat": 4.4,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_162.png",
+    "sortWeight": 139,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_163",
+    "name": "调制乳",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 81,
+      "protein": 6.3,
+      "carb": 6.3,
+      "fat": 3.6,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_163.png",
+    "sortWeight": 138,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_164",
+    "name": "高钙牛奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 83,
+      "protein": 6.5,
+      "carb": 6.5,
+      "fat": 3.7,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_164.png",
+    "sortWeight": 137,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_165",
+    "name": "巴氏鲜奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 86,
+      "protein": 6.7,
+      "carb": 6.7,
+      "fat": 3.8,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_165.png",
+    "sortWeight": 136,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_166",
+    "name": "低温酸奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 88,
+      "protein": 6.8,
+      "carb": 6.8,
+      "fat": 3.9,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_166.png",
+    "sortWeight": 135,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_167",
+    "name": "水牛奶",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 90,
+      "protein": 7,
+      "carb": 7,
+      "fat": 4,
+      "fiber": 0
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_167.png",
+    "sortWeight": 134,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_168",
+    "name": "儿童奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 92,
+      "protein": 7.2,
+      "carb": 7.2,
+      "fat": 4.1,
+      "fiber": 0
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_168.png",
+    "sortWeight": 133,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_169",
+    "name": "再制奶酪",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 95,
+      "protein": 7.4,
+      "carb": 7.4,
+      "fat": 4.2,
+      "fiber": 0
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_169.png",
+    "sortWeight": 132,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_170",
+    "name": "乳清饮品",
+    "category": "dairy",
+    "per100g": {
+      "kcal": 97,
+      "protein": 7.5,
+      "carb": 7.5,
+      "fat": 4.3,
+      "fiber": 0
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_170.png",
+    "sortWeight": 131,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_171",
+    "name": "杏仁",
+    "category": "snack",
+    "per100g": {
+      "kcal": 418,
+      "protein": 13.2,
+      "carb": 38.5,
+      "fat": 24.2,
+      "fiber": 5.5
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_171.png",
+    "sortWeight": 130,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_172",
+    "name": "核桃",
+    "category": "snack",
+    "per100g": {
+      "kcal": 342,
+      "protein": 10.8,
+      "carb": 31.5,
+      "fat": 19.8,
+      "fiber": 4.5
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_172.png",
+    "sortWeight": 129,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_173",
+    "name": "腰果",
+    "category": "snack",
+    "per100g": {
+      "kcal": 352,
+      "protein": 11.1,
+      "carb": 32.4,
+      "fat": 20.4,
+      "fiber": 4.6
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_173.png",
+    "sortWeight": 128,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_174",
+    "name": "开心果",
+    "category": "snack",
+    "per100g": {
+      "kcal": 361,
+      "protein": 11.4,
+      "carb": 33.3,
+      "fat": 20.9,
+      "fiber": 4.8
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_174.png",
+    "sortWeight": 127,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_175",
+    "name": "榛子",
+    "category": "snack",
+    "per100g": {
+      "kcal": 371,
+      "protein": 11.7,
+      "carb": 34.1,
+      "fat": 21.5,
+      "fiber": 4.9
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_175.png",
+    "sortWeight": 126,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_176",
+    "name": "花生",
+    "category": "snack",
+    "per100g": {
+      "kcal": 380,
+      "protein": 12,
+      "carb": 35,
+      "fat": 22,
+      "fiber": 5
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_176.png",
+    "sortWeight": 125,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_177",
+    "name": "南瓜籽",
+    "category": "snack",
+    "per100g": {
+      "kcal": 389,
+      "protein": 12.3,
+      "carb": 35.9,
+      "fat": 22.5,
+      "fiber": 5.1
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_177.png",
+    "sortWeight": 124,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_178",
+    "name": "葵花籽",
+    "category": "snack",
+    "per100g": {
+      "kcal": 399,
+      "protein": 12.6,
+      "carb": 36.8,
+      "fat": 23.1,
+      "fiber": 5.3
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_178.png",
+    "sortWeight": 123,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_179",
+    "name": "奇亚籽",
+    "category": "snack",
+    "per100g": {
+      "kcal": 409,
+      "protein": 12.9,
+      "carb": 37.6,
+      "fat": 23.6,
+      "fiber": 5.4
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_179.png",
+    "sortWeight": 122,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_180",
+    "name": "亚麻籽",
+    "category": "snack",
+    "per100g": {
+      "kcal": 418,
+      "protein": 13.2,
+      "carb": 38.5,
+      "fat": 24.2,
+      "fiber": 5.5
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_180.png",
+    "sortWeight": 121,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_181",
+    "name": "芝麻",
+    "category": "snack",
+    "per100g": {
+      "kcal": 342,
+      "protein": 10.8,
+      "carb": 31.5,
+      "fat": 19.8,
+      "fiber": 4.5
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_181.png",
+    "sortWeight": 120,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_182",
+    "name": "葡萄干",
+    "category": "snack",
+    "per100g": {
+      "kcal": 352,
+      "protein": 11.1,
+      "carb": 32.4,
+      "fat": 20.4,
+      "fiber": 4.6
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_182.png",
+    "sortWeight": 119,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_183",
+    "name": "蔓越莓干",
+    "category": "snack",
+    "per100g": {
+      "kcal": 361,
+      "protein": 11.4,
+      "carb": 33.3,
+      "fat": 20.9,
+      "fiber": 4.8
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_183.png",
+    "sortWeight": 118,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_184",
+    "name": "无花果干",
+    "category": "snack",
+    "per100g": {
+      "kcal": 371,
+      "protein": 11.7,
+      "carb": 34.1,
+      "fat": 21.5,
+      "fiber": 4.9
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_184.png",
+    "sortWeight": 117,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_185",
+    "name": "红枣",
+    "category": "snack",
+    "per100g": {
+      "kcal": 380,
+      "protein": 12,
+      "carb": 35,
+      "fat": 22,
+      "fiber": 5
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_185.png",
+    "sortWeight": 116,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_186",
+    "name": "黑巧克力",
+    "category": "snack",
+    "per100g": {
+      "kcal": 389,
+      "protein": 12.3,
+      "carb": 35.9,
+      "fat": 22.5,
+      "fiber": 5.1
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_186.png",
+    "sortWeight": 115,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_187",
+    "name": "原味爆米花",
+    "category": "snack",
+    "per100g": {
+      "kcal": 399,
+      "protein": 12.6,
+      "carb": 36.8,
+      "fat": 23.1,
+      "fiber": 5.3
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_187.png",
+    "sortWeight": 114,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_188",
+    "name": "全麦饼干",
+    "category": "snack",
+    "per100g": {
+      "kcal": 409,
+      "protein": 12.9,
+      "carb": 37.6,
+      "fat": 23.6,
+      "fiber": 5.4
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_188.png",
+    "sortWeight": 113,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_189",
+    "name": "米饼",
+    "category": "snack",
+    "per100g": {
+      "kcal": 418,
+      "protein": 13.2,
+      "carb": 38.5,
+      "fat": 24.2,
+      "fiber": 5.5
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_189.png",
+    "sortWeight": 112,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_190",
+    "name": "海苔",
+    "category": "snack",
+    "per100g": {
+      "kcal": 342,
+      "protein": 10.8,
+      "carb": 31.5,
+      "fat": 19.8,
+      "fiber": 4.5
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_190.png",
+    "sortWeight": 111,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_191",
+    "name": "牛肉干",
+    "category": "snack",
+    "per100g": {
+      "kcal": 352,
+      "protein": 11.1,
+      "carb": 32.4,
+      "fat": 20.4,
+      "fiber": 4.6
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_191.png",
+    "sortWeight": 110,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_192",
+    "name": "鸡胸肉干",
+    "category": "snack",
+    "per100g": {
+      "kcal": 361,
+      "protein": 11.4,
+      "carb": 33.3,
+      "fat": 20.9,
+      "fiber": 4.8
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_192.png",
+    "sortWeight": 109,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_193",
+    "name": "鹰嘴豆脆",
+    "category": "snack",
+    "per100g": {
+      "kcal": 371,
+      "protein": 11.7,
+      "carb": 34.1,
+      "fat": 21.5,
+      "fiber": 4.9
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_193.png",
+    "sortWeight": 108,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_194",
+    "name": "烤毛豆",
+    "category": "snack",
+    "per100g": {
+      "kcal": 380,
+      "protein": 12,
+      "carb": 35,
+      "fat": 22,
+      "fiber": 5
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_194.png",
+    "sortWeight": 107,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_195",
+    "name": "蛋白棒",
+    "category": "snack",
+    "per100g": {
+      "kcal": 389,
+      "protein": 12.3,
+      "carb": 35.9,
+      "fat": 22.5,
+      "fiber": 5.1
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_195.png",
+    "sortWeight": 106,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_196",
+    "name": "燕麦棒",
+    "category": "snack",
+    "per100g": {
+      "kcal": 399,
+      "protein": 12.6,
+      "carb": 36.8,
+      "fat": 23.1,
+      "fiber": 5.3
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_196.png",
+    "sortWeight": 105,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_197",
+    "name": "花生酱",
+    "category": "snack",
+    "per100g": {
+      "kcal": 409,
+      "protein": 12.9,
+      "carb": 37.6,
+      "fat": 23.6,
+      "fiber": 5.4
+    },
+    "recommendGrade": "S",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_197.png",
+    "sortWeight": 104,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_198",
+    "name": "芝麻酱",
+    "category": "snack",
+    "per100g": {
+      "kcal": 418,
+      "protein": 13.2,
+      "carb": 38.5,
+      "fat": 24.2,
+      "fiber": 5.5
+    },
+    "recommendGrade": "A",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_198.png",
+    "sortWeight": 103,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_199",
+    "name": "果仁混合",
+    "category": "snack",
+    "per100g": {
+      "kcal": 342,
+      "protein": 10.8,
+      "carb": 31.5,
+      "fat": 19.8,
+      "fiber": 4.5
+    },
+    "recommendGrade": "B",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_199.png",
+    "sortWeight": 102,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "food_200",
+    "name": "低糖麦片",
+    "category": "snack",
+    "per100g": {
+      "kcal": 352,
+      "protein": 11.1,
+      "carb": 32.4,
+      "fat": 20.4,
+      "fiber": 4.6
+    },
+    "recommendGrade": "C",
+    "notes": "营养数据为常见近似值，仅供参考，不构成专业营养指导。",
+    "cover": "asset://content/foods/food_200.png",
+    "sortWeight": 101,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  }
+]
