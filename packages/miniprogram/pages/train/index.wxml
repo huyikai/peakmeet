@@ -1,4 +1,5 @@
 <view class="page">
   <text class="title">{{title}}</text>
-  <text class="hint">训练 Tab 占位</text>
+  <text class="hint">训练工具</text>
+  <button class="entry" bindtap="goTimer">训练计时器</button>
 </view>

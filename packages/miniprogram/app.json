@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/index",
     "pages/train/index",
+    "pages/train/timer/index",
     "pages/diet/index",
     "pages/mine/index",
     "pages/diet/toolbox/index",

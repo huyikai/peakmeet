@@ -27,6 +27,7 @@
     "app.ts",
     "pages/**/*.ts",
     "constants/**/*.ts",
+    "utils/**/*.ts",
     "typings/index.d.ts",
     "utils/shared/**/*.d.ts"
   ],

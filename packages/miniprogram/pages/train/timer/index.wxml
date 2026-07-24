@@ -1,0 +1,75 @@
+<view class="page">
+  <view class="mode-row" wx:if="{{status === 'idle' || status === 'cancelled'}}">
+    <button
+      class="mode-chip {{mode === 'rest' ? 'active' : ''}}"
+      data-mode="rest"
+      bindtap="onSelectMode"
+    >组间休息</button>
+    <button
+      class="mode-chip {{mode === 'tabata' ? 'active' : ''}}"
+      data-mode="tabata"
+      bindtap="onSelectMode"
+    >Tabata</button>
+    <button
+      class="mode-chip {{mode === 'stopwatch' ? 'active' : ''}}"
+      data-mode="stopwatch"
+      bindtap="onSelectMode"
+    >正计时</button>
+  </view>
+
+  <block wx:if="{{(status === 'idle' || status === 'cancelled') && mode === 'rest'}}">
+    <view class="field">
+      <text class="label">休息时长（秒）</text>
+      <input class="input" type="number" value="{{restSec}}" bindinput="onRestSec" />
+    </view>
+  </block>
+
+  <block wx:if="{{(status === 'idle' || status === 'cancelled') && mode === 'tabata'}}">
+    <view class="field">
+      <text class="label">训练时长（秒）</text>
+      <input class="input" type="number" value="{{workSec}}" bindinput="onWorkSec" />
+    </view>
+    <view class="field">
+      <text class="label">休息时长（秒）</text>
+      <input class="input" type="number" value="{{restSec}}" bindinput="onRestSec" />
+    </view>
+    <view class="field">
+      <text class="label">循环组数</text>
+      <input class="input" type="number" value="{{rounds}}" bindinput="onRounds" />
+    </view>
+  </block>
+
+  <text wx:if="{{phaseLabel}}" class="phase-tag">{{phaseLabel}}</text>
+  <view class="display">{{displayText}}</view>
+  <text wx:if="{{roundLabel}}" class="sub">{{roundLabel}}</text>
+
+  <text wx:if="{{errorTip}}" class="error">{{errorTip}}</text>
+
+  <view class="actions">
+    <block wx:if="{{status === 'idle' || status === 'cancelled'}}">
+      <button class="btn-primary" bindtap="onStart">开始</button>
+    </block>
+    <block wx:elif="{{status === 'running'}}">
+      <button class="btn-primary" bindtap="onPause">暂停</button>
+      <button class="btn-ghost" bindtap="onCancel">取消</button>
+      <button wx:if="{{mode === 'stopwatch'}}" class="btn-ghost" bindtap="onEndStopwatch">结束</button>
+    </block>
+    <block wx:elif="{{status === 'paused'}}">
+      <button class="btn-primary" bindtap="onResume">继续</button>
+      <button class="btn-ghost" bindtap="onCancel">取消</button>
+      <button wx:if="{{mode === 'stopwatch'}}" class="btn-ghost" bindtap="onEndStopwatch">结束</button>
+    </block>
+  </view>
+
+  <view wx:if="{{status === 'completed'}}" class="summary">
+    <text class="summary-title">本次完成</text>
+    <text class="sub">{{summaryText}}</text>
+    <button wx:if="{{mode === 'rest'}}" class="btn-primary" bindtap="onReuseRest">再用同时长</button>
+    <button class="btn-ghost" bindtap="onCheckIn">打卡</button>
+    <button class="btn-ghost" bindtap="onSkipCheckIn">跳过打卡</button>
+    <button class="btn-ghost" bindtap="onResetIdle">返回设置</button>
+    <text wx:if="{{checkInJson}}" class="checkin-preview">{{checkInJson}}</text>
+  </view>
+
+  <text class="disclaimer">{{disclaimer}}</text>
+</view>

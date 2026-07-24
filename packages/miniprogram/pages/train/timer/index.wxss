@@ -1,0 +1,143 @@
+@import "/styles/tokens.wxss";
+
+.page {
+  min-height: 100vh;
+  padding: 32rpx 40rpx 80rpx;
+  box-sizing: border-box;
+  background: var(--pm-snow);
+  color: var(--pm-ink);
+}
+
+.mode-row {
+  display: flex;
+  gap: 12rpx;
+  margin-bottom: 28rpx;
+}
+
+.mode-chip {
+  flex: 1;
+  font-size: 24rpx;
+  padding: 16rpx 8rpx;
+  background: var(--pm-chip-idle, #e8eaed);
+  color: var(--pm-ink);
+  border: 2rpx solid transparent;
+  border-radius: 12rpx;
+}
+
+.mode-chip.active {
+  background: var(--pm-surface, #fff);
+  border-color: var(--pm-orange);
+  font-weight: 600;
+}
+
+.mode-chip::after {
+  border: none;
+}
+
+.field {
+  background: var(--pm-surface, #fff);
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.label {
+  font-size: 24rpx;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+}
+
+.input {
+  font-size: 32rpx;
+  color: var(--pm-ink);
+}
+
+.phase-tag {
+  align-self: center;
+  margin-top: 24rpx;
+  padding: 8rpx 20rpx;
+  font-size: 26rpx;
+  color: var(--pm-ink);
+  border: 2rpx solid var(--pm-orange);
+  border-radius: 8rpx;
+  background: var(--pm-orange-soft, rgba(255, 90, 31, 0.12));
+}
+
+.display {
+  margin: 48rpx 0 24rpx;
+  text-align: center;
+  font-size: 120rpx;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--pm-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.sub {
+  text-align: center;
+  font-size: 28rpx;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+  margin-bottom: 32rpx;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.btn-primary {
+  background: var(--pm-ink);
+  color: var(--pm-snow);
+  border-radius: 12rpx;
+  font-size: 30rpx;
+}
+
+.btn-primary::after,
+.btn-ghost::after {
+  border: none;
+}
+
+.btn-ghost {
+  background: var(--pm-surface, #fff);
+  color: var(--pm-ink);
+  border: 2rpx solid var(--pm-ink);
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.error {
+  color: var(--pm-danger, #b00020);
+  margin: 16rpx 0;
+  font-size: 26rpx;
+}
+
+.summary {
+  margin-top: 32rpx;
+  background: var(--pm-surface, #fff);
+  border-radius: 16rpx;
+  padding: 28rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.summary-title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.checkin-preview {
+  font-size: 22rpx;
+  color: var(--pm-ink-muted);
+  word-break: break-all;
+}
+
+.disclaimer {
+  margin-top: 48rpx;
+  font-size: 22rpx;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+  line-height: 1.5;
+}

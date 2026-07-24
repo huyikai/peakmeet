@@ -135,4 +135,18 @@ describe('calculateMacroPlan', () => {
     expect(tight.data.carbRestRangeG).toEqual({ min: 0, max: 0 });
     expect(tight.data.carbTrainRangeG).toEqual({ min: 0, max: 0 });
   });
+
+  it('clamps range carb grams when max protein+fat exceeds target', () => {
+    // Midpoint leaves carbs; range low uses max g/kg → remain < 0 → 0g via carbGramsFromRemain
+    const r = calculateMacroPlan({
+      targetKcal: 1350,
+      weightKg: 80,
+      goal: 'cutMild',
+    });
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    expect(r.data.structureTight).toBe(false);
+    expect(r.data.carbRestRangeG.min).toBe(0);
+    expect(r.data.carbRestRangeG.max).toBeGreaterThanOrEqual(0);
+  });
 });

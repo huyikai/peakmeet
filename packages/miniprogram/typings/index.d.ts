@@ -7,10 +7,22 @@ type WechatPageInstance = {
   setData: (data: Record<string, unknown>) => void;
 };
 
-declare const Page: (options: Record<string, unknown> & ThisType<WechatPageInstance>) => void;
+declare const Page: <T extends Record<string, unknown>>(
+  options: T & ThisType<WechatPageInstance & T>,
+) => void;
+
+interface WechatInnerAudioContext {
+  src: string;
+  obeyMuteSwitch: boolean;
+  play: () => void;
+  stop: () => void;
+  destroy: () => void;
+}
 
 declare const wx: {
   navigateTo: (options: { url: string }) => void;
+  vibrateShort: (options?: { type?: string }) => void;
+  createInnerAudioContext: () => WechatInnerAudioContext;
   [key: string]: unknown;
 };
 
@@ -19,3 +31,6 @@ declare const console: {
   warn: (...args: unknown[]) => void;
   error: (...args: unknown[]) => void;
 };
+
+declare function setInterval(handler: () => void, timeout?: number): number;
+declare function clearInterval(handle?: number): void;
