@@ -20,3 +20,4 @@ packages/miniprogram/utils/shared/*
 !packages/miniprogram/utils/shared/README.md
 packages/miniprogram/project.private.config.json
 .tmp-*.png
+database/backups/

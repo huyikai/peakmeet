@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-07-24T07:40:15.021Z",
+  "requested": 100,
+  "deleted": 100,
+  "failures": [],
+  "remainingOrphans": [],
+  "cloudCounts": {
+    "actions": 2648,
+    "equipment": 27,
+    "foods": 200
+  }
+}

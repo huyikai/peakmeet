@@ -41,6 +41,7 @@
 - [ ] CHK011 Product boundary respected (miniprogram vs Web)
 - [ ] CHK012 Disclaimer / privacy / no medical claims
 - [ ] CHK013 Brand & visual: docs/brand + visual contract; no alternate palette / heavy UI kits
+- [ ] CHK014 Source/media provenance: fixed source, license status, attribution, transformation audit trail, and catalog-to-cloud sync direction
 
 ## Notes
 

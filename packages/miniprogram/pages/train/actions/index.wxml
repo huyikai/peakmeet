@@ -93,8 +93,10 @@
           <text class="name">{{item.name}}</text>
           <text wx:if="{{item.collected}}" class="badge">已收藏</text>
         </view>
+        <text class="alias" wx:if="{{item.alias}}">{{item.alias}}</text>
         <text class="meta">{{item.primaryMuscleLabel}} · {{item.difficultyLabel}}</text>
       </view>
     </view>
+    <view wx:if="{{loadingMore}}" class="state muted">加载更多…</view>
   </view>
 </view>

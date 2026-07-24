@@ -7,9 +7,12 @@
 
   <block wx:else>
     <image class="hero" src="{{coverSrc}}" mode="aspectFill" />
+    <image wx:if="{{demoGifSrc}}" class="demo-gif" src="{{demoGifSrc}}" mode="aspectFit" />
     <view class="body">
       <text class="title">{{name}}</text>
+      <text class="alias" wx:if="{{alias}}">{{alias}}</text>
       <text class="sub">{{difficultyLabel}}</text>
+      <text class="attribution">{{mediaAttribution}}</text>
 
       <view class="section">
         <text class="section-title">基础信息</text>
@@ -31,17 +34,17 @@
         </view>
       </view>
 
-      <view class="section" wx:if="{{cues.length}}">
+      <view class="section" wx:if="{{showCues}}">
         <text class="section-title">发力要点</text>
         <text class="line" wx:for="{{cues}}" wx:key="*this">· {{item}}</text>
       </view>
 
-      <view class="section" wx:if="{{mistakes.length}}">
+      <view class="section" wx:if="{{showMistakes}}">
         <text class="section-title">避坑指南</text>
         <text class="line" wx:for="{{mistakes}}" wx:key="*this">· {{item}}</text>
       </view>
 
-      <view class="section" wx:if="{{substitutes.length}}">
+      <view class="section" wx:if="{{showSubstitutes}}">
         <text class="section-title">替代动作</text>
         <view
           class="sub-item"
@@ -50,10 +53,6 @@
           data-id="{{item.id}}"
           bindtap="goSubstitute"
         >{{item.name}}</view>
-      </view>
-      <view class="section" wx:else>
-        <text class="section-title">替代动作</text>
-        <text class="muted">暂无替代</text>
       </view>
 
       <view class="actions">

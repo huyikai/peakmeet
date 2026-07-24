@@ -156,3 +156,5 @@ _Example of marking unclear requirements:_
 - [ ] No extreme diet / overload training recommendations
 - [ ] Platform rules: WeChat category/content alignment (if miniprogram)
 - [ ] Brand: UI MUST consume docs/brand; calculators follow visual contract; no alternate primary palette / heavy UI kits
+- [ ] Source provenance: external data/media source, fixed version, license status, attribution, replacement boundary, and repository-to-cloud sync direction are explicit
+- [ ] Media exception: any unlicensed third-party media use is either absent or exactly within the Constitution's documented temporary exception

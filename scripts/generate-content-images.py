@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate repository-owned, copyright-safe content cover illustrations.
+"""Generate repository-owned, copyright-safe equipment/food cover illustrations.
 
-Reads database/seeds/{actions,equipment,foods}.json and writes one PNG per
-document under database/assets/content/. These are source assets; db:sync
-uploads them to CloudBase and replaces asset:// cover URIs with cloud file IDs.
+Action media comes from database/vendor/exercises-dataset under the temporary
+Gym visual exception and must NOT be regenerated here. This script only maintains
+first-party equipment/food PNGs under database/assets/content/.
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
-SEEDS = ROOT / "database" / "seeds"
+CATALOG = ROOT / "database" / "catalog"
 OUT = ROOT / "database" / "assets" / "content"
 
 INK = "#0B0D10"
@@ -89,57 +89,7 @@ def line(draw: ImageDraw.ImageDraw, points, fill=INK, width=12) -> None:
 
 
 def draw_action(draw: ImageDraw.ImageDraw, doc: dict) -> None:
-    seed = seed_int(doc["_id"])
-    cx, cy = 158, 185
-    head_r = 22
-    # Deterministic pose: angles vary per action while retaining human form.
-    torso_angle = math.radians(-12 + seed % 25)
-    arm_angle = math.radians(20 + (seed >> 4) % 120)
-    leg_angle = math.radians(28 + (seed >> 9) % 80)
-
-    shoulder = (
-        cx + int(math.sin(torso_angle) * 18),
-        cy - int(math.cos(torso_angle) * 58),
-    )
-    hip = (
-        cx - int(math.sin(torso_angle) * 22),
-        cy + int(math.cos(torso_angle) * 48),
-    )
-    draw.ellipse(
-        (
-            shoulder[0] - head_r,
-            shoulder[1] - 54,
-            shoulder[0] + head_r,
-            shoulder[1] - 10,
-        ),
-        fill=ORANGE,
-    )
-    line(draw, [shoulder, hip], width=16)
-
-    arm_len = 62
-    for sign in (-1, 1):
-        elbow = (
-            shoulder[0] + sign * int(math.cos(arm_angle) * arm_len),
-            shoulder[1] + int(math.sin(arm_angle) * arm_len),
-        )
-        hand = (
-            elbow[0] + sign * int(math.cos(arm_angle + 0.5) * 45),
-            elbow[1] + int(math.sin(arm_angle + 0.5) * 45),
-        )
-        line(draw, [shoulder, elbow, hand], width=11)
-
-    leg_len = 70
-    for sign in (-1, 1):
-        knee = (
-            hip[0] + sign * int(math.sin(leg_angle) * leg_len),
-            hip[1] + int(math.cos(leg_angle) * leg_len),
-        )
-        foot = (knee[0] + sign * 28, min(330, knee[1] + 58))
-        line(draw, [hip, knee, foot], width=13)
-
-    muscle = (doc.get("primaryMuscles") or ["body"])[0]
-    draw.rounded_rectangle((66, 317, 250, 346), 12, fill=SNOW)
-    draw.text((82, 320), f"目标肌群  {muscle}", font=ID_FONT, fill=INK)
+    raise RuntimeError("Action covers are provided by vendor media; do not generate them")
 
 
 def draw_equipment(draw: ImageDraw.ImageDraw, doc: dict) -> None:
@@ -206,17 +156,20 @@ def draw_food(draw: ImageDraw.ImageDraw, doc: dict) -> None:
 
 
 def generate_collection(name: str) -> list[dict]:
-    docs = json.loads((SEEDS / f"{name}.json").read_text(encoding="utf-8"))
+    source = CATALOG / f"{name}.json"
+    if not source.exists():
+        raise RuntimeError(f"Missing catalog file: {source}")
+    docs = json.loads(source.read_text(encoding="utf-8"))
     target = OUT / name
     target.mkdir(parents=True, exist_ok=True)
     manifest: list[dict] = []
 
     for doc in docs:
-        image, draw = canvas(doc["_id"], {"actions": "动作", "equipment": "器材", "foods": "食物"}[name])
-        if name == "actions":
-            draw_action(draw, doc)
-            meta = f'{doc["difficulty"]} · {doc["primaryScene"]}'
-        elif name == "equipment":
+        if name == "equipment" and not doc.get("cover"):
+            # New equipment catalog may omit first-party covers; generate PNGs for sync.
+            pass
+        image, draw = canvas(doc["_id"], {"equipment": "器材", "foods": "食物"}[name])
+        if name == "equipment":
             draw_equipment(draw, doc)
             meta = f'{doc["type"]} · {doc["primaryScene"]}'
         else:
@@ -242,7 +195,8 @@ def generate_collection(name: str) -> list[dict]:
 
 def main() -> None:
     all_entries: list[dict] = []
-    expected = {"actions": 80, "equipment": 20, "foods": 200}
+    # Actions are vendor-owned; only regenerate first-party equipment/foods.
+    expected = {"equipment": 27, "foods": 200}
     for collection, count in expected.items():
         entries = generate_collection(collection)
         if len(entries) != count:
@@ -250,12 +204,10 @@ def main() -> None:
         all_entries.extend(entries)
         print(f"generated {collection}: {len(entries)}")
 
-    manifest_path = OUT / "manifest.json"
-    manifest_path.write_text(
-        json.dumps(all_entries, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
+    print(
+        "first-party covers generated; run `pnpm db:build-manifest` to refresh the combined manifest"
     )
-    print(f"manifest: {manifest_path} ({len(all_entries)} assets)")
+    print(f"local entries prepared: {len(all_entries)}")
 
 
 if __name__ == "__main__":

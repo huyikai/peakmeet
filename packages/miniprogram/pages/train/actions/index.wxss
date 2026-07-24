@@ -159,7 +159,20 @@
   padding: 2rpx 8rpx;
 }
 
+.alias {
+  font-size: 22rpx;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.45));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .meta {
   font-size: 24rpx;
   color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+}
+
+.state.muted {
+  padding: 24rpx 0 8rpx;
+  font-size: 24rpx;
 }

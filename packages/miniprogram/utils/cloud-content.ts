@@ -1,7 +1,25 @@
-import type { Action, ContentEnvelope, Equipment } from './shared/index';
+import type {
+  Action,
+  ActionSummary,
+  ActionTaxonomyFilter,
+  ContentEnvelope,
+  Equipment,
+} from './shared/index';
 
-type ListData<T> = { items: T[]; total?: number };
+export type ListData<T> = {
+  items: T[];
+  total?: number;
+  nextCursor?: string | null;
+  hasMore?: boolean;
+};
 type ItemData<T> = { item: T };
+export type ActionListRequest = {
+  limit?: number;
+  offset?: number;
+  cursor?: string | null;
+  search?: string;
+  taxonomy?: Partial<ActionTaxonomyFilter>;
+};
 
 function asEnvelope<T>(raw: unknown): ContentEnvelope<T> {
   if (!raw || typeof raw !== 'object') {
@@ -14,21 +32,42 @@ function asEnvelope<T>(raw: unknown): ContentEnvelope<T> {
 }
 
 export async function contentListActions(
-  limit = 100,
-): Promise<ContentEnvelope<ListData<Action>>> {
+  request: ActionListRequest = {},
+): Promise<ContentEnvelope<ListData<ActionSummary>>> {
   if (!wx.cloud) {
     return { ok: false, code: 'INTERNAL', message: '云能力不可用' };
   }
   try {
     const res = await wx.cloud.callFunction({
       name: 'contentList',
-      data: { collection: 'actions', limit, skip: 0 },
+      data: {
+        collection: 'actions',
+        limit: request.limit ?? 24,
+        offset: request.offset ?? 0,
+        cursor: request.cursor ?? null,
+        search: request.search ?? '',
+        taxonomy: request.taxonomy ?? {},
+      },
     });
-    return asEnvelope<ListData<Action>>(res.result);
+    return asEnvelope<ListData<ActionSummary>>(res.result);
   } catch (e) {
     const message = e instanceof Error ? e.message : '网络错误';
     return { ok: false, code: 'INTERNAL', message };
   }
+}
+
+export async function contentRandomAction(
+  total: number,
+): Promise<ContentEnvelope<ItemData<ActionSummary>>> {
+  if (!Number.isSafeInteger(total) || total < 1) {
+    return { ok: false, code: 'NOT_FOUND', message: '暂无可用动作' };
+  }
+  const offset = Math.floor(Math.random() * total);
+  const result = await contentListActions({ limit: 1, offset });
+  if (!result.ok) return result;
+  const item = result.data.items[0];
+  if (!item) return { ok: false, code: 'NOT_FOUND', message: '暂无可用动作' };
+  return { ok: true, data: { item } };
 }
 
 export async function contentListEquipment(

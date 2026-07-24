@@ -1,72 +1,63 @@
 # PeakMeet CloudBase 数据与内容
 
-本目录是公共内容种子、集合安全规则和内容配图的权威源。详细规格与验收步骤见 [`specs/006-cloud-db-seed`](../specs/006-cloud-db-seed/)。
+本目录是公共内容 catalog、外部固定快照、集合安全规则和内容配图的权威源。动作库迁移规格见 [`specs/008-exercises-dataset-migration`](../specs/008-exercises-dataset-migration/)。
 
 ## 目录结构
 
 | 路径 | 内容 |
 | --- | --- |
+| [`catalog/`](./catalog/) | CloudBase 同步的唯一结构化权威源（actions/equipment/foods/training_plans） |
+| [`vendor/exercises-dataset/`](./vendor/exercises-dataset/) | 固定 commit 的外部动作数据与 Gym visual 媒体快照 + `source.lock.json` |
+| [`enrichment/`](./enrichment/) | 中文名与规则 enrichment 的可审计产物 |
+| [`reports/`](./reports/) | 计划/收藏迁移报告 |
 | [`rules/`](./rules/) | 7 个集合的 CloudBase 安全规则 |
-| [`seeds/`](./seeds/) | actions、equipment、foods、training_plans 公共种子 |
-| [`assets/content/`](./assets/content/) | 300 张内容配图和 `manifest.json` |
-| [`assets/images/`](./assets/images/) | 内容缺省图等通用图片源 |
+| [`assets/content/`](./assets/content/) | 第一方器材/食物配图与动态 `manifest.json` |
+| [`seeds/`](./seeds/) | **已退役**历史种子，仅作迁移对照，不再作为部署输入 |
 
 `user_collect`、`user_body_record` 和 `user_train_record` 只提供安全规则与共享类型，不提供用户数据种子。
 
 ## 快速同步
 
-1. 从根目录复制环境变量模板并填写 CloudBase 凭据：
+1. 复制并填写凭据：
 
    ```bash
    cp .env.example .env.local
    ```
 
-2. 校验种子与图片：
+2. 从本地 vendor 重建 catalog（不访问网络）：
 
    ```bash
+   pnpm db:build-source-lock
+   pnpm db:build-catalog
+   pnpm db:build-manifest
    pnpm db:validate-assets
    ```
 
-3. 上传图片并同步公共内容：
+3. 先 dry-run，再正式同步：
 
    ```bash
+   DB_SYNC_DRY_RUN=1 pnpm db:sync
    pnpm db:sync
    ```
 
-同步命令会先校验并上传内容图片，将种子中的 `asset://content/...` 转换为目标环境的 `cloud://...` fileID，再按 `_id` Upsert 集合文档。该流程不会删除种子中未包含的云端文档。
+同步只读 `database/catalog/` 与本地 manifest，把 `vendor://` / `asset://` 转成目标环境 `cloud://` fileID。`DB_SYNC_REPLACE=1` 才允许替换残留动作/器材。
 
-## 环境变量与安全
+## 环境变量
 
 | 变量 | 说明 |
 | --- | --- |
 | `CLOUDBASE_ENV_ID` | 目标 CloudBase 环境 ID |
 | `CLOUDBASE_SECRET_ID` | 腾讯云 API SecretId |
 | `CLOUDBASE_SECRET_KEY` | 腾讯云 API SecretKey |
+| `DB_SYNC_DRY_RUN` | `1` 时只校验/备份路径，不写云 |
+| `DB_SYNC_SKIP_ASSETS` | `1` 时跳过重新上传，仅解析已有 fileID |
+| `DB_SYNC_REPLACE` | `1` 时启用正式替换残留策略 |
 
-- `.env.local` 已被 Git 忽略，禁止提交真实密钥。
-- Fork 后应同时替换小程序 AppID、CloudBase 环境 ID 和本地凭据。
-- 小程序环境配置位置见 [`packages/miniprogram/README.md`](../packages/miniprogram/README.md)。
+## 媒体与版权
 
-## 内容种子与配图
-
-正式配图均为项目自生成的品牌风格原创卡片，不使用外部版权素材：
-
-- `actions/`：80 张动作图
-- `equipment/`：20 张器材图
-- `foods/`：200 张食物图
-- `manifest.json`：记录种子 URI、本地路径、稳定云路径与 SHA-256
-
-种子 `_id` 同时决定图片文件名。图片保持在数据库素材目录并上传 CloudBase，不打进小程序主包。详细约束见 [`assets/content/README.md`](./assets/content/README.md)。
-
-需要重建数据与图片时运行：
-
-```bash
-pnpm db:generate-seeds
-pnpm db:generate-images
-pnpm db:validate-assets
-```
-
-缺省图源位于 [`assets/images/content-placeholder.png`](./assets/images/content-placeholder.png)，小程序运行时副本位于 [`packages/miniprogram/assets/images/content-placeholder.png`](../packages/miniprogram/assets/images/content-placeholder.png)。
+- 动作 JPG/GIF：来自固定 vendor 快照，标记 `provisional_third_party`，必须逐条署名 `© Gym visual — https://gymvisual.com/`。
+- 器材/食物封面：项目自有第一方素材，可由 `pnpm db:generate-images` 重建。
+- 首次商业发布前必须替换 Gym visual 媒体或取得书面授权（宪章 v1.3.0 临时例外）。
 
 ## 云函数
 
@@ -74,20 +65,6 @@ pnpm db:validate-assets
 pnpm --filter @peakmeet/cloudfunctions build
 ```
 
-构建后使用微信开发者工具上传 `contentList` 和 `contentGetById`。函数职责、构建产物与部署方式见 [`packages/cloudfunctions/README.md`](../packages/cloudfunctions/README.md)。
-
-## 控制台配置
-
-### 安全规则
-
-在 CloudBase 控制台中创建对应集合，再粘贴 [`rules/`](./rules/) 下的规则。
-
-### 建议索引
-
-按实际查询组合创建 `sortWeight`、`category`、`difficulty`、`primaryScene`、`goal`、`scene`、`type`、`recommendGrade` 索引。
-
-### 手动降级
-
-自动同步不可用时，可在云控制台进入“数据库 → 集合 → 导入”，并将冲突模式设置为 **Upsert**。手动导入前仍应先运行素材校验。
+动作列表已支持分页、taxonomy 过滤和搜索；详情按 ID 返回完整记录。
 
 返回[项目总览](../README.md)。

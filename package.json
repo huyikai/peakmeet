@@ -18,7 +18,11 @@
     "build:miniprogram": "pnpm sync:shared && pnpm --filter @peakmeet/miniprogram build",
     "dev:web": "pnpm --filter @peakmeet/web dev",
     "db:sync": "node scripts/db-sync.mjs",
-    "db:generate-seeds": "node scripts/generate-seeds.mjs",
+    "db:generate-seeds": "node -e \"console.error('database/seeds is retired; use pnpm db:build-catalog'); process.exit(1)\"",
+    "db:build-catalog": "pnpm --filter @peakmeet/shared build && pnpm dlx tsx scripts/build-exercise-catalog.ts",
+    "db:build-source-lock": "node scripts/build-source-lock.mjs",
+    "db:build-manifest": "node scripts/build-content-manifest.mjs",
+    "db:refresh-exercises": "node scripts/refresh-exercises-dataset.mjs",
     "db:generate-images": "python3 scripts/generate-content-images.py",
     "db:validate-assets": "node scripts/validate-content-assets.mjs"
   },

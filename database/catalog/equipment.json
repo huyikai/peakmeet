@@ -1,0 +1,596 @@
+[
+  {
+    "_id": "equip_assisted",
+    "name": "助力器械",
+    "type": "machine",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "助力器械用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_assisted.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 100,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "assisted"
+  },
+  {
+    "_id": "equip_band",
+    "name": "弹力带",
+    "type": "accessory",
+    "scenes": [
+      "home",
+      "gym"
+    ],
+    "primaryScene": "home",
+    "difficulty": "beginner",
+    "intro": "弹力带用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_band.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 99,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "band"
+  },
+  {
+    "_id": "equip_barbell",
+    "name": "杠铃",
+    "type": "free_weight",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "杠铃用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_barbell.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 98,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "barbell"
+  },
+  {
+    "_id": "equip_bosu_ball",
+    "name": "波速球",
+    "type": "accessory",
+    "scenes": [
+      "gym",
+      "home"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "波速球用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_bosu_ball.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 97,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "bosu ball"
+  },
+  {
+    "_id": "equip_cable",
+    "name": "绳索",
+    "type": "machine",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "绳索用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_cable.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 96,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "cable"
+  },
+  {
+    "_id": "equip_dumbbell",
+    "name": "哑铃",
+    "type": "free_weight",
+    "scenes": [
+      "gym",
+      "home"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "哑铃用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_dumbbell.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 95,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "dumbbell"
+  },
+  {
+    "_id": "equip_elliptical_machine",
+    "name": "椭圆机",
+    "type": "cardio",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "椭圆机用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_elliptical_machine.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 94,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "elliptical machine"
+  },
+  {
+    "_id": "equip_ez_barbell",
+    "name": "EZ杠",
+    "type": "free_weight",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "EZ杠用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_ez_barbell.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 93,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "ez barbell"
+  },
+  {
+    "_id": "equip_hammer",
+    "name": "锤铃",
+    "type": "free_weight",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "锤铃用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_hammer.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 92,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "hammer"
+  },
+  {
+    "_id": "equip_kettlebell",
+    "name": "壶铃",
+    "type": "free_weight",
+    "scenes": [
+      "gym",
+      "home"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "壶铃用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_kettlebell.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 91,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "kettlebell"
+  },
+  {
+    "_id": "equip_leverage_machine",
+    "name": "杠杆器械",
+    "type": "machine",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "杠杆器械用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_leverage_machine.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 90,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "leverage machine"
+  },
+  {
+    "_id": "equip_medicine_ball",
+    "name": "药球",
+    "type": "accessory",
+    "scenes": [
+      "gym",
+      "home"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "药球用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_medicine_ball.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 89,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "medicine ball"
+  },
+  {
+    "_id": "equip_olympic_barbell",
+    "name": "奥杆",
+    "type": "free_weight",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "奥杆用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_olympic_barbell.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 88,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "olympic barbell"
+  },
+  {
+    "_id": "equip_resistance_band",
+    "name": "阻力带",
+    "type": "accessory",
+    "scenes": [
+      "home",
+      "gym"
+    ],
+    "primaryScene": "home",
+    "difficulty": "beginner",
+    "intro": "阻力带用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_resistance_band.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 87,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "resistance band"
+  },
+  {
+    "_id": "equip_roller",
+    "name": "泡沫轴",
+    "type": "accessory",
+    "scenes": [
+      "home",
+      "gym"
+    ],
+    "primaryScene": "home",
+    "difficulty": "beginner",
+    "intro": "泡沫轴用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_roller.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 86,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "roller"
+  },
+  {
+    "_id": "equip_rope",
+    "name": "绳索配件",
+    "type": "accessory",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "绳索配件用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_rope.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 85,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "rope"
+  },
+  {
+    "_id": "equip_skierg_machine",
+    "name": "滑雪机",
+    "type": "cardio",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "滑雪机用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_skierg_machine.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 84,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "skierg machine"
+  },
+  {
+    "_id": "equip_sled_machine",
+    "name": "雪橇机",
+    "type": "machine",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "雪橇机用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_sled_machine.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 83,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "sled machine"
+  },
+  {
+    "_id": "equip_smith_machine",
+    "name": "史密斯机",
+    "type": "machine",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "史密斯机用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_smith_machine.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 82,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "smith machine"
+  },
+  {
+    "_id": "equip_stability_ball",
+    "name": "稳定球",
+    "type": "accessory",
+    "scenes": [
+      "home",
+      "gym"
+    ],
+    "primaryScene": "home",
+    "difficulty": "beginner",
+    "intro": "稳定球用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_stability_ball.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 81,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "stability ball"
+  },
+  {
+    "_id": "equip_stationary_bike",
+    "name": "固定自行车",
+    "type": "cardio",
+    "scenes": [
+      "gym",
+      "home"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "固定自行车用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_stationary_bike.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 80,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "stationary bike"
+  },
+  {
+    "_id": "equip_stepmill_machine",
+    "name": "台阶机",
+    "type": "cardio",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "台阶机用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_stepmill_machine.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 79,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "stepmill machine"
+  },
+  {
+    "_id": "equip_tire",
+    "name": "轮胎",
+    "type": "accessory",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "轮胎用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_tire.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 78,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "tire"
+  },
+  {
+    "_id": "equip_trap_bar",
+    "name": "六角杠",
+    "type": "free_weight",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "六角杠用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_trap_bar.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 77,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "trap bar"
+  },
+  {
+    "_id": "equip_upper_body_ergometer",
+    "name": "上肢测力计",
+    "type": "cardio",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "上肢测力计用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_upper_body_ergometer.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 76,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "upper body ergometer"
+  },
+  {
+    "_id": "equip_weighted",
+    "name": "负重配件",
+    "type": "accessory",
+    "scenes": [
+      "gym"
+    ],
+    "primaryScene": "gym",
+    "difficulty": "beginner",
+    "intro": "负重配件用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_weighted.png",
+    "homeAlternatives": [
+      "自重",
+      "弹力带"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 75,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "weighted"
+  },
+  {
+    "_id": "equip_wheel_roller",
+    "name": "健腹轮",
+    "type": "accessory",
+    "scenes": [
+      "home",
+      "gym"
+    ],
+    "primaryScene": "home",
+    "difficulty": "beginner",
+    "intro": "健腹轮用于完成对应动作训练，请按自身水平循序渐进，仅供参考。",
+    "value": "支持多关节与单关节训练动作",
+    "cover": "asset://content/equipment/equip_wheel_roller.png",
+    "homeAlternatives": [
+      "自重"
+    ],
+    "notes": "选购与使用前检查稳固性；仅供参考。",
+    "relatedActionIds": [],
+    "sortWeight": 74,
+    "updatedAt": "2026-07-24T00:00:00.000Z",
+    "sourceEquipmentRaw": "wheel roller"
+  }
+]

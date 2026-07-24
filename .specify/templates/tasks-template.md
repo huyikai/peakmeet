@@ -12,6 +12,8 @@ description: 'Task list template for feature implementation'
 
 **Brand / UI**: 面向用户界面任务 MUST 对齐 `docs/brand`；计算类页面 MUST 遵循现行视觉契约与共享样式，MUST NOT 另起主色板或引入重型 UI 组件库。
 
+**Source / Media**: 外部数据或媒体任务 MUST 包含来源锁、许可/署名元数据、转换版本和完整性校验；`database/catalog/` 单向同步 CloudBase，运行时不得直接抓取第三方仓库。
+
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
 ## Format: `[ID] [P?] [Story] Description`

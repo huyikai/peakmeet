@@ -1,0 +1,438 @@
+{
+  "generatedAt": "2026-07-24T07:03:23.079Z",
+  "unmatchedCount": 54,
+  "items": [
+    {
+      "planId": "plan_001",
+      "dayIndex": 1,
+      "oldActionId": "action_001_e6b7b1",
+      "oldName": "深蹲",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 1,
+      "oldActionId": "action_007_e58892",
+      "oldName": "划船",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 1,
+      "oldActionId": "action_013_e4ba8c",
+      "oldName": "二头弯举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 2,
+      "oldActionId": "action_001_e6b7b1",
+      "oldName": "深蹲",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 2,
+      "oldActionId": "action_007_e58892",
+      "oldName": "划船",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 2,
+      "oldActionId": "action_013_e4ba8c",
+      "oldName": "二头弯举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 3,
+      "oldActionId": "action_001_e6b7b1",
+      "oldName": "深蹲",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 3,
+      "oldActionId": "action_007_e58892",
+      "oldName": "划船",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_001",
+      "dayIndex": 3,
+      "oldActionId": "action_013_e4ba8c",
+      "oldName": "二头弯举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 1,
+      "oldActionId": "action_002_e7a1ac",
+      "oldName": "硬拉",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 1,
+      "oldActionId": "action_008_e5bc93",
+      "oldName": "弓步蹲",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 1,
+      "oldActionId": "action_014_e4b889",
+      "oldName": "三头下压",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 2,
+      "oldActionId": "action_002_e7a1ac",
+      "oldName": "硬拉",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 2,
+      "oldActionId": "action_008_e5bc93",
+      "oldName": "弓步蹲",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 2,
+      "oldActionId": "action_014_e4b889",
+      "oldName": "三头下压",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 3,
+      "oldActionId": "action_002_e7a1ac",
+      "oldName": "硬拉",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 3,
+      "oldActionId": "action_008_e5bc93",
+      "oldName": "弓步蹲",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_002",
+      "dayIndex": 3,
+      "oldActionId": "action_014_e4b889",
+      "oldName": "三头下压",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 1,
+      "oldActionId": "action_003_e58da7",
+      "oldName": "卧推",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 1,
+      "oldActionId": "action_009_e88780",
+      "oldName": "臀桥",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 1,
+      "oldActionId": "action_015_e885bf",
+      "oldName": "腿举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 2,
+      "oldActionId": "action_003_e58da7",
+      "oldName": "卧推",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 2,
+      "oldActionId": "action_009_e88780",
+      "oldName": "臀桥",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 2,
+      "oldActionId": "action_015_e885bf",
+      "oldName": "腿举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 3,
+      "oldActionId": "action_003_e58da7",
+      "oldName": "卧推",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 3,
+      "oldActionId": "action_009_e88780",
+      "oldName": "臀桥",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_003",
+      "dayIndex": 3,
+      "oldActionId": "action_015_e885bf",
+      "oldName": "腿举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 1,
+      "oldActionId": "action_004_e5bc95",
+      "oldName": "引体向上",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 1,
+      "oldActionId": "action_010_e5b9b3",
+      "oldName": "平板支撑",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 1,
+      "oldActionId": "action_016_e885bf",
+      "oldName": "腿弯举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 2,
+      "oldActionId": "action_004_e5bc95",
+      "oldName": "引体向上",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 2,
+      "oldActionId": "action_010_e5b9b3",
+      "oldName": "平板支撑",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 2,
+      "oldActionId": "action_016_e885bf",
+      "oldName": "腿弯举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 3,
+      "oldActionId": "action_004_e5bc95",
+      "oldName": "引体向上",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 3,
+      "oldActionId": "action_010_e5b9b3",
+      "oldName": "平板支撑",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_004",
+      "dayIndex": 3,
+      "oldActionId": "action_016_e885bf",
+      "oldName": "腿弯举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 1,
+      "oldActionId": "action_005_e4bfaf",
+      "oldName": "俯卧撑",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 1,
+      "oldActionId": "action_011_e58db7",
+      "oldName": "卷腹",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 1,
+      "oldActionId": "action_017_e885bf",
+      "oldName": "腿伸展",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 2,
+      "oldActionId": "action_005_e4bfaf",
+      "oldName": "俯卧撑",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 2,
+      "oldActionId": "action_011_e58db7",
+      "oldName": "卷腹",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 2,
+      "oldActionId": "action_017_e885bf",
+      "oldName": "腿伸展",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 3,
+      "oldActionId": "action_005_e4bfaf",
+      "oldName": "俯卧撑",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 3,
+      "oldActionId": "action_011_e58db7",
+      "oldName": "卷腹",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_005",
+      "dayIndex": 3,
+      "oldActionId": "action_017_e885bf",
+      "oldName": "腿伸展",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 1,
+      "oldActionId": "action_006_e882a9",
+      "oldName": "肩上推举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 1,
+      "oldActionId": "action_012_e4bea7",
+      "oldName": "侧平板",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 1,
+      "oldActionId": "action_018_e68f90",
+      "oldName": "提踵",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 2,
+      "oldActionId": "action_006_e882a9",
+      "oldName": "肩上推举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 2,
+      "oldActionId": "action_012_e4bea7",
+      "oldName": "侧平板",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 2,
+      "oldActionId": "action_018_e68f90",
+      "oldName": "提踵",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 3,
+      "oldActionId": "action_006_e882a9",
+      "oldName": "肩上推举",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 3,
+      "oldActionId": "action_012_e4bea7",
+      "oldName": "侧平板",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    },
+    {
+      "planId": "plan_006",
+      "dayIndex": 3,
+      "oldActionId": "action_018_e68f90",
+      "oldName": "提踵",
+      "newActionId": null,
+      "status": "unmatched_retained"
+    }
+  ]
+}

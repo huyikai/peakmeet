@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  decodeActionListCursor,
+  encodeActionListCursor,
+  validateActionListQuery,
   validateGetByIdQuery,
   validateListQuery,
 } from '../src/content/index';
@@ -90,5 +93,69 @@ describe('validateGetByIdQuery', () => {
     const r = validateGetByIdQuery({ collection: 'nope', id: 'a' });
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.code).toBe('INVALID_COLLECTION');
+  });
+});
+
+describe('validateActionListQuery', () => {
+  it('normalizes offset pagination, taxonomy and search', () => {
+    const r = validateActionListQuery({
+      limit: 24,
+      offset: 48,
+      search: '  Squat 深蹲  ',
+      taxonomy: {
+        primaryMuscle: 'chest',
+        equipmentId: '__bodyweight__',
+        difficulty: 'beginner',
+        goal: 'strength',
+      },
+    });
+    expect(r.ok).toBe(true);
+    if (r.ok) {
+      expect(r.value).toEqual({
+        limit: 24,
+        offset: 48,
+        cursor: null,
+        search: 'Squat 深蹲',
+        taxonomy: {
+          primaryMuscle: 'chest',
+          equipmentId: '__bodyweight__',
+          difficulty: 'beginner',
+          goal: 'strength',
+        },
+      });
+    }
+  });
+
+  it('accepts an opaque cursor and gives it precedence over offset', () => {
+    const cursor = encodeActionListCursor('exercise_001');
+    const r = validateActionListQuery({ cursor, offset: 120 });
+    expect(r.ok).toBe(true);
+    if (r.ok) {
+      expect(r.value.cursor).toBe('exercise_001');
+      expect(r.value.offset).toBe(0);
+    }
+    expect(decodeActionListCursor(cursor)).toBe('exercise_001');
+  });
+
+  it('rejects malformed cursors, pagination and search', () => {
+    expect(validateActionListQuery({ cursor: 'not-a-cursor' }).ok).toBe(false);
+    expect(validateActionListQuery({ limit: 101 }).ok).toBe(false);
+    expect(validateActionListQuery({ offset: -1 }).ok).toBe(false);
+    expect(validateActionListQuery({ search: 'x'.repeat(81) }).ok).toBe(false);
+  });
+
+  it('rejects unknown taxonomy keys and values outside the whitelist', () => {
+    expect(
+      validateActionListQuery({ taxonomy: { primaryMuscle: 'heart' } }).ok,
+    ).toBe(false);
+    expect(
+      validateActionListQuery({ taxonomy: { difficulty: 'elite' } }).ok,
+    ).toBe(false);
+    expect(
+      validateActionListQuery({ taxonomy: { equipmentId: '$where' } }).ok,
+    ).toBe(false);
+    expect(
+      validateActionListQuery({ taxonomy: { primaryScene: 'home' } }).ok,
+    ).toBe(false);
   });
 });

@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-07-24T07:30:59.911Z",
+  "dryRun": false,
+  "deleted": 20,
+  "failed": 0,
+  "orphans": [
+    "equip_001",
+    "equip_002",
+    "equip_003",
+    "equip_004",
+    "equip_005",
+    "equip_006",
+    "equip_007",
+    "equip_008",
+    "equip_009",
+    "equip_010",
+    "equip_011",
+    "equip_012",
+    "equip_013",
+    "equip_014",
+    "equip_015",
+    "equip_016",
+    "equip_017",
+    "equip_018",
+    "equip_019",
+    "equip_020"
+  ]
+}

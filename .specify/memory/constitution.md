@@ -1,22 +1,24 @@
 <!--
 Sync Impact Report
-- Version change: 1.1.0 → 1.2.0
-- Modified principles: none renamed
+- Version change: 1.2.0 → 1.3.0
+- Modified principles:
+  - VI. Compliance Red Lines（新增经项目所有者确认的临时 Gym visual 媒体例外）
+  - Technology Stack / Backend & Data（仓库内 catalog 为云端内容权威源）
 - Added sections:
-  - VIII. Brand & Visual Alignment (Core Principles)
-  - Coding Standards item 6 (brand/visual reference)
-  - Technology Stack: miniprogram + Web bullets pointing to docs/brand (no hex tables)
+  - IX. Source Data & Media Provenance
+  - Temporary Media Exception (2026-07-24)
 - Removed sections: none
 - Templates requiring updates:
-  - .specify/templates/plan-template.md ✅ updated (Constitution Check + v1.2.0)
-  - .specify/templates/spec-template.md ✅ updated (Brand alignment)
-  - .specify/templates/checklist-template.md ✅ updated (brand check)
-  - .specify/templates/tasks-template.md ✅ updated (UI/brand note)
+  - .specify/templates/plan-template.md ✅ updated (Constitution Check + v1.3.0)
+  - .specify/templates/spec-template.md ✅ updated (source/media compliance)
+  - .specify/templates/checklist-template.md ✅ updated (source/media check)
+  - .specify/templates/tasks-template.md ✅ updated (catalog/provenance note)
   - docs/constitution.md ✅ synced from this file
   - .specify/templates/constitution-template.md ⚠ pending (scaffold only)
   - README.md ⚠ pending (file not present yet)
-  - Spec Kit skills (.cursor/skills/speckit-*) ✅ verified (no conflicting brand rules)
-- Follow-up TODOs: none
+  - Spec Kit skills (.cursor/skills/speckit-*) ✅ verified
+- Follow-up TODOs:
+  - Gym visual 媒体 MUST 在首次商业发布前替换为自有素材或取得书面授权
 -->
 
 # PeakMeet（顶峰相见）Constitution
@@ -88,12 +90,30 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 2. **隐私合规**：最小必要原则；仅收集功能必需信息。小程序与 Web MUST
    配置隐私协议并明确数据用途。用户数据基于微信 OpenID；仅使用微信
    授权基础信息，不收集多余隐私。
-3. **内容合规**：图文素材无版权风险；禁止推荐极端节食、超负荷训练等
-   有害健康内容。
+3. **内容合规**：图文素材 MUST 有可追踪来源与授权状态；除下述经项目
+   所有者明确批准的临时媒体例外外，MUST NOT 发布无复用授权的素材。
+   禁止推荐极端节食、超负荷训练等有害健康内容。
 4. **平台合规**：遵守微信小程序平台规则（服务类目与内容一致）；Web
    内容符合国内网络内容规范。
 
 **Rationale**: 合规风险高于功能完整度。
+
+#### Temporary Media Exception (2026-07-24)
+
+项目所有者明确决定：在 PeakMeet 保持非商用期间，允许临时复制并展示
+`hasaneyldrm/exercises-dataset` 固定提交中的 Gym visual 180×180 JPG/GIF。
+此例外 MUST 同时满足：
+
+- 每条动作及相关页面 MUST 展示 `© Gym visual — https://gymvisual.com/`；
+- 媒体 MUST 标记为 `provisional_third_party`，MUST NOT 宣称自有版权，
+  MUST NOT 用于训练生成式 AI；
+- 原始 `LICENSE`、`NOTICE.md`、来源 commit、文件哈希 MUST 随快照入库；
+- MUST NOT 提升分辨率或脱离动作内容单独提供下载；
+- 首次商业发布、收费、广告变现或对外商业合作前，MUST 完成自有素材替换
+  或取得 Gym visual 对 PeakMeet 的书面授权，并移除此例外；
+- 此例外仅记录项目所有者的风险决定，不代表第三方已授予 PeakMeet 权利。
+
+任何超出上述边界的媒体使用仍属于交付阻断项。
 
 ### VII. Decision Priority
 
@@ -117,6 +137,21 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
 
 **Rationale**: 品牌识别与可读性依赖统一视觉源；细节落在 brand 文档与
 契约规格，宪章只锁定「必须对齐、禁止另起炉灶」。
+
+### IX. Source Data & Media Provenance
+
+- 外部数据 MUST 固定到可复现的 commit / blob / SHA-256，并在仓库内保存
+  来源锁、原许可与声明；常规构建和云同步 MUST NOT 隐式追随远端最新版本。
+- `database/catalog/` MUST 是 CloudBase 公共内容的唯一结构化权威源；
+  `database/vendor/` 保存经审核的外部固定快照。云端 MUST 由仓库单向同步，
+  小程序运行时 MUST NOT 直接依赖 GitHub 或其它外部内容源。
+- 导入转换、中文化、规则或 AI enrichment MUST 与上游原始字段分层，
+  记录转换版本、生成来源与审核状态，MUST NOT 冒充上游原始数据。
+- 外部媒体与自有媒体 MUST 记录各自授权状态；替换媒体时 MUST 保持稳定
+  内容 ID，避免破坏收藏、计划和内容关联。
+
+**Rationale**: 可复现来源、清晰权属与分层转换是大规模内容库长期可维护、
+可审计和可替换的基础。
 
 ## Technology Stack Constraints
 
@@ -153,6 +188,10 @@ shared 同步至本地 utils；Astro 端通过 workspace 直接引用 shared。
   源码 MUST 优先 TypeScript 编写并按云开发要求编译交付。
 - 结构化内容 MUST 存于云数据库；图片资源 MUST 存于云存储；禁止在
   前端硬编码大量内容。
+- 公共内容 MUST 先进入仓库内 `database/catalog/`，再由同步脚本写入
+  CloudBase；部署/同步流程 MUST NOT 在运行时从第三方仓库抓取内容。
+- 外部固定快照 MUST 位于 `database/vendor/`，并与 source lock、许可、
+  NOTICE 和哈希一并版本管理。
 
 ### Web 官网站点
 
@@ -182,7 +221,7 @@ peakmeet/
 │   ├── miniprogram/        # 微信小程序前端
 │   ├── web/                # Astro Web 官网
 │   └── cloudfunctions/     # 微信云函数
-├── database/               # 数据库种子数据
+├── database/               # catalog 权威数据、vendor 固定快照与同步素材
 ├── docs/                   # 项目文档与设计稿
 ├── pnpm-workspace.yaml
 ├── package.json
@@ -238,7 +277,8 @@ peakmeet/
 2. 命名：文件、变量、函数语义化，统一小驼峰。
 3. 逻辑复用：可复用纯逻辑优先进 `packages/shared`。
 4. 云开发：权限与云函数边界见「Technology Stack Constraints」。
-5. 内容数据：结构化内容进云数据库，图片进云存储。
+5. 内容数据：仓库 `database/catalog/` 为结构化权威源，`database/vendor/`
+   保存外部固定快照；结构化内容同步进云数据库，图片同步进云存储。
 6. 品牌与视觉：面向用户 UI 对齐 `docs/brand`；计算页遵循现行视觉契约与
    共享样式；色值/版式细节不在宪章内展开。
 
@@ -250,6 +290,8 @@ peakmeet/
 4. 功能变更 MUST NOT 破坏已有功能与对应测试用例。
 5. 新增功能 MUST 符合本 Constitution 全部规约，不得突破产品边界与
    技术选型。
+6. 外部数据/媒体变更 MUST 附来源锁、许可状态、转换版本、完整性校验与
+   回滚/替换策略。
 
 ## Governance
 
@@ -269,11 +311,12 @@ peakmeet/
 - 每个 feature 的 plan MUST 通过 Constitution Check 门禁后方可进入
   设计与实现。
 - PR/评审 MUST 核对：栈锁定、TypeScript 优先、shared 复用、TDD（shared）、
-  产品边界、合规红线、品牌与视觉对齐（`docs/brand` / 视觉契约）。
+  产品边界、合规红线、来源/媒体 provenance、品牌与视觉对齐
+  （`docs/brand` / 视觉契约）。
 - 违规项 MUST 在合入前修复，或在 Complexity Tracking 中书面论证且
   不得突破 NON-NEGOTIABLE 条款（Stack Lock、TDD、Compliance）。
 
 **运行时开发指引**：以本文件与 `docs/` 下设计文档为准；Spec Kit 命令
 （specify → plan → tasks → implement）执行时 MUST 加载本 Constitution。
 
-**Version**: 1.2.0 | **Ratified**: 2026-07-23 | **Last Amended**: 2026-07-23
+**Version**: 1.3.0 | **Ratified**: 2026-07-23 | **Last Amended**: 2026-07-24

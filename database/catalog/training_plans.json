@@ -1,0 +1,638 @@
+[
+  {
+    "_id": "plan_001",
+    "title": "居家新手四周",
+    "goal": "general",
+    "scene": "home",
+    "difficulty": "beginner",
+    "category": "beginner",
+    "cycleWeeks": 4,
+    "frequencyPerWeek": 3,
+    "intro": "居家新手四周：面向普通健身爱好者的结构化安排，请根据自身状况量力而行，仅供参考。",
+    "audience": "健身新手至进阶爱好者",
+    "cover": null,
+    "warmup": [
+      "关节环绕",
+      "轻度有氧 3–5 分钟"
+    ],
+    "days": [
+      {
+        "dayIndex": 1,
+        "title": "训练日 1",
+        "items": [
+          {
+            "actionId": null,
+            "name": "深蹲",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "划船",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "二头弯举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 2,
+        "title": "训练日 2",
+        "items": [
+          {
+            "actionId": null,
+            "name": "深蹲",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "划船",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "二头弯举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 3,
+        "title": "训练日 3",
+        "items": [
+          {
+            "actionId": null,
+            "name": "深蹲",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "划船",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "二头弯举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      }
+    ],
+    "stretch": [
+      "静态拉伸主要肌群 5–8 分钟"
+    ],
+    "hot": true,
+    "sortWeight": 20,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "plan_002",
+    "title": "健身房增肌入门",
+    "goal": "muscle",
+    "scene": "gym",
+    "difficulty": "intermediate",
+    "category": "strength",
+    "cycleWeeks": 4,
+    "frequencyPerWeek": 3,
+    "intro": "健身房增肌入门：面向普通健身爱好者的结构化安排，请根据自身状况量力而行，仅供参考。",
+    "audience": "健身新手至进阶爱好者",
+    "cover": null,
+    "warmup": [
+      "关节环绕",
+      "轻度有氧 3–5 分钟"
+    ],
+    "days": [
+      {
+        "dayIndex": 1,
+        "title": "训练日 1",
+        "items": [
+          {
+            "actionId": null,
+            "name": "硬拉",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "弓步蹲",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "三头下压",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 2,
+        "title": "训练日 2",
+        "items": [
+          {
+            "actionId": null,
+            "name": "硬拉",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "弓步蹲",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "三头下压",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 3,
+        "title": "训练日 3",
+        "items": [
+          {
+            "actionId": null,
+            "name": "硬拉",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "弓步蹲",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "三头下压",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      }
+    ],
+    "stretch": [
+      "静态拉伸主要肌群 5–8 分钟"
+    ],
+    "hot": true,
+    "sortWeight": 19,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "plan_003",
+    "title": "减脂体能循环",
+    "goal": "fat_loss",
+    "scene": "gym",
+    "difficulty": "advanced",
+    "category": "conditioning",
+    "cycleWeeks": 4,
+    "frequencyPerWeek": 3,
+    "intro": "减脂体能循环：面向普通健身爱好者的结构化安排，请根据自身状况量力而行，仅供参考。",
+    "audience": "健身新手至进阶爱好者",
+    "cover": null,
+    "warmup": [
+      "关节环绕",
+      "轻度有氧 3–5 分钟"
+    ],
+    "days": [
+      {
+        "dayIndex": 1,
+        "title": "训练日 1",
+        "items": [
+          {
+            "actionId": null,
+            "name": "卧推",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "臀桥",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 2,
+        "title": "训练日 2",
+        "items": [
+          {
+            "actionId": null,
+            "name": "卧推",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "臀桥",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 3,
+        "title": "训练日 3",
+        "items": [
+          {
+            "actionId": null,
+            "name": "卧推",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "臀桥",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      }
+    ],
+    "stretch": [
+      "静态拉伸主要肌群 5–8 分钟"
+    ],
+    "hot": false,
+    "sortWeight": 18,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "plan_004",
+    "title": "自重核心强化",
+    "goal": "general",
+    "scene": "bodyweight",
+    "difficulty": "beginner",
+    "category": "beginner",
+    "cycleWeeks": 4,
+    "frequencyPerWeek": 3,
+    "intro": "自重核心强化：面向普通健身爱好者的结构化安排，请根据自身状况量力而行，仅供参考。",
+    "audience": "健身新手至进阶爱好者",
+    "cover": null,
+    "warmup": [
+      "关节环绕",
+      "轻度有氧 3–5 分钟"
+    ],
+    "days": [
+      {
+        "dayIndex": 1,
+        "title": "训练日 1",
+        "items": [
+          {
+            "actionId": null,
+            "name": "引体向上",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "平板支撑",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿弯举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 2,
+        "title": "训练日 2",
+        "items": [
+          {
+            "actionId": null,
+            "name": "引体向上",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "平板支撑",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿弯举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 3,
+        "title": "训练日 3",
+        "items": [
+          {
+            "actionId": null,
+            "name": "引体向上",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "平板支撑",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿弯举",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      }
+    ],
+    "stretch": [
+      "静态拉伸主要肌群 5–8 分钟"
+    ],
+    "hot": false,
+    "sortWeight": 17,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "plan_005",
+    "title": "功能性混合训练",
+    "goal": "conditioning",
+    "scene": "gym",
+    "difficulty": "intermediate",
+    "category": "functional",
+    "cycleWeeks": 4,
+    "frequencyPerWeek": 3,
+    "intro": "功能性混合训练：面向普通健身爱好者的结构化安排，请根据自身状况量力而行，仅供参考。",
+    "audience": "健身新手至进阶爱好者",
+    "cover": null,
+    "warmup": [
+      "关节环绕",
+      "轻度有氧 3–5 分钟"
+    ],
+    "days": [
+      {
+        "dayIndex": 1,
+        "title": "训练日 1",
+        "items": [
+          {
+            "actionId": null,
+            "name": "俯卧撑",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "卷腹",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿伸展",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 2,
+        "title": "训练日 2",
+        "items": [
+          {
+            "actionId": null,
+            "name": "俯卧撑",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "卷腹",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿伸展",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 3,
+        "title": "训练日 3",
+        "items": [
+          {
+            "actionId": null,
+            "name": "俯卧撑",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "卷腹",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "腿伸展",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      }
+    ],
+    "stretch": [
+      "静态拉伸主要肌群 5–8 分钟"
+    ],
+    "hot": true,
+    "sortWeight": 16,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  },
+  {
+    "_id": "plan_006",
+    "title": "活动度与恢复周",
+    "goal": "mobility",
+    "scene": "home",
+    "difficulty": "advanced",
+    "category": "mobility",
+    "cycleWeeks": 4,
+    "frequencyPerWeek": 3,
+    "intro": "活动度与恢复周：面向普通健身爱好者的结构化安排，请根据自身状况量力而行，仅供参考。",
+    "audience": "健身新手至进阶爱好者",
+    "cover": null,
+    "warmup": [
+      "关节环绕",
+      "轻度有氧 3–5 分钟"
+    ],
+    "days": [
+      {
+        "dayIndex": 1,
+        "title": "训练日 1",
+        "items": [
+          {
+            "actionId": null,
+            "name": "肩上推举",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "侧平板",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "提踵",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 2,
+        "title": "训练日 2",
+        "items": [
+          {
+            "actionId": null,
+            "name": "肩上推举",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "侧平板",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "提踵",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      },
+      {
+        "dayIndex": 3,
+        "title": "训练日 3",
+        "items": [
+          {
+            "actionId": null,
+            "name": "肩上推举",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "侧平板",
+            "sets": 3,
+            "reps": "8-12",
+            "restSec": 60
+          },
+          {
+            "actionId": null,
+            "name": "提踵",
+            "sets": 3,
+            "reps": "30s",
+            "restSec": 60
+          }
+        ]
+      }
+    ],
+    "stretch": [
+      "静态拉伸主要肌群 5–8 分钟"
+    ],
+    "hot": false,
+    "sortWeight": 15,
+    "updatedAt": "2026-07-24T00:00:00.000Z"
+  }
+]

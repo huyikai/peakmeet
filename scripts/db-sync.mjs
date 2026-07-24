@@ -1,13 +1,15 @@
 /**
- * Upsert PeakMeet public seeds into CloudBase.
+ * Upsert PeakMeet public catalog into CloudBase.
  * Env: CLOUDBASE_ENV_ID, CLOUDBASE_SECRET_ID, CLOUDBASE_SECRET_KEY
- * Optional: DB_SYNC_SKIP_ASSETS=1 to only resolve existing cloud file IDs (no re-upload)
+ * Optional:
+ *   DB_SYNC_SKIP_ASSETS=1
+ *   DB_SYNC_DRY_RUN=1
+ *   DB_SYNC_REPLACE=1  (replace actions/equipment orphans after backup)
  * Loads optional .env.local / .env
  */
 import { readFileSync, existsSync, writeFileSync, mkdirSync, unlinkSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -39,6 +41,8 @@ const COLLECTIONS = ['actions', 'equipment', 'training_plans', 'foods'];
 const envId = process.env.CLOUDBASE_ENV_ID || 'cloud1-d8ghafmni1c847e3f';
 const secretId = process.env.CLOUDBASE_SECRET_ID;
 const secretKey = process.env.CLOUDBASE_SECRET_KEY;
+const dryRun = process.env.DB_SYNC_DRY_RUN === '1';
+const replaceMode = process.env.DB_SYNC_REPLACE === '1';
 
 if (!secretId || !secretKey) {
   console.error(
@@ -53,8 +57,7 @@ const app = CloudBase.init({
   secretKey,
   envId,
 });
-const { database } = app;
-const { storage } = app;
+const { database, storage } = app;
 
 function loadAssetManifest() {
   const path = join(root, 'database', 'assets', 'content', 'manifest.json');
@@ -62,8 +65,8 @@ function loadAssetManifest() {
     throw new Error(`Missing content image manifest: ${path}`);
   }
   const entries = JSON.parse(readFileSync(path, 'utf8'));
-  if (!Array.isArray(entries) || entries.length !== 300) {
-    throw new Error(`${path} must contain exactly 300 image entries`);
+  if (!Array.isArray(entries) || entries.length < 2648) {
+    throw new Error(`${path} must contain at least 2648 image entries`);
   }
   for (const entry of entries) {
     const localPath = join(root, entry.source);
@@ -76,6 +79,16 @@ function loadAssetManifest() {
     }
   }
   return entries;
+}
+
+function loadSourceLock() {
+  const path = join(root, 'database/vendor/exercises-dataset/source.lock.json');
+  if (!existsSync(path)) throw new Error(`Missing source lock: ${path}`);
+  const lock = JSON.parse(readFileSync(path, 'utf8'));
+  if (lock.commit !== '7455efae41b330c265e7cd4b78dfa848e7ce5ebd') {
+    throw new Error(`Unexpected source lock commit: ${lock.commit}`);
+  }
+  return lock;
 }
 
 async function runPool(items, concurrency, worker) {
@@ -96,6 +109,9 @@ async function uploadContentAssets(entries) {
   console.log(
     `[db:sync] ${skipUpload ? 'resolving' : 'uploading'} ${entries.length} content images…`,
   );
+  if (dryRun) {
+    return new Map(entries.map((entry) => [entry.assetUri, `dry-run://${entry.cloudPath}`]));
+  }
   const pairs = await runPool(entries, 8, async (entry, index) => {
     const localPath = join(root, entry.source);
     if (!skipUpload) {
@@ -110,7 +126,7 @@ async function uploadContentAssets(entries) {
     if (!metadata?.fileId) {
       throw new Error(`No cloud file ID returned for ${entry.cloudPath}`);
     }
-    if ((index + 1) % 25 === 0 || index + 1 === entries.length) {
+    if ((index + 1) % 100 === 0 || index + 1 === entries.length) {
       console.log(`[db:sync] assets ${index + 1}/${entries.length}`);
     }
     return [entry.assetUri, metadata.fileId];
@@ -118,85 +134,51 @@ async function uploadContentAssets(entries) {
   return new Map(pairs);
 }
 
-function loadSeed(name, assetFileIds) {
-  const path = join(root, 'database', 'seeds', `${name}.json`);
-  if (!existsSync(path)) {
-    throw new Error(`Missing seed file: ${path}`);
+function rewriteMediaFields(doc, assetFileIds) {
+  const fields = ['cover', 'coverJpg', 'demoGif'];
+  for (const field of fields) {
+    const value = doc[field];
+    if (typeof value === 'string' && (value.startsWith('asset://') || value.startsWith('vendor://'))) {
+      const fileId = assetFileIds.get(value);
+      if (!fileId) throw new Error(`${doc._id} references unknown asset: ${value}`);
+      doc[field] = fileId;
+    }
   }
+  if (doc.media && typeof doc.media === 'object') {
+    for (const field of ['cover', 'coverJpg', 'demoGif', 'thumbnailUri', 'gifUri']) {
+      const value = doc.media[field];
+      if (typeof value === 'string' && (value.startsWith('asset://') || value.startsWith('vendor://'))) {
+        const fileId = assetFileIds.get(value);
+        if (!fileId) throw new Error(`${doc._id}.media references unknown asset: ${value}`);
+        doc.media[field] = fileId;
+      }
+    }
+  }
+}
+
+function loadCatalog(name, assetFileIds) {
+  const path = join(root, 'database', 'catalog', `${name}.json`);
+  if (!existsSync(path)) throw new Error(`Missing catalog file: ${path}`);
   let data;
   try {
     data = JSON.parse(readFileSync(path, 'utf8'));
   } catch (e) {
     throw new Error(`Invalid JSON in ${path}: ${e.message}`);
   }
-  if (!Array.isArray(data)) {
-    throw new Error(`${path} must be a JSON array`);
-  }
+  if (!Array.isArray(data)) throw new Error(`${path} must be a JSON array`);
   for (const doc of data) {
     if (!doc || typeof doc._id !== 'string' || !doc._id) {
       throw new Error(`${path} contains a document without _id`);
     }
-    if (typeof doc.cover === 'string' && doc.cover.startsWith('asset://')) {
-      const fileId = assetFileIds.get(doc.cover);
-      if (!fileId) {
-        throw new Error(`${path} references unknown asset: ${doc.cover}`);
+    rewriteMediaFields(doc, assetFileIds);
+    for (const field of ['cover', 'coverJpg', 'demoGif']) {
+      const value = doc[field];
+      if (typeof value === 'string' && (value.startsWith('asset://') || /github\.com/i.test(value))) {
+        throw new Error(`${path}/${doc._id} still has forbidden ${field}`);
       }
-      doc.cover = fileId;
     }
   }
   return data;
-}
-
-function toNdjson(docs) {
-  return docs.map((d) => JSON.stringify(d)).join('\n') + '\n';
-}
-
-async function waitJob(jobId) {
-  const maxAttempts = 60;
-  for (let i = 0; i < maxAttempts; i++) {
-    const status = await database.migrateStatus(jobId);
-    const s = status.Status || status.status;
-    if (s === 'success' || s === 'Success') {
-      return status;
-    }
-    if (s === 'fail' || s === 'Fail' || s === 'failed') {
-      throw new Error(status.ErrorMsg || status.errorMsg || `import job ${jobId} failed`);
-    }
-    await new Promise((r) => setTimeout(r, 2000));
-  }
-  throw new Error(`import job ${jobId} timed out`);
-}
-
-async function upsertCollectionViaMigrate(name, docs) {
-  const dir = join(tmpdir(), 'peakmeet-db-sync');
-  mkdirSync(dir, { recursive: true });
-  const filePath = join(dir, `${name}.json`);
-  writeFileSync(filePath, toNdjson(docs), 'utf8');
-
-  try {
-    // manager-node validates ConflictMode as string; "2" = Upsert（部分环境仍会当 Insert）
-    const res = await database.import(
-      name,
-      { FilePath: filePath, FileType: 'json' },
-      { ConflictMode: '2' },
-    );
-    const jobId = res.JobId ?? res.jobId;
-    if (jobId == null) {
-      throw new Error(`No JobId returned for ${name}: ${JSON.stringify(res)}`);
-    }
-    const finalStatus = await waitJob(jobId);
-    return {
-      total: docs.length,
-      success: finalStatus.RecordSuccess ?? finalStatus.recordSuccess,
-      fail: finalStatus.RecordFail ?? finalStatus.recordFail ?? 0,
-    };
-  } finally {
-    try {
-      unlinkSync(filePath);
-    } catch {
-      /* ignore */
-    }
-  }
 }
 
 async function upsertCollectionViaSdk(name, docs) {
@@ -213,8 +195,9 @@ async function upsertCollectionViaSdk(name, docs) {
     const id = doc._id;
     const { _id: _omit, ...fields } = doc;
     try {
-      // doc id is the path; payload must NOT include `_id`
-      await db.collection(name).doc(id).set(fields);
+      if (!dryRun) {
+        await db.collection(name).doc(id).set(fields);
+      }
       success += 1;
     } catch (e) {
       fail += 1;
@@ -223,7 +206,7 @@ async function upsertCollectionViaSdk(name, docs) {
         e instanceof Error ? e.message : e,
       );
     }
-    if ((index + 1) % 25 === 0 || index + 1 === docs.length) {
+    if ((index + 1) % 100 === 0 || index + 1 === docs.length) {
       console.log(`[db:sync] ${name} docs ${index + 1}/${docs.length}`);
     }
   });
@@ -231,12 +214,78 @@ async function upsertCollectionViaSdk(name, docs) {
 }
 
 async function upsertCollection(name, docs) {
-  await database.createCollectionIfNotExists(name);
-  // Prefer SDK set: migrate Upsert is unreliable on some CloudBase envs (E11000)
+  if (!dryRun) await database.createCollectionIfNotExists(name);
   return upsertCollectionViaSdk(name, docs);
 }
 
-console.log(`[db:sync] env=${envId}`);
+async function listAllIds(db, name) {
+  const ids = [];
+  const pageSize = 100;
+  let skip = 0;
+  for (;;) {
+    const res = await db.collection(name).field({ _id: true }).skip(skip).limit(pageSize).get();
+    const batch = res.data ?? [];
+    for (const doc of batch) {
+      if (doc?._id) ids.push(String(doc._id));
+    }
+    if (batch.length < pageSize) break;
+    skip += batch.length;
+  }
+  return ids;
+}
+
+async function removeOrphans(name, keepIds) {
+  const tcb = (await import('@cloudbase/node-sdk')).default;
+  const appSdk = tcb.init({
+    env: envId,
+    secretId,
+    secretKey,
+  });
+  const db = appSdk.database();
+  const keep = new Set(keepIds);
+  const existing = await listAllIds(db, name);
+  const orphans = existing.filter((id) => !keep.has(id));
+  console.log(`[db:sync] ${name} orphan scan: cloud=${existing.length} keep=${keep.size} orphan=${orphans.length}`);
+  if (orphans.length === 0) return { deleted: 0, failed: 0, orphans };
+
+  if (dryRun) {
+    console.log(`[db:sync] dry-run would delete ${orphans.length} orphan ${name} docs`);
+    return { deleted: 0, failed: 0, orphans };
+  }
+
+  let deleted = 0;
+  let failed = 0;
+  await runPool(orphans, 8, async (id, index) => {
+    try {
+      await db.collection(name).doc(id).remove();
+      deleted += 1;
+    } catch (e) {
+      failed += 1;
+      console.error(
+        `[db:sync] ${name}/${id} remove failed:`,
+        e instanceof Error ? e.message : e,
+      );
+    }
+    if ((index + 1) % 50 === 0 || index + 1 === orphans.length) {
+      console.log(`[db:sync] ${name} orphans ${index + 1}/${orphans.length}`);
+    }
+  });
+  return { deleted, failed, orphans };
+}
+
+function writeBackup(name, docs) {
+  const dir = join(root, 'database/backups');
+  mkdirSync(dir, { recursive: true });
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const path = join(dir, `${name}-${stamp}.json`);
+  writeFileSync(path, `${JSON.stringify(docs, null, 2)}\n`);
+  return path;
+}
+
+console.log(`[db:sync] env=${envId} dryRun=${dryRun} replace=${replaceMode}`);
+const lock = loadSourceLock();
+console.log(`[db:sync] source lock ${lock.commit} aggregate=${lock.aggregateSha256.slice(0, 12)}…`);
+
 const assetEntries = loadAssetManifest();
 let assetFileIds;
 try {
@@ -247,9 +296,13 @@ try {
 }
 
 let exitCode = 0;
+const loaded = {};
 for (const name of COLLECTIONS) {
-  const docs = loadSeed(name, assetFileIds);
-  console.log(`[db:sync] importing ${name} (${docs.length}) with Upsert…`);
+  const docs = loadCatalog(name, assetFileIds);
+  loaded[name] = docs;
+  const backupPath = writeBackup(name, docs);
+  console.log(`[db:sync] backup ${name} -> ${backupPath}`);
+  console.log(`[db:sync] importing ${name} (${docs.length})…`);
   try {
     const summary = await upsertCollection(name, docs);
     console.log(
@@ -262,11 +315,52 @@ for (const name of COLLECTIONS) {
   }
 }
 
+if (replaceMode && exitCode === 0) {
+  for (const name of ['actions', 'equipment']) {
+    try {
+      const result = await removeOrphans(
+        name,
+        loaded[name].map((doc) => doc._id),
+      );
+      const reportPath = join(
+        root,
+        'database/reports',
+        `${name}-orphan-cleanup.json`,
+      );
+      mkdirSync(dirname(reportPath), { recursive: true });
+      writeFileSync(
+        reportPath,
+        `${JSON.stringify(
+          {
+            generatedAt: new Date().toISOString(),
+            dryRun,
+            deleted: result.deleted,
+            failed: result.failed,
+            orphans: result.orphans,
+          },
+          null,
+          2,
+        )}\n`,
+      );
+      console.log(
+        `[db:sync] ${name} orphan cleanup deleted=${result.deleted} failed=${result.failed} report=${reportPath}`,
+      );
+      if (result.failed > 0) exitCode = 1;
+    } catch (e) {
+      exitCode = 1;
+      console.error(`[db:sync] ${name} orphan cleanup failed:`, e.message || e);
+    }
+  }
+}
+
 if (exitCode !== 0) {
   console.error('[db:sync] completed with errors');
-  console.error(
-    '[db:sync] Fallback: console import of database/seeds/*.json with Upsert. See database/README.md',
-  );
   process.exit(exitCode);
 }
-console.log('[db:sync] done (upsert only; orphans not deleted)');
+console.log(
+  dryRun
+    ? '[db:sync] dry-run done (no cloud writes)'
+    : replaceMode
+      ? '[db:sync] done (catalog upsert + actions/equipment orphan cleanup)'
+      : '[db:sync] done (catalog upsert; set DB_SYNC_REPLACE=1 to remove cloud orphans)',
+);

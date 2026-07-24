@@ -14,6 +14,15 @@
   display: block;
 }
 
+.demo-gif {
+  width: 360rpx;
+  height: 360rpx;
+  margin: 24rpx auto 0;
+  display: block;
+  background: rgba(11, 13, 16, 0.04);
+  border-radius: 16rpx;
+}
+
 .body {
   padding: 32rpx;
   padding-bottom: 80rpx;
@@ -25,9 +34,23 @@
   display: block;
 }
 
+.alias {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+  display: block;
+}
+
 .sub {
   margin-top: 8rpx;
   font-size: 26rpx;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+  display: block;
+}
+
+.attribution {
+  margin-top: 12rpx;
+  font-size: 22rpx;
   color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
   display: block;
 }

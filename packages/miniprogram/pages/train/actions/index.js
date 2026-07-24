@@ -4,21 +4,15 @@ const index_1 = require("../../../utils/shared/index");
 const content_cover_1 = require("../../../utils/content-cover");
 const cloud_content_1 = require("../../../utils/cloud-content");
 const user_collect_1 = require("../../../utils/user-collect");
-function sortActions(actions) {
-    return [...actions].sort((a, b) => {
-        if (b.sortWeight !== a.sortWeight)
-            return b.sortWeight - a.sortWeight;
-        return a._id.localeCompare(b._id);
-    });
-}
 function toItems(actions, collectedIds) {
     return actions.map((a) => {
-        var _a;
+        var _a, _b, _c, _d;
         return ({
             _id: a._id,
             name: a.name,
-            coverSrc: (0, content_cover_1.contentCoverSrc)(a.cover),
-            primaryMuscleLabel: (0, index_1.muscleLabelZh)((_a = a.primaryMuscles[0]) !== null && _a !== void 0 ? _a : ''),
+            alias: (_b = (_a = a.aliases) === null || _a === void 0 ? void 0 : _a[0]) !== null && _b !== void 0 ? _b : '',
+            coverSrc: (0, content_cover_1.contentCoverSrc)((_c = a.coverJpg) !== null && _c !== void 0 ? _c : a.cover),
+            primaryMuscleLabel: (0, index_1.muscleLabelZh)((_d = a.primaryMuscles[0]) !== null && _d !== void 0 ? _d : ''),
             difficultyLabel: (0, index_1.difficultyLabelZh)(a.difficulty),
             collected: collectedIds.has(a._id),
         });
@@ -39,20 +33,47 @@ Page({
         goal: '',
         items: [],
         empty: false,
+        loadingMore: false,
+        hasMore: false,
     },
-    _allActions: [],
     _collectedIds: new Set(),
     _reqSeq: 0,
+    _nextCursor: null,
+    _offset: 0,
+    _catalogTotal: 0,
+    _searchTimer: null,
     onShow() {
         void this.reload();
     },
+    onUnload() {
+        this._reqSeq += 1;
+        if (this._searchTimer)
+            clearTimeout(this._searchTimer);
+    },
+    onReachBottom() {
+        void this.loadMore();
+    },
     async reload() {
-        var _a;
+        var _a, _b, _c;
         const seq = ++this._reqSeq;
-        this.setData({ loading: true, error: '' });
+        this._nextCursor = null;
+        this._offset = 0;
+        this.setData({
+            loading: true,
+            loadingMore: false,
+            error: '',
+            items: [],
+            empty: false,
+            hasMore: false,
+        });
         try {
             const [actionsRes, equipRes] = await Promise.all([
-                (0, cloud_content_1.contentListActions)(100),
+                (0, cloud_content_1.contentListActions)({
+                    limit: 24,
+                    offset: 0,
+                    search: this.data.keyword,
+                    taxonomy: this.currentTaxonomy(),
+                }),
                 (0, cloud_content_1.contentListEquipment)(100),
             ]);
             if (seq !== this._reqSeq)
@@ -63,6 +84,7 @@ Page({
                     error: actionsRes.message || '加载失败',
                     items: [],
                     empty: false,
+                    hasMore: false,
                 });
                 return;
             }
@@ -75,7 +97,6 @@ Page({
                     }))
                     : []),
             ];
-            this._allActions = sortActions((_a = actionsRes.data.items) !== null && _a !== void 0 ? _a : []);
             let collectedIds = new Set();
             try {
                 const idRes = await (0, user_collect_1.ensureOpenId)();
@@ -84,14 +105,27 @@ Page({
                     collectedIds = new Set(ids);
                 }
             }
-            catch (_b) {
+            catch (_d) {
                 collectedIds = new Set();
             }
             if (seq !== this._reqSeq)
                 return;
             this._collectedIds = collectedIds;
-            this.setData({ equipmentOptions, loading: false, error: '' });
-            this.applyFilters();
+            const summaries = (_a = actionsRes.data.items) !== null && _a !== void 0 ? _a : [];
+            this._nextCursor = (_b = actionsRes.data.nextCursor) !== null && _b !== void 0 ? _b : null;
+            this._offset = summaries.length;
+            if (!this.hasActiveQuery()) {
+                this._catalogTotal = (_c = actionsRes.data.total) !== null && _c !== void 0 ? _c : summaries.length;
+            }
+            const items = toItems(summaries, collectedIds);
+            this.setData({
+                equipmentOptions,
+                items,
+                loading: false,
+                error: '',
+                empty: items.length === 0,
+                hasMore: Boolean(actionsRes.data.hasMore),
+            });
         }
         catch (e) {
             if (seq !== this._reqSeq)
@@ -100,28 +134,62 @@ Page({
             this.setData({ loading: false, error: message, items: [], empty: false });
         }
     },
-    currentFilters() {
-        return (0, index_1.normalizeActionCatalogFilters)({
+    currentTaxonomy() {
+        return {
             primaryMuscle: this.data.primaryMuscle || null,
             equipmentId: this.data.equipmentId || null,
-            difficulty: this.data.difficulty || null,
+            difficulty: (this.data.difficulty || null),
             goal: this.data.goal || null,
-            keyword: this.data.keyword,
-        });
+        };
     },
-    applyFilters() {
-        const filtered = (0, index_1.filterActions)(this._allActions, this.currentFilters());
-        const items = toItems(filtered, this._collectedIds);
-        this.setData({ items, empty: !this.data.loading && items.length === 0 });
+    hasActiveQuery() {
+        return Boolean(this.data.keyword ||
+            this.data.primaryMuscle ||
+            this.data.equipmentId ||
+            this.data.difficulty ||
+            this.data.goal);
+    },
+    async loadMore() {
+        var _a, _b;
+        if (this.data.loading || this.data.loadingMore || !this.data.hasMore)
+            return;
+        const seq = this._reqSeq;
+        this.setData({ loadingMore: true });
+        const result = await (0, cloud_content_1.contentListActions)({
+            limit: 24,
+            cursor: this._nextCursor,
+            offset: this._nextCursor ? 0 : this._offset,
+            search: this.data.keyword,
+            taxonomy: this.currentTaxonomy(),
+        });
+        if (seq !== this._reqSeq)
+            return;
+        if (!result.ok) {
+            this.setData({ loadingMore: false });
+            wx.showToast({ title: result.message || '加载更多失败', icon: 'none' });
+            return;
+        }
+        const summaries = (_a = result.data.items) !== null && _a !== void 0 ? _a : [];
+        const known = new Set(this.data.items.map((item) => item._id));
+        const appended = toItems(summaries, this._collectedIds).filter((item) => !known.has(item._id));
+        this._offset += summaries.length;
+        this._nextCursor = (_b = result.data.nextCursor) !== null && _b !== void 0 ? _b : null;
+        this.setData({
+            items: [...this.data.items, ...appended],
+            loadingMore: false,
+            hasMore: Boolean(result.data.hasMore),
+        });
     },
     onKeywordInput(e) {
         var _a;
         this.setData({ keyword: (_a = e.detail.value) !== null && _a !== void 0 ? _a : '' });
-        this.applyFilters();
+        if (this._searchTimer)
+            clearTimeout(this._searchTimer);
+        this._searchTimer = setTimeout(() => void this.reload(), 250);
     },
     clearKeyword() {
         this.setData({ keyword: '' });
-        this.applyFilters();
+        void this.reload();
     },
     onPickMuscle(e) {
         var _a;
@@ -129,7 +197,7 @@ Page({
         this.setData({
             primaryMuscle: this.data.primaryMuscle === id ? '' : id,
         });
-        this.applyFilters();
+        void this.reload();
     },
     onPickEquipment(e) {
         var _a;
@@ -137,7 +205,7 @@ Page({
         this.setData({
             equipmentId: this.data.equipmentId === id ? '' : id,
         });
-        this.applyFilters();
+        void this.reload();
     },
     onPickDifficulty(e) {
         var _a;
@@ -145,13 +213,13 @@ Page({
         this.setData({
             difficulty: this.data.difficulty === id ? '' : id,
         });
-        this.applyFilters();
+        void this.reload();
     },
     onPickGoal(e) {
         var _a;
         const id = String((_a = e.currentTarget.dataset.id) !== null && _a !== void 0 ? _a : '');
         this.setData({ goal: this.data.goal === id ? '' : id });
-        this.applyFilters();
+        void this.reload();
     },
     clearFilters() {
         this.setData({
@@ -161,7 +229,7 @@ Page({
             goal: '',
             keyword: '',
         });
-        this.applyFilters();
+        void this.reload();
     },
     goDetail(e) {
         var _a;
@@ -170,13 +238,26 @@ Page({
             return;
         wx.navigateTo({ url: `/pages/train/actions/detail?id=${id}` });
     },
-    onToday() {
-        const pick = (0, index_1.pickRandomAction)(this._allActions);
-        if (!pick) {
-            wx.showToast({ title: '暂无可用动作', icon: 'none' });
+    async onToday() {
+        var _a;
+        let total = this._catalogTotal;
+        if (total < 1) {
+            const countRes = await (0, cloud_content_1.contentListActions)({ limit: 1, offset: 0 });
+            if (!countRes.ok) {
+                wx.showToast({ title: countRes.message || '推荐失败', icon: 'none' });
+                return;
+            }
+            total = (_a = countRes.data.total) !== null && _a !== void 0 ? _a : countRes.data.items.length;
+            this._catalogTotal = total;
+        }
+        const result = await (0, cloud_content_1.contentRandomAction)(total);
+        if (!result.ok) {
+            wx.showToast({ title: result.message || '暂无可用动作', icon: 'none' });
             return;
         }
-        wx.navigateTo({ url: `/pages/train/actions/detail?id=${pick._id}` });
+        wx.navigateTo({
+            url: `/pages/train/actions/detail?id=${result.data.item._id}`,
+        });
     },
     onRetry() {
         void this.reload();

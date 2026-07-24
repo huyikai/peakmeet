@@ -8,7 +8,6 @@ import {
 import { contentCoverSrc } from '../../../utils/content-cover';
 import {
   contentGetActionById,
-  contentListActions,
   contentListEquipment,
 } from '../../../utils/cloud-content';
 import {
@@ -23,6 +22,8 @@ const SCENE_ZH: Record<Scene, string> = {
   bodyweight: '自重',
 };
 
+const MEDIA_ATTRIBUTION = '© Gym visual — https://gymvisual.com/';
+
 type SubstituteView = { id: string; name: string };
 
 Page({
@@ -31,6 +32,7 @@ Page({
     error: '',
     id: '',
     name: '',
+    alias: '',
     difficultyLabel: '',
     equipmentText: '',
     sceneText: '',
@@ -38,15 +40,18 @@ Page({
     secondaryMusclesText: '',
     secondaryMuscles: [] as string[],
     coverSrc: '',
+    demoGifSrc: '',
     steps: [] as string[],
     cues: [] as string[],
     mistakes: [] as string[],
     substitutes: [] as SubstituteView[],
+    showCues: false,
+    showMistakes: false,
+    showSubstitutes: false,
     collected: false,
+    mediaAttribution: MEDIA_ATTRIBUTION,
     disclaimer: FITNESS_DISCLAIMER,
   },
-
-  _nameById: new Map<string, string>(),
 
   onLoad(query: Record<string, string | undefined>) {
     const id = String(query.id ?? '');
@@ -61,9 +66,8 @@ Page({
     }
     this.setData({ loading: true, error: '' });
     try {
-      const [detailRes, listRes, equipRes] = await Promise.all([
+      const [detailRes, equipRes] = await Promise.all([
         contentGetActionById(id),
-        contentListActions(100),
         contentListEquipment(100),
       ]);
 
@@ -76,12 +80,6 @@ Page({
       }
 
       const action = detailRes.data.item;
-      if (listRes.ok) {
-        this._nameById = new Map(
-          listRes.data.items.map((a) => [a._id, a.name]),
-        );
-      }
-
       let equipmentLabels = ['自重/无器械'];
       if (action.equipment?.length) {
         const map = equipRes.ok
@@ -90,10 +88,12 @@ Page({
         equipmentLabels = action.equipment.map((eid) => map.get(eid) ?? eid);
       }
 
+      const substituteIds =
+        action.enrichment?.substituteIds ?? action.substituteIds ?? [];
       const substitutes: SubstituteView[] = [];
-      for (const sid of action.substituteIds ?? []) {
-        const name = this._nameById.get(sid);
-        if (name) substitutes.push({ id: sid, name });
+      for (const sid of substituteIds) {
+        const sub = await contentGetActionById(sid);
+        if (sub.ok) substitutes.push({ id: sid, name: sub.data.item.name });
       }
 
       let collected = false;
@@ -126,10 +126,14 @@ Page({
       collected: boolean;
     },
   ) {
+    const cues = action.enrichment?.cues ?? action.cues ?? [];
+    const mistakes = action.enrichment?.mistakes ?? action.mistakes ?? [];
+    const alias = action.aliases?.[0] ?? '';
     this.setData({
       loading: false,
       error: '',
       name: action.name,
+      alias,
       difficultyLabel: difficultyLabelZh(action.difficulty),
       equipmentText: extra.equipmentLabels.join('、'),
       sceneText: (action.scenes ?? [])
@@ -142,12 +146,17 @@ Page({
         .map(muscleLabelZh)
         .join('、'),
       secondaryMuscles: (action.secondaryMuscles ?? []).map(muscleLabelZh),
-      coverSrc: contentCoverSrc(action.cover),
+      coverSrc: contentCoverSrc(action.coverJpg ?? action.cover),
+      demoGifSrc: contentCoverSrc(action.demoGif),
       steps: action.steps ?? [],
-      cues: action.cues ?? [],
-      mistakes: action.mistakes ?? [],
+      cues,
+      mistakes,
       substitutes: extra.substitutes,
+      showCues: cues.length > 0,
+      showMistakes: mistakes.length > 0,
+      showSubstitutes: extra.substitutes.length > 0,
       collected: extra.collected,
+      mediaAttribution: action.mediaAttribution || MEDIA_ATTRIBUTION,
       disclaimer: FITNESS_DISCLAIMER,
     });
   },
