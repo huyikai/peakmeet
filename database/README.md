@@ -1,68 +1,93 @@
-# PeakMeet CloudBase — schema, seeds, sync
+# PeakMeet CloudBase 数据与内容
 
-本目录是公共内容的**权威源**与安全规则落盘处。设计文档见 `specs/006-cloud-db-seed/`。
+本目录是公共内容种子、集合安全规则和内容配图的权威源。详细规格与验收步骤见 [`specs/006-cloud-db-seed`](../specs/006-cloud-db-seed/)。
 
-## 布局
+## 目录结构
 
-| Path | 说明 |
-| ---- | ---- |
-| `rules/*.json` | 七集合安全规则（控制台粘贴） |
-| `seeds/*.json` | 公共四表种子（`_id` = slug） |
-| `assets/content/` | 动作 80 + 器材 20 + 食物 200 张仓库配图及 manifest |
-| 无 `user_*` 种子 | 用户表本版仅规则 + shared 类型 |
+| 路径 | 内容 |
+| --- | --- |
+| [`rules/`](./rules/) | 7 个集合的 CloudBase 安全规则 |
+| [`seeds/`](./seeds/) | actions、equipment、foods、training_plans 公共种子 |
+| [`assets/content/`](./assets/content/) | 300 张内容配图和 `manifest.json` |
+| [`assets/images/`](./assets/images/) | 内容缺省图等通用图片源 |
 
-## 环境变量（本地 / CI）
+`user_collect`、`user_body_record` 和 `user_train_record` 只提供安全规则与共享类型，不提供用户数据种子。
 
-复制 `.env.example` 为 `.env.local`（已 gitignore），填入：
+## 快速同步
 
-- `CLOUDBASE_ENV_ID`（默认 `cloud1-d8ghafmni1c847e3f`）
-- `CLOUDBASE_SECRET_ID` / `CLOUDBASE_SECRET_KEY`（腾讯云 API 密钥）
+1. 从根目录复制环境变量模板并填写 CloudBase 凭据：
 
-**禁止**将密钥提交仓库。Fork 者请替换为自己的 AppID / 环境 ID / 密钥。
+   ```bash
+   cp .env.example .env.local
+   ```
 
-## 同步
+2. 校验种子与图片：
 
-```bash
-pnpm db:sync
-```
+   ```bash
+   pnpm db:validate-assets
+   ```
 
-命令先校验并上传 `database/assets/content/` 的 300 张配图，再把种子中的
-`asset://content/...` 转换为目标环境的 `cloud://...` fileID，最后按
-`_id` upsert；**不删除**种子未包含的云库文档。
+3. 上传图片并同步公共内容：
 
-降级：云控制台 → 数据库 → 集合 → 导入，冲突模式选 **Upsert**。
+   ```bash
+   pnpm db:sync
+   ```
 
-## 云函数
+同步命令会先校验并上传内容图片，将种子中的 `asset://content/...` 转换为目标环境的 `cloud://...` fileID，再按 `_id` Upsert 集合文档。该流程不会删除种子中未包含的云端文档。
 
-构建：`pnpm --filter @peakmeet/cloudfunctions build`  
-部署：开发者工具上传 `contentList`、`contentGetById`（见 `packages/cloudfunctions/`）。
+## 环境变量与安全
 
-小程序 AppID：`wx07a6368636359893`；`wx.cloud.init` 环境见 `packages/miniprogram/app.ts`。
+| 变量 | 说明 |
+| --- | --- |
+| `CLOUDBASE_ENV_ID` | 目标 CloudBase 环境 ID |
+| `CLOUDBASE_SECRET_ID` | 腾讯云 API SecretId |
+| `CLOUDBASE_SECRET_KEY` | 腾讯云 API SecretKey |
 
-## 建议索引（控制台创建）
+- `.env.local` 已被 Git 忽略，禁止提交真实密钥。
+- Fork 后应同时替换小程序 AppID、CloudBase 环境 ID 和本地凭据。
+- 小程序环境配置位置见 [`packages/miniprogram/README.md`](../packages/miniprogram/README.md)。
 
-`sortWeight`、`category`、`difficulty`、`primaryScene`、`goal`、`scene`、`type`、`recommendGrade`（按查询需要）。
+## 内容种子与配图
 
-## 内容配图
+正式配图均为项目自生成的品牌风格原创卡片，不使用外部版权素材：
 
-高质量缺省图源文件：`database/assets/images/content-placeholder.png`。  
-小程序运行时副本：`packages/miniprogram/assets/images/content-placeholder.png`。
+- `actions/`：80 张动作图
+- `equipment/`：20 张器材图
+- `foods/`：200 张食物图
+- `manifest.json`：记录种子 URI、本地路径、稳定云路径与 SHA-256
 
-动作、器材、食物的正式配图位于：
+种子 `_id` 同时决定图片文件名。图片保持在数据库素材目录并上传 CloudBase，不打进小程序主包。详细约束见 [`assets/content/README.md`](./assets/content/README.md)。
 
-- `database/assets/content/actions/`：80 张
-- `database/assets/content/equipment/`：20 张
-- `database/assets/content/foods/`：200 张
-- `database/assets/content/manifest.json`：本地源、云端路径、SHA-256
-
-种子 `cover` 使用可移植的 `asset://content/...` URI；`pnpm db:sync`
-上传图片后才转换成环境专属 CloudBase fileID。图片不打进小程序主包。
-
-重新生成：
+需要重建数据与图片时运行：
 
 ```bash
 pnpm db:generate-seeds
 pnpm db:generate-images
+pnpm db:validate-assets
 ```
 
-图片为项目自生成的品牌风格原创插画卡片，无外部版权素材。
+缺省图源位于 [`assets/images/content-placeholder.png`](./assets/images/content-placeholder.png)，小程序运行时副本位于 [`packages/miniprogram/assets/images/content-placeholder.png`](../packages/miniprogram/assets/images/content-placeholder.png)。
+
+## 云函数
+
+```bash
+pnpm --filter @peakmeet/cloudfunctions build
+```
+
+构建后使用微信开发者工具上传 `contentList` 和 `contentGetById`。函数职责、构建产物与部署方式见 [`packages/cloudfunctions/README.md`](../packages/cloudfunctions/README.md)。
+
+## 控制台配置
+
+### 安全规则
+
+在 CloudBase 控制台中创建对应集合，再粘贴 [`rules/`](./rules/) 下的规则。
+
+### 建议索引
+
+按实际查询组合创建 `sortWeight`、`category`、`difficulty`、`primaryScene`、`goal`、`scene`、`type`、`recommendGrade` 索引。
+
+### 手动降级
+
+自动同步不可用时，可在云控制台进入“数据库 → 集合 → 导入”，并将冲突模式设置为 **Upsert**。手动导入前仍应先运行素材校验。
+
+返回[项目总览](../README.md)。

@@ -22,7 +22,9 @@ if (!existsSync(source)) {
 }
 
 if (!existsSync(dtsSource)) {
-  console.error('[sync:shared] Missing packages/shared/dist (declarations). Run shared build first.');
+  console.error(
+    '[sync:shared] Missing packages/shared/dist (declarations). Run shared build first.',
+  );
   process.exit(1);
 }
 
@@ -97,7 +99,20 @@ if (!existsSync(indexDts)) {
 
 writeFileSync(
   join(target, 'README.md'),
-  '# Synced from packages/shared (dist-cjs + dist *.d.ts) via `pnpm sync:shared`.\n# Do not edit by hand.\n# Directory requires are rewritten to `/index` for WeChat compatibility.\n',
+  [
+    '# 小程序共享逻辑（自动生成）',
+    '',
+    '> 由仓库根目录 `pnpm sync:shared` 从 `packages/shared` 生成，禁止手动编辑本目录。',
+    '',
+    '同步内容包括：',
+    '',
+    '- `dist-cjs/` 的 CommonJS 运行时代码',
+    '- `dist/` 的 TypeScript 声明文件',
+    '- 为兼容微信运行时而重写为显式 `/index` 的目录级 `require`',
+    '',
+    '请在 `packages/shared/src/` 修改源代码并重新运行同步命令。',
+    '',
+  ].join('\n'),
 );
 
 const indexJs = readFileSync(join(target, 'index.js'), 'utf8');

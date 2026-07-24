@@ -19,7 +19,12 @@ interface WechatInnerAudioContext {
   destroy: () => void;
 }
 
+interface WechatCloud {
+  init: (options: { env: string; traceUser?: boolean }) => void;
+}
+
 declare const wx: {
+  cloud?: WechatCloud;
   navigateTo: (options: { url: string }) => void;
   vibrateShort: (options?: { type?: string }) => void;
   createInnerAudioContext: () => WechatInnerAudioContext;
