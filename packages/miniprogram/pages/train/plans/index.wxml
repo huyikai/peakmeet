@@ -1,0 +1,5 @@
+<view class="page">
+  <text class="title">{{title}}</text>
+  <text class="hint">{{hint}}</text>
+  <button class="entry" bindtap="goBack">返回</button>
+</view>

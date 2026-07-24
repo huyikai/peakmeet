@@ -1,6 +1,7 @@
 /**
- * Upsert PeakMeet public seeds into CloudBase via manager-node DatabaseMigrateImport.
+ * Upsert PeakMeet public seeds into CloudBase.
  * Env: CLOUDBASE_ENV_ID, CLOUDBASE_SECRET_ID, CLOUDBASE_SECRET_KEY
+ * Optional: DB_SYNC_SKIP_ASSETS=1 to only resolve existing cloud file IDs (no re-upload)
  * Loads optional .env.local / .env
  */
 import { readFileSync, existsSync, writeFileSync, mkdirSync, unlinkSync } from 'node:fs';
@@ -91,25 +92,28 @@ async function runPool(items, concurrency, worker) {
 }
 
 async function uploadContentAssets(entries) {
-  console.log(`[db:sync] uploading ${entries.length} content images…`);
+  const skipUpload = process.env.DB_SYNC_SKIP_ASSETS === '1';
+  console.log(
+    `[db:sync] ${skipUpload ? 'resolving' : 'uploading'} ${entries.length} content images…`,
+  );
   const pairs = await runPool(entries, 8, async (entry, index) => {
     const localPath = join(root, entry.source);
-    await storage.uploadFile({
-      localPath,
-      cloudPath: entry.cloudPath,
-      retryCount: 2,
-      retryInterval: 500,
-    });
-    // manager-node attaches this cloud file ID as upload metadata. Store this
-    // portable runtime value in CloudBase documents, never asset:// source URI.
+    if (!skipUpload) {
+      await storage.uploadFile({
+        localPath,
+        cloudPath: entry.cloudPath,
+        retryCount: 2,
+        retryInterval: 500,
+      });
+    }
     const metadata = await storage.getUploadMetadata(entry.cloudPath);
-    if (!metadata?.cosFileId) {
+    if (!metadata?.fileId) {
       throw new Error(`No cloud file ID returned for ${entry.cloudPath}`);
     }
     if ((index + 1) % 25 === 0 || index + 1 === entries.length) {
       console.log(`[db:sync] assets ${index + 1}/${entries.length}`);
     }
-    return [entry.assetUri, metadata.cosFileId];
+    return [entry.assetUri, metadata.fileId];
   });
   return new Map(pairs);
 }
@@ -163,17 +167,14 @@ async function waitJob(jobId) {
   throw new Error(`import job ${jobId} timed out`);
 }
 
-async function upsertCollection(name, docs) {
-  await database.createCollectionIfNotExists(name);
-
+async function upsertCollectionViaMigrate(name, docs) {
   const dir = join(tmpdir(), 'peakmeet-db-sync');
   mkdirSync(dir, { recursive: true });
   const filePath = join(dir, `${name}.json`);
-  // CloudBase import expects JSON Lines (one doc per line)
   writeFileSync(filePath, toNdjson(docs), 'utf8');
 
   try {
-    // ConflictMode must be string for manager-node: "2" = Upsert by _id ("1" = Insert)
+    // manager-node validates ConflictMode as string; "2" = Upsert（部分环境仍会当 Insert）
     const res = await database.import(
       name,
       { FilePath: filePath, FileType: 'json' },
@@ -198,6 +199,43 @@ async function upsertCollection(name, docs) {
   }
 }
 
+async function upsertCollectionViaSdk(name, docs) {
+  const tcb = (await import('@cloudbase/node-sdk')).default;
+  const appSdk = tcb.init({
+    env: envId,
+    secretId,
+    secretKey,
+  });
+  const db = appSdk.database();
+  let success = 0;
+  let fail = 0;
+  await runPool(docs, 8, async (doc, index) => {
+    const id = doc._id;
+    const { _id: _omit, ...fields } = doc;
+    try {
+      // doc id is the path; payload must NOT include `_id`
+      await db.collection(name).doc(id).set(fields);
+      success += 1;
+    } catch (e) {
+      fail += 1;
+      console.error(
+        `[db:sync] ${name}/${id} set failed:`,
+        e instanceof Error ? e.message : e,
+      );
+    }
+    if ((index + 1) % 25 === 0 || index + 1 === docs.length) {
+      console.log(`[db:sync] ${name} docs ${index + 1}/${docs.length}`);
+    }
+  });
+  return { total: docs.length, success, fail };
+}
+
+async function upsertCollection(name, docs) {
+  await database.createCollectionIfNotExists(name);
+  // Prefer SDK set: migrate Upsert is unreliable on some CloudBase envs (E11000)
+  return upsertCollectionViaSdk(name, docs);
+}
+
 console.log(`[db:sync] env=${envId}`);
 const assetEntries = loadAssetManifest();
 let assetFileIds;
@@ -211,7 +249,7 @@ try {
 let exitCode = 0;
 for (const name of COLLECTIONS) {
   const docs = loadSeed(name, assetFileIds);
-  console.log(`[db:sync] importing ${name} (${docs.length}) with ConflictMode=Upsert…`);
+  console.log(`[db:sync] importing ${name} (${docs.length}) with Upsert…`);
   try {
     const summary = await upsertCollection(name, docs);
     console.log(

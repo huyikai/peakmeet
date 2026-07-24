@@ -1,0 +1,35 @@
+@import "/styles/tokens.wxss";
+
+.page {
+  padding: 48rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: var(--pm-snow);
+  color: var(--pm-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: var(--pm-ink-muted, rgba(11, 13, 16, 0.55));
+}
+
+.entry {
+  margin-top: 24rpx;
+  background: var(--pm-ink);
+  color: var(--pm-snow);
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.entry::after {
+  border: none;
+}

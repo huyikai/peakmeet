@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
 
-const entries = ['hello', 'contentList', 'contentGetById'];
+const entries = ['hello', 'contentList', 'contentGetById', 'getOpenId'];
 
 async function buildOne(name) {
   const entry = join(root, name, 'index.ts');

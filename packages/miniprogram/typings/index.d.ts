@@ -19,13 +19,53 @@ interface WechatInnerAudioContext {
   destroy: () => void;
 }
 
+interface WechatCloudDbCollection {
+  where: (cond: Record<string, unknown>) => WechatCloudDbQuery;
+  doc: (id: string) => {
+    remove: () => Promise<unknown>;
+  };
+  add: (opts: { data: Record<string, unknown> }) => Promise<unknown>;
+  limit: (n: number) => WechatCloudDbQuery;
+  get: () => Promise<{ data: unknown[] }>;
+}
+
+interface WechatCloudDbQuery {
+  where: (cond: Record<string, unknown>) => WechatCloudDbQuery;
+  limit: (n: number) => WechatCloudDbQuery;
+  get: () => Promise<{ data: unknown[] }>;
+}
+
 interface WechatCloud {
   init: (options: { env: string; traceUser?: boolean }) => void;
+  callFunction: (options: {
+    name: string;
+    data?: Record<string, unknown>;
+  }) => Promise<{ result: unknown }>;
+  database: () => {
+    collection: (name: string) => WechatCloudDbCollection;
+  };
 }
+
+type WechatTouchEvent = {
+  currentTarget: { dataset: Record<string, unknown> };
+  detail?: Record<string, unknown>;
+};
+
+type WechatInputEvent = {
+  detail: { value?: string };
+};
 
 declare const wx: {
   cloud?: WechatCloud;
-  navigateTo: (options: { url: string }) => void;
+  navigateTo: (options: {
+    url: string;
+    fail?: () => void;
+  }) => void;
+  navigateBack: (options?: { fail?: () => void }) => void;
+  switchTab: (options: { url: string }) => void;
+  showToast: (options: { title: string; icon?: string }) => void;
+  getStorageSync: (key: string) => unknown;
+  setStorageSync: (key: string, value: unknown) => void;
   vibrateShort: (options?: { type?: string }) => void;
   createInnerAudioContext: () => WechatInnerAudioContext;
   [key: string]: unknown;

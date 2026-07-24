@@ -1,7 +1,12 @@
 {
   "description": "PeakMeet miniprogram",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "value": "cloudfunctions",
+        "type": "folder"
+      }
+    ],
     "include": []
   },
   "scripts": {
@@ -52,6 +57,7 @@
     "disableSWC": true
   },
   "compileType": "miniprogram",
+  "cloudfunctionRoot": "cloudfunctions/",
   "libVersion": "3.5.5",
   "appid": "wx07a6368636359893",
   "projectname": "peakmeet",
